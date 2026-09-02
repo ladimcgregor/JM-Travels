@@ -1,0 +1,137 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import TripCard from "@/components/TripCard.astro";
+
+export async function getStaticPaths() {
+  const destinations = await getCollection("destinations");
+  return destinations.map((destination) => ({ params: { slug: destination.id }, props: { destination } }));
+}
+
+const { destination } = Astro.props;
+const { Content } = await render(destination);
+const {
+  country,
+  city,
+  heroImage,
+  overview,
+  whyVisit,
+  bestTimeToGo,
+  suggestedDuration,
+  thingsToDo,
+  visaInformation,
+  travelTips,
+} = destination.data;
+
+const allTrips = await getCollection("trips");
+const relatedTrips = allTrips.filter((t) => t.data.relatedDestinationSlug === destination.id);
+
+const displayName = city ? `${city}, ${country}` : country;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  name: displayName,
+  description: overview,
+};
+---
+
+<BaseLayout title={displayName} description={overview} ogImage={heroImage} structuredData={structuredData}>
+  <section class="relative h-[55vh] min-h-[380px] flex items-end bg-navy-dark overflow-hidden">
+    <img src={heroImage} alt={displayName} class="absolute inset-0 w-full h-full object-cover opacity-85" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/30 to-transparent"></div>
+    <div class="container-jm relative pb-12 text-white">
+      <a href="/destinations" class="text-body-s text-white/80 hover:text-white">← All destinations</a>
+      <h1 class="text-display-l mt-4 text-white">{displayName}</h1>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 space-y-12">
+        <div>
+          <h2 class="text-h3 text-navy">Overview</h2>
+          <p class="text-body-l text-slate mt-4">{overview}</p>
+          <div class="prose-copy mt-4"><Content /></div>
+        </div>
+
+        {whyVisit.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Why visit</h2>
+            <ul class="mt-4 space-y-2">
+              {whyVisit.map((item: string) => (
+                <li class="flex items-start gap-3 text-body text-charcoal">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {thingsToDo.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Things to do</h2>
+            <ul class="grid sm:grid-cols-2 gap-3 mt-4">
+              {thingsToDo.map((item: string) => (
+                <li class="flex items-start gap-3 text-body text-charcoal">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {visaInformation && (
+          <div class="card-surface shadow-soft p-6 bg-sand">
+            <h2 class="text-h4 text-navy">Visa information</h2>
+            <p class="text-body-s text-slate mt-2">{visaInformation}</p>
+          </div>
+        )}
+
+        {travelTips.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Travel tips</h2>
+            <ul class="mt-4 space-y-2">
+              {travelTips.map((tip: string) => (
+                <li class="flex items-start gap-3 text-body text-charcoal">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {relatedTrips.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Trips to {city ?? country}</h2>
+            <div class="grid sm:grid-cols-2 gap-6 mt-4">
+              {relatedTrips.map((trip) => <TripCard trip={trip} />)}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <aside class="card-surface shadow-soft p-6 h-fit sticky top-28 space-y-4">
+        {bestTimeToGo && (
+          <div>
+            <p class="text-label text-slate">Best time to go</p>
+            <p class="text-body font-semibold text-navy mt-1">{bestTimeToGo}</p>
+          </div>
+        )}
+        {suggestedDuration && (
+          <div>
+            <p class="text-label text-slate">Suggested duration</p>
+            <p class="text-body font-semibold text-navy mt-1">{suggestedDuration}</p>
+          </div>
+        )}
+        <div class="pt-2">
+          <Button href="/bespoke-travel" variant="primary" class="w-full">Plan a Trip Here</Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

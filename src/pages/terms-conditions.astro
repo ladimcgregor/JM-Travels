@@ -1,0 +1,76 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/config/site";
+
+const lastUpdated = "1 September 2026";
+---
+
+<BaseLayout title="Terms & Conditions" description="Terms and conditions for using the JM Travels website and services.">
+  <section class="py-16 md:py-24">
+    <div class="container-jm max-w-3xl prose-copy space-y-6 text-body text-charcoal">
+      <p class="eyebrow">Legal</p>
+      <h1 class="text-h1 text-navy">Terms &amp; Conditions</h1>
+      <p class="text-body-s text-slate">Last updated: {lastUpdated}</p>
+
+      <p>
+        These Terms &amp; Conditions govern your use of the {site.name} website and any travel planning,
+        consulting or coordination services you request from us. By using this website or engaging our services,
+        you agree to these terms.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Our role</h2>
+      <p>
+        JM Travels acts as a travel planning and coordination partner. For many components of a trip (flights,
+        accommodation, activities, transfers), we coordinate with third-party suppliers on your behalf. Those
+        suppliers' own terms and conditions may also apply to your booking.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Enquiries and proposals</h2>
+      <p>
+        Submitting an enquiry or form on this website does not constitute a booking. A trip is only confirmed once
+        you have received and accepted a written proposal or itinerary and any required payment has been made.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Pricing</h2>
+      <p>
+        Where prices are shown, they are indicative and subject to confirmation based on availability, travel dates
+        and supplier pricing at the time of booking. Final pricing will always be confirmed with you before payment
+        is requested.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Visa assistance</h2>
+      <p>
+        JM Travels does not issue visas and cannot guarantee visa approval. Final decisions are made solely by the
+        relevant embassy, consulate, immigration authority or other competent authority. Our role is limited to
+        guidance, document preparation support and process navigation.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Cancellations and changes</h2>
+      <p>
+        Cancellation and change terms depend on the specific suppliers involved in your trip (airlines, hotels,
+        activity operators) and will be communicated clearly as part of your proposal or booking confirmation before
+        you commit.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Limitation of liability</h2>
+      <p>
+        While we take care in selecting and coordinating suppliers, JM Travels is not liable for the acts, errors,
+        omissions, delays or cancellations of third-party suppliers, or for circumstances beyond our reasonable
+        control (including but not limited to natural events, government action, or carrier changes).
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Governing law</h2>
+      <p>These terms are governed by the laws of the jurisdiction in which JM Travels is registered and operates.</p>
+
+      <h2 class="text-h3 text-navy pt-4">Contact</h2>
+      <p>
+        Questions about these terms can be sent to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+      </p>
+
+      <p class="text-body-s text-slate pt-6 border-t border-mist">
+        This document is a general starting point and should be reviewed by a qualified professional for the
+        specific jurisdictions in which JM Travels operates before relying on it.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

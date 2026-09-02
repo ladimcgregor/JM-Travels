@@ -1,0 +1,66 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { services, getService } from "@/data/services";
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug } }));
+}
+
+const { slug } = Astro.params;
+const service = getService(slug!)!;
+---
+
+<BaseLayout title={service.name} description={service.description}>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-2xl">
+      <a href="/services" class="link-editorial text-body-s">← All services</a>
+      <p class="eyebrow mt-6">Services</p>
+      <h1 class="text-h1 mt-4">{service.name}</h1>
+      <p class="text-body-l text-slate mt-6">{service.description}</p>
+    </div>
+  </section>
+
+  <section class="pb-16 md:pb-20">
+    <div class="container-jm grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div>
+          <h2 class="text-h3 text-navy">Who this is for</h2>
+          <p class="text-body text-slate mt-3">{service.whoFor}</p>
+        </div>
+        <div>
+          <h2 class="text-h3 text-navy">What's included</h2>
+          <ul class="mt-3 space-y-2">
+            {service.included.map((item) => (
+              <li class="flex items-start gap-3 text-body text-charcoal">
+                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-h3 text-navy">How it works</h2>
+          <ol class="mt-3 space-y-3">
+            {service.process.map((step, i) => (
+              <li class="flex items-start gap-4 text-body text-charcoal">
+                <span class="font-display text-gold text-h4">{i + 1}</span>
+                <span class="pt-0.5">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <aside class="card-surface shadow-soft p-6 h-fit">
+        <h2 class="text-h4 text-navy">Ready to start?</h2>
+        <p class="text-body-s text-slate mt-2">
+          Tell us what you're planning and we'll take it from there.
+        </p>
+        <div class="mt-5">
+          <Button href={service.ctaHref} variant="primary" class="w-full">{service.ctaLabel}</Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

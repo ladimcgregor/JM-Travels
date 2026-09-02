@@ -1,17 +1,333 @@
 ---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import TripCard from "@/components/TripCard.astro";
+import DestinationCard from "@/components/DestinationCard.astro";
+import TestimonialCard from "@/components/TestimonialCard.astro";
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+import { howItWorks } from "@/data/howItWorks";
 
+const allTrips = await getCollection("trips");
+const featuredTrips = allTrips.filter((t) => t.data.featured).sort((a, b) => a.data.order - b.data.order).slice(0, 6);
+
+const allDestinations = await getCollection("destinations");
+const founderDestinations = allDestinations.filter((d) => d.data.founderVisited);
+
+const testimonials = (await getCollection("testimonials")).filter((t) => t.data.featured).slice(0, 3);
+
+const journalArticles = (await getCollection("journal"))
+  .filter((a) => !a.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const whatWeDo = [
+  { title: "Organised Trips", description: "Curated travel experiences that customers can simply join.", cta: "Explore Trips", href: "/trips" },
+  { title: "Bespoke Trips", description: "Personalised journeys designed around your preferences.", cta: "Create My Trip", href: "/bespoke-travel" },
+  { title: "Visa Assistance", description: "Guidance and support through the visa preparation process.", cta: "Get Visa Support", href: "/visa-assistance" },
+  { title: "Travel Consultations", description: "Expert guidance before you book or travel.", cta: "Book a Consultation", href: "/consultations" },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: site.name,
+  description: site.description,
+  email: site.contact.email,
+  areaServed: site.contact.location,
+  sameAs: [site.social.instagram, site.social.tiktok],
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title={`${site.name} — ${site.tagline}`}
+  description={site.description}
+  transparentNav
+  structuredData={structuredData}
+>
+  <!-- HERO -->
+  <section class="relative min-h-[92vh] flex items-end bg-navy-dark overflow-hidden">
+    <img
+      src="https://picsum.photos/seed/jm-hero/1920/1280"
+      alt="A JM Travels destination at golden hour"
+      class="absolute inset-0 w-full h-full object-cover opacity-80"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/40 to-navy-dark/10"></div>
+    <div class="container-jm relative pb-20 pt-40 text-white">
+      <p class="eyebrow text-gold-light">Travel Consulting &amp; Trip Planning</p>
+      <h1 class="text-display-xl mt-5 max-w-3xl text-white">Travel better.<br />We'll plan the details.</h1>
+      <p class="text-body-l mt-6 max-w-xl text-white/85">
+        From curated group experiences to completely bespoke trips, JM Travels helps you plan, coordinate and
+        experience travel with confidence.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <Button href={site.primaryCta.href} variant="gold">Plan My Trip</Button>
+        <Button href="/trips" variant="secondary" class="!text-white !border-white hover:!bg-white hover:!text-navy">
+          Explore Our Trips
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="py-16 md:py-24">
+    <div class="container-jm">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow">What We Do</p>
+        <h2 class="text-h1 mt-4">Everything between "I want to travel" and actually going.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {whatWeDo.map((item) => (
+          <div class="card-surface shadow-soft p-6 flex flex-col reveal">
+            <h3 class="text-h4 text-navy">{item.title}</h3>
+            <p class="text-body-s text-slate mt-2 flex-1">{item.description}</p>
+            <a href={item.href} class="link-editorial text-body-s mt-4">{item.cta} →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JM TRAVELS -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <p class="eyebrow">Why JM Travels</p>
+        <h2 class="text-h1 mt-4">Travel planning should feel exciting, not overwhelming.</h2>
+        <p class="text-body-l text-slate mt-6">
+          JM Travels combines practical travel experience, personalised planning, attention to detail, destination
+          knowledge, reliable coordination and responsive support — so the details are handled properly, not just
+          promised.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 reveal">
+        {[
+          "Practical travel experience",
+          "Personalised planning",
+          "Attention to detail",
+          "Destination knowledge",
+          "Reliable coordination",
+          "Responsive support",
+        ].map((point) => (
+          <div class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+            <p class="text-body text-charcoal">{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER STORY -->
+  <section class="py-16 md:py-24">
+    <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1 reveal">
+        <img
+          src={site.founder.photo}
+          onerror="this.src='https://picsum.photos/seed/jm-founder/1000/1200'"
+          alt={site.founder.name}
+          loading="lazy"
+          width="1000"
+          height="1200"
+          class="w-full aspect-[4/5] object-cover rounded-md shadow-soft"
+        />
+      </div>
+      <div class="order-1 lg:order-2 reveal">
+        <p class="eyebrow">The Founder Story</p>
+        <h2 class="text-h1 mt-4">Built from a love of travel. Growing through every journey.</h2>
+        <p class="text-body-l text-slate mt-6">
+          JM Travels began with a simple idea: travel is better when the details are thoughtfully planned. Having
+          travelled across 10 countries and planned trips for family and friends, the Founder saw an opportunity to
+          turn that passion and practical experience into a service that helps others travel with greater confidence.
+        </p>
+        <div class="mt-8">
+          <Button href="/about" variant="secondary">Meet the Founder</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVEL EXPERIENCE / DESTINATION STRIP -->
+  <section class="py-16 md:py-24 bg-navy-dark text-white">
+    <div class="container-jm">
+      <div class="flex items-end justify-between gap-6 flex-wrap reveal">
+        <div>
+          <p class="eyebrow text-gold-light">Travel Experience</p>
+          <h2 class="text-h1 mt-4 text-white">We've been here. Let us help you experience it.</h2>
+        </div>
+        <a href="/destinations" class="link-editorial text-white">All destinations →</a>
+      </div>
+
+      {founderDestinations.length > 0 ? (
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          {founderDestinations.slice(0, 8).map((d) => <DestinationCard destination={d} />)}
+        </div>
+      ) : (
+        <p class="text-body text-white/70 mt-8 max-w-xl">
+          The Founder's own travel history across 10 countries will appear here — add the visited destinations in{" "}
+          <code class="text-gold-light">src/content/destinations</code> and set <code class="text-gold-light">founderVisited: true</code>.
+        </p>
+      )}
+      <p class="text-body-s text-white/50 mt-6 max-w-2xl">
+        These are places the Founder has personally travelled to — not a claim that JM Travels has operated trips
+        there yet. We're clear about that distinction because it matters.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURED TRIPS -->
+  <section class="py-16 md:py-24">
+    <div class="container-jm">
+      <div class="flex items-end justify-between gap-6 flex-wrap reveal">
+        <div>
+          <p class="eyebrow">Featured Trips</p>
+          <h2 class="text-h1 mt-4">A few places worth planning around.</h2>
+        </div>
+        <a href="/trips" class="link-editorial">All trips →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {featuredTrips.map((trip) => <TripCard trip={trip} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- BESPOKE TRAVEL -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <p class="eyebrow">Bespoke Travel</p>
+        <h2 class="text-h1 mt-4">Your trip. Your pace. Your way.</h2>
+        <p class="text-body-l text-slate mt-6">
+          You don't have to choose a pre-designed package. JM Travels can design around your destination, dates,
+          budget, interests, accommodation preferences, activities, travel style and number of travellers.
+        </p>
+        <div class="mt-8">
+          <Button href="/bespoke-travel" variant="primary">Build My Trip</Button>
+        </div>
+      </div>
+      <div class="reveal">
+        <img
+          src="https://picsum.photos/seed/jm-bespoke/1000/800"
+          alt="Planning a bespoke trip"
+          loading="lazy"
+          width="1000"
+          height="800"
+          class="w-full aspect-[5/4] object-cover rounded-md shadow-soft"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-16 md:py-24">
+    <div class="container-jm">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow">How It Works</p>
+        <h2 class="text-h1 mt-4">A simple process, from first message to boarding gate.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+        {howItWorks.map((step) => (
+          <div class="reveal">
+            <p class="font-display text-4xl text-gold">{step.step}</p>
+            <h3 class="text-h4 text-navy mt-3">{step.title}</h3>
+            <p class="text-body-s text-slate mt-2">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="container-jm">
+      <div class="flex items-end justify-between gap-6 flex-wrap reveal">
+        <div>
+          <p class="eyebrow">Testimonials</p>
+          <h2 class="text-h1 mt-4">What travelling with us has been like.</h2>
+        </div>
+        <a href="/testimonials" class="link-editorial">All testimonials →</a>
+      </div>
+
+      {testimonials.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-6 mt-10">
+          {testimonials.map((t) => <TestimonialCard testimonial={t} />)}
+        </div>
+      ) : (
+        <div class="card-surface shadow-soft p-8 mt-10 max-w-xl reveal">
+          <p class="text-h3 text-navy">We're building our track record, honestly.</p>
+          <p class="text-body text-slate mt-3">
+            JM Travels is a new business. As we complete trips, real testimonials from real customers will appear
+            here — we'd rather show you nothing than show you something fabricated.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- TRAVEL JOURNAL -->
+  <section class="py-16 md:py-24">
+    <div class="container-jm">
+      <div class="flex items-end justify-between gap-6 flex-wrap reveal">
+        <div>
+          <p class="eyebrow">Travel Journal</p>
+          <h2 class="text-h1 mt-4">Guides, tips and lessons from the road.</h2>
+        </div>
+        <a href="/journal" class="link-editorial">All articles →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {journalArticles.map((article) => (
+          <a href={`/journal/${article.id}`} class="group block reveal">
+            <div class="aspect-[4/3] overflow-hidden rounded-md">
+              <img
+                src={article.data.heroImage}
+                alt={article.data.title}
+                loading="lazy"
+                width="900"
+                height="675"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <p class="text-label text-gold mt-4">{article.data.category}</p>
+            <h3 class="text-h4 text-navy mt-2 group-hover:text-gold transition-colors">{article.data.title}</h3>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERRAL -->
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="container-jm text-center max-w-2xl mx-auto reveal">
+      <p class="eyebrow justify-center">Referral</p>
+      <h2 class="text-h1 mt-4">Good trips are worth talking about.</h2>
+      <p class="text-body-l text-slate mt-4">
+        Many of our journeys begin with a recommendation. If you've travelled with us or worked with us, we'd love
+        to help someone in your circle plan their next adventure.
+      </p>
+      <div class="mt-8">
+        <Button href="/refer" variant="secondary">Refer Someone</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="relative py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
+    <img
+      src="https://picsum.photos/seed/jm-final-cta/1920/900"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+    />
+    <div class="container-jm relative text-center max-w-2xl mx-auto reveal">
+      <h2 class="text-display-l text-white">Where are you going next?</h2>
+      <p class="text-body-l text-white/80 mt-5">Tell us where you want to go. We'll help you figure out the rest.</p>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <Button href="/bespoke-travel" variant="gold">Start Planning Your Trip</Button>
+        <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
+          WhatsApp {site.name}
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

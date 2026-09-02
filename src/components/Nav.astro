@@ -1,0 +1,118 @@
+---
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+import Button from "./Button.astro";
+
+interface Props {
+  transparent?: boolean;
+}
+const { transparent = false } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<header
+  class:list={[
+    "sticky top-0 z-50 w-full transition-colors duration-300",
+    transparent ? "jm-nav-transparent" : "bg-warm-white border-b border-mist",
+  ]}
+  data-nav
+  data-transparent={transparent ? "true" : "false"}
+>
+  <div class="jm-nav-bar container-jm flex items-center justify-between h-20">
+    <a href="/" class="font-display text-2xl font-semibold text-navy tracking-tight" data-nav-logo>
+      JM Travels
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
+      {site.nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "text-body-s font-semibold transition-colors",
+            path === item.href ? "text-gold" : "hover:text-gold",
+          ]}
+          data-nav-link
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </Button>
+      <Button href={site.primaryCta.href} variant="primary">{site.primaryCta.label}</Button>
+    </div>
+
+    <button
+      id="mobile-menu-toggle"
+      class="lg:hidden inline-flex items-center justify-center w-11 h-11 -mr-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-warm-white border-t border-mist">
+    <nav class="container-jm py-6 flex flex-col gap-5" aria-label="Mobile">
+      {site.nav.map((item) => (
+        <a href={item.href} class="text-h4 text-navy">{item.label}</a>
+      ))}
+      <div class="flex flex-col gap-3 pt-2">
+        <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
+          WhatsApp Us
+        </Button>
+        <Button href={site.primaryCta.href} variant="primary">{site.primaryCta.label}</Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .jm-nav-transparent {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  .jm-nav-transparent[data-scrolled="true"] {
+    background: var(--color-warm-white);
+    border-bottom-color: var(--color-mist);
+  }
+  .jm-nav-transparent:not([data-scrolled="true"]) .jm-nav-bar a,
+  .jm-nav-transparent:not([data-scrolled="true"]) .jm-nav-bar [data-nav-logo] {
+    color: var(--color-white);
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    iconOpen?.classList.toggle("hidden", isOpen);
+    iconClose?.classList.toggle("hidden", !isOpen);
+  });
+
+  const nav = document.querySelector("[data-nav]");
+  if (nav && nav.getAttribute("data-transparent") === "true") {
+    const onScroll = () => {
+      if (window.scrollY > 24) nav.setAttribute("data-scrolled", "true");
+      else nav.removeAttribute("data-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+</script>

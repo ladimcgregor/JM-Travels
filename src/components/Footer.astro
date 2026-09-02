@@ -1,0 +1,54 @@
+---
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-navy text-white">
+  <div class="container-jm py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <p class="font-display text-2xl font-semibold">{site.name}</p>
+      <p class="mt-4 text-body-s text-white/70 max-w-sm">{site.description}</p>
+      <div class="flex items-center gap-4 mt-6">
+        <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="JM Travels on Instagram" class="text-white/70 hover:text-gold transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" aria-label="JM Travels on TikTok" class="text-white/70 hover:text-gold transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.2c-.8-.7-1.3-1.7-1.4-2.8h-3.1v13.4c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 1 1 0-5.4c.3 0 .6 0 .9.1v-3.1a5.8 5.8 0 0 0-.9-.1A5.8 5.8 0 1 0 15.2 15v-6a7 7 0 0 0 4.1 1.3V7.2c-1 0-1.9-.4-2.7-1z"/></svg>
+        </a>
+        <a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" aria-label="Message JM Travels on WhatsApp" class="text-white/70 hover:text-gold transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.9 2.2 1 2.3c.1.2 1.7 2.6 4.1 3.6.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-label text-gold mb-4">Explore</p>
+      <ul class="space-y-3">
+        {site.nav.map((item) => (
+          <li><a href={item.href} class="text-body-s text-white/80 hover:text-white transition-colors">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-label text-gold mb-4">Contact</p>
+      <ul class="space-y-3 text-body-s text-white/80">
+        <li><a href={`mailto:${site.contact.email}`} class="hover:text-white transition-colors">{site.contact.email}</a></li>
+        <li><a href={whatsappLink(whatsappMessages.general)} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">{site.contact.whatsappDisplay} (WhatsApp)</a></li>
+        <li>{site.contact.location}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-jm py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-body-s text-white/60">
+      <p>&copy; {year} {site.legalName}. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        {site.footerLinks.map((link) => (
+          <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

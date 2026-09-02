@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+
+const scenarios = [
+  "I know where I want to go but don't know how to plan it.",
+  "I need help choosing a destination.",
+  "I want to know whether my itinerary makes sense.",
+  "I need help understanding the visa process.",
+  "I want to plan a group trip.",
+  "I want someone to coordinate the trip for me.",
+];
+---
+
+<BaseLayout
+  title="Travel Consultations"
+  description="Book a travel consultation with JM Travels for expert guidance before you book or travel."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Travel Consultations</p>
+      <h1 class="text-h1 mt-4">Expert guidance before you book or travel.</h1>
+      <p class="text-body-l text-slate mt-6">A consultation might be right for you if:</p>
+    </div>
+    <div class="container-jm mt-8">
+      <ul class="grid sm:grid-cols-2 gap-4 max-w-3xl">
+        {scenarios.map((s) => (
+          <li class="card-surface shadow-soft p-4 text-body text-charcoal">"{s}"</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm max-w-2xl">
+      <EnquiryForm client:visible variant="consultation" />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DestinationCard from "@/components/DestinationCard.astro";
+
+const destinations = (await getCollection("destinations")).sort((a, b) => a.data.order - b.data.order);
+
+const regions = ["Africa", "Middle East", "Europe", "Asia", "Americas", "Indian Ocean"] as const;
+const byRegion = regions.map((region) => ({
+  region,
+  items: destinations.filter((d) => d.data.region === region),
+}));
+---
+
+<BaseLayout
+  title="Destinations"
+  description="Explore JM Travels destinations across Africa, the Middle East, Europe, Asia, the Americas and the Indian Ocean."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Destinations</p>
+      <h1 class="text-h1 mt-4">A growing library of places worth planning for.</h1>
+      <p class="text-body-l text-slate mt-6">
+        This list grows as JM Travels plans more trips. Each destination page covers why to visit, when to go, what
+        to do, and what to know before you travel.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28 space-y-16">
+    {byRegion.map(({ region, items }) => items.length > 0 && (
+      <div class="container-jm">
+        <h2 class="text-h3 text-navy mb-6">{region}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {items.map((d) => <DestinationCard destination={d} />)}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

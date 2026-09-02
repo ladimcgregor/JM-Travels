@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/config/site";
+
+const lastUpdated = "1 September 2026";
+---
+
+<BaseLayout title="Cookie Policy" description="How JM Travels uses cookies and similar technologies.">
+  <section class="py-16 md:py-24">
+    <div class="container-jm max-w-3xl prose-copy space-y-6 text-body text-charcoal">
+      <p class="eyebrow">Legal</p>
+      <h1 class="text-h1 text-navy">Cookie Policy</h1>
+      <p class="text-body-s text-slate">Last updated: {lastUpdated}</p>
+
+      <p>
+        This website uses a minimal set of cookies and similar technologies to help it function and to understand
+        how visitors use the site.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">What we use</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Essential cookies:</strong> required for basic site functionality.</li>
+        <li><strong>Analytics:</strong> if enabled, an anonymised analytics tool helps us understand traffic sources and page popularity so we can improve the site.</li>
+      </ul>
+      <p>
+        We do not use advertising or cross-site tracking cookies.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Managing cookies</h2>
+      <p>
+        You can control or delete cookies through your browser settings. Disabling non-essential cookies will not
+        prevent you from using the core parts of this website.
+      </p>
+
+      <h2 class="text-h3 text-navy pt-4">Contact</h2>
+      <p>
+        Questions about this policy can be sent to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

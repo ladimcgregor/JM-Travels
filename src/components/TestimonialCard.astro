@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  testimonial: CollectionEntry<"testimonials">;
+}
+const { testimonial } = Astro.props;
+const { customerName, destination, tripType, quote, photo } = testimonial.data;
+---
+
+<figure class="card-surface shadow-soft p-6 md:p-8 reveal">
+  <blockquote class="pull-quote text-body-l text-charcoal">
+    “{quote}”
+  </blockquote>
+  <figcaption class="flex items-center gap-3 mt-6 pt-6 border-t border-mist">
+    {photo && (
+      <img src={photo} alt={customerName} width="44" height="44" loading="lazy" class="w-11 h-11 rounded-full object-cover" />
+    )}
+    <div>
+      <p class="text-body-s font-semibold text-navy">{customerName}</p>
+      <p class="text-body-s text-slate">{destination} &middot; {tripType}</p>
+    </div>
+  </figcaption>
+</figure>
+
+<style>
+  .pull-quote {
+    position: relative;
+  }
+  .pull-quote::before {
+    content: "\201C";
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    font-size: 1.4em;
+    line-height: 0;
+    margin-right: 2px;
+  }
+</style>

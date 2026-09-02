@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import TestimonialCard from "@/components/TestimonialCard.astro";
+
+const testimonials = await getCollection("testimonials");
+---
+
+<BaseLayout
+  title="Testimonials"
+  description="Real feedback from JM Travels customers, published only with their permission."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Testimonials</p>
+      <h1 class="text-h1 mt-4">What travelling with us has been like.</h1>
+      <p class="text-body-l text-slate mt-6">
+        Every testimonial here is genuine and published with the customer's permission. We'd rather show fewer real
+        stories than manufacture credibility we haven't earned yet.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container-jm">
+      {testimonials.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t) => <TestimonialCard testimonial={t} />)}
+        </div>
+      ) : (
+        <div class="card-surface shadow-soft p-10 max-w-xl">
+          <p class="text-h2 text-navy">We're building our track record, honestly.</p>
+          <p class="text-body-l text-slate mt-4">
+            JM Travels is a new business. As we complete trips, real testimonials from real customers will appear
+            here. In the meantime, we'd rather earn your trust through how we handle your enquiry than through
+            quotes we haven't earned.
+          </p>
+          <div class="mt-6">
+            <Button href="/bespoke-travel" variant="primary">Start Planning Your Trip</Button>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

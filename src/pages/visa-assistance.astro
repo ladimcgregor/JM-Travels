@@ -1,0 +1,67 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+
+const helpAreas = [
+  "Requirement guidance for your specific nationality and destination",
+  "Document checklist tailored to your application",
+  "Application preparation support",
+  "Appointment guidance",
+  "Travel documentation review",
+  "General process navigation",
+];
+---
+
+<BaseLayout
+  title="Visa Assistance"
+  description="Structured visa preparation support from JM Travels — requirement guidance, document checklists and application preparation. We do not issue visas and cannot guarantee approval."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Visa Assistance</p>
+      <h1 class="text-h1 mt-4">Structured support for visa preparation.</h1>
+      <p class="text-body-l text-slate mt-6">
+        Visa requirements can be confusing, and small documentation mistakes cause avoidable delays. JM Travels
+        helps you prepare properly.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 space-y-10">
+        <div>
+          <h2 class="text-h3 text-navy">What we can help with</h2>
+          <ul class="mt-4 space-y-2">
+            {helpAreas.map((item) => (
+              <li class="flex items-start gap-3 text-body text-charcoal">
+                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card-surface p-6 border-2" style="border-color: var(--color-error);">
+          <h2 class="text-h4 text-navy">Important disclaimer</h2>
+          <p class="text-body text-charcoal mt-3">
+            JM Travels does not issue visas and cannot guarantee visa approval. Final decisions are made solely by
+            the relevant embassy, consulate, immigration authority or other competent authority. We help you prepare
+            the strongest possible application — we do not, and cannot, promise a specific outcome.
+          </p>
+        </div>
+      </div>
+
+      <aside class="card-surface shadow-soft p-6 h-fit">
+        <h2 class="text-h4 text-navy">Get visa support</h2>
+        <p class="text-body-s text-slate mt-2">Tell us your destination and we'll confirm what's needed.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container-jm max-w-2xl">
+      <EnquiryForm client:visible variant="visa" />
+    </div>
+  </section>
+</BaseLayout>

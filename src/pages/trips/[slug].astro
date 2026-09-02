@@ -1,0 +1,184 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { whatsappLink, whatsappMessages } from "@/config/site";
+
+export async function getStaticPaths() {
+  const trips = await getCollection("trips");
+  return trips.map((trip) => ({ params: { slug: trip.id }, props: { trip } }));
+}
+
+const { trip } = Astro.props;
+const { Content } = await render(trip);
+const {
+  title,
+  destination,
+  tripType,
+  duration,
+  startingPrice,
+  heroImage,
+  gallery,
+  summary,
+  highlights,
+  included,
+  excluded,
+  itinerary,
+  accommodation,
+  visaNotes,
+  status,
+} = trip.data;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  name: title,
+  description: summary,
+  touristType: tripType,
+};
+---
+
+<BaseLayout title={title} description={summary} ogImage={heroImage} structuredData={structuredData}>
+  <section class="relative h-[60vh] min-h-[420px] flex items-end bg-navy-dark overflow-hidden">
+    <img src={heroImage} alt={`${title} — ${destination}`} class="absolute inset-0 w-full h-full object-cover opacity-85" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/30 to-transparent"></div>
+    <div class="container-jm relative pb-12 text-white">
+      <a href="/trips" class="text-body-s text-white/80 hover:text-white">← All trips</a>
+      <p class="eyebrow text-gold-light mt-4">{destination}</p>
+      <h1 class="text-display-l mt-3 text-white">{title}</h1>
+    </div>
+  </section>
+
+  <section class="py-10 border-b border-mist">
+    <div class="container-jm flex flex-wrap gap-8">
+      <div>
+        <p class="text-label text-slate">Duration</p>
+        <p class="text-body font-semibold text-navy mt-1">{duration}</p>
+      </div>
+      <div>
+        <p class="text-label text-slate">Trip type</p>
+        <p class="text-body font-semibold text-navy mt-1">{tripType.join(" / ")}</p>
+      </div>
+      {startingPrice && (
+        <div>
+          <p class="text-label text-slate">Price</p>
+          <p class="text-body font-semibold text-navy mt-1">{startingPrice}</p>
+        </div>
+      )}
+      <div>
+        <p class="text-label text-slate">Availability</p>
+        <p class="text-body font-semibold text-navy mt-1 capitalize">{status}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 space-y-12">
+        <div>
+          <h2 class="text-h3 text-navy">Trip overview</h2>
+          <p class="text-body-l text-slate mt-4">{summary}</p>
+          <div class="prose-copy mt-4">
+            <Content />
+          </div>
+        </div>
+
+        {highlights.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Highlights</h2>
+            <ul class="grid sm:grid-cols-2 gap-3 mt-4">
+              {highlights.map((h: string) => (
+                <li class="flex items-start gap-3 text-body text-charcoal">
+                  <span class="mt-2 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {itinerary.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Itinerary</h2>
+            <div class="mt-4 divide-y divide-mist border-t border-b border-mist">
+              {itinerary.map((day: { day: string; title: string; description: string }) => (
+                <div class="py-5 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8">
+                  <p class="text-label text-gold w-24 shrink-0">{day.day}</p>
+                  <div>
+                    <p class="text-h4 text-navy">{day.title}</p>
+                    <p class="text-body-s text-slate mt-1">{day.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="grid sm:grid-cols-2 gap-8">
+          {included.length > 0 && (
+            <div>
+              <h2 class="text-h4 text-navy">What's included</h2>
+              <ul class="mt-3 space-y-2">
+                {included.map((i: string) => (
+                  <li class="flex items-start gap-2 text-body-s text-charcoal">
+                    <span class="text-success mt-0.5">✓</span> {i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {excluded.length > 0 && (
+            <div>
+              <h2 class="text-h4 text-navy">What's not included</h2>
+              <ul class="mt-3 space-y-2">
+                {excluded.map((i: string) => (
+                  <li class="flex items-start gap-2 text-body-s text-charcoal">
+                    <span class="text-error mt-0.5">✕</span> {i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {accommodation && (
+          <div>
+            <h2 class="text-h4 text-navy">Accommodation</h2>
+            <p class="text-body-s text-slate mt-2">{accommodation}</p>
+          </div>
+        )}
+
+        {visaNotes && (
+          <div class="card-surface shadow-soft p-6 bg-sand">
+            <h2 class="text-h4 text-navy">Important information</h2>
+            <p class="text-body-s text-slate mt-2">{visaNotes}</p>
+          </div>
+        )}
+
+        {gallery.length > 0 && (
+          <div>
+            <h2 class="text-h3 text-navy">Gallery</h2>
+            <div class="grid sm:grid-cols-3 gap-4 mt-4">
+              {gallery.map((src: string) => (
+                <img src={src} alt={title} loading="lazy" width="600" height="450" class="w-full aspect-[4/3] object-cover rounded-md" />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <aside class="card-surface shadow-soft p-6 h-fit sticky top-28">
+        <h2 class="text-h4 text-navy">Interested in this trip?</h2>
+        <p class="text-body-s text-slate mt-2">
+          Reach out and we'll confirm availability and next steps.
+        </p>
+        <div class="mt-5 flex flex-col gap-3">
+          <Button href="/bespoke-travel" variant="primary" class="w-full">I'm Interested in This Trip</Button>
+          <Button href={whatsappLink(whatsappMessages.trip(title))} variant="whatsapp" target="_blank" rel="noopener noreferrer" class="w-full">
+            Ask on WhatsApp
+          </Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

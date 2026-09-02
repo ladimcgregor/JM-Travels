@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+import { whatsappLink, whatsappMessages } from "@/config/site";
+import Button from "@/components/Button.astro";
+---
+
+<BaseLayout
+  title="Bespoke Travel"
+  description="Don't want a package? JM Travels builds bespoke trips around your destination, dates, budget and preferences."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Bespoke Travel</p>
+      <h1 class="text-h1 mt-4">Don't want a package? Let's build your trip.</h1>
+      <p class="text-body-l text-slate mt-6">
+        You don't have to choose a pre-designed itinerary. Tell us your destination, dates, budget and interests,
+        and JM Travels will design a trip around you — sequencing, accommodation, activities and logistics included.
+      </p>
+      <p class="text-body-s text-slate mt-4">
+        The objective of the form below is to collect enough information for a meaningful first consultation — it
+        won't take long.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <EnquiryForm client:visible variant="bespoke" />
+      </div>
+      <aside class="card-surface shadow-soft p-6 h-fit">
+        <h2 class="text-h4 text-navy">Prefer WhatsApp?</h2>
+        <p class="text-body-s text-slate mt-2">
+          If it's easier, message us directly and we'll pick up the conversation there.
+        </p>
+        <div class="mt-5">
+          <Button href={whatsappLink(whatsappMessages.bespoke)} variant="whatsapp" target="_blank" rel="noopener noreferrer" class="w-full">
+            WhatsApp Us
+          </Button>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

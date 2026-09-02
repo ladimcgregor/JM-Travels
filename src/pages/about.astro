@@ -1,0 +1,138 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { site } from "@/config/site";
+
+const approach = [
+  { title: "Listen", description: "Understand what you actually want from the trip, not just the destination." },
+  { title: "Plan", description: "Design an itinerary that reflects your priorities, pace and budget." },
+  { title: "Coordinate", description: "Bring accommodation, transport, activities and documentation together." },
+  { title: "Support", description: "Stay reachable before and during your trip, not just up to booking." },
+  { title: "Learn", description: "Capture what worked and what didn't, so the next trip is better than the last." },
+];
+
+const buildingBlocks = [
+  { title: "Destination knowledge", description: "Every trip sharpens our understanding of a place — timing, logistics, what's worth it." },
+  { title: "Supplier knowledge", description: "We learn which hotels, drivers and operators are genuinely reliable." },
+  { title: "Customer insight", description: "Every conversation teaches us more about what travellers actually need." },
+  { title: "Travel content", description: "Real trips create real guides, tips and stories for future travellers." },
+  { title: "Operational experience", description: "Each trip refines the process behind the next one." },
+];
+---
+
+<BaseLayout
+  title="About JM Travels"
+  description="Meet the Founder behind JM Travels and learn how practical travel experience across 10 countries became a travel planning business."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-3xl">
+      <p class="eyebrow">Our Story</p>
+      <h1 class="text-h1 mt-4">Why JM Travels was created.</h1>
+      <p class="text-body-l text-slate mt-6">
+        JM Travels is a new business, but it isn't starting from zero in travel experience. It exists because
+        planning a trip properly — sequencing it, choosing the right accommodation, sorting out documentation,
+        anticipating the details that make or break a trip — is a skill, and not everyone wants to spend their time
+        building it themselves.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-sand">
+    <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <img
+          src={site.founder.photo}
+          onerror="this.src='https://picsum.photos/seed/jm-founder-about/1000/1200'"
+          alt={site.founder.name}
+          loading="lazy"
+          width="1000"
+          height="1200"
+          class="w-full aspect-[4/5] object-cover rounded-md shadow-soft"
+        />
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Meet the Founder</p>
+        <h2 class="text-h1 mt-4">{site.founder.name}</h2>
+        <p class="text-body-l text-slate mt-6">
+          The Founder has travelled across 10 countries and planned trips for family and friends — real, practical
+          experience with the decisions involved in travel planning: destination selection, itinerary structure,
+          activities, logistics and coordinating multiple moving parts.
+        </p>
+        <p class="text-body-l text-slate mt-4">
+          That experience is presented as the starting point of JM Travels' expertise, not as a long-established
+          corporate track record. The credibility here is straightforward: genuine travel experience, a real
+          understanding of the practicalities, and a business built specifically to do this well for other people.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm max-w-3xl">
+      <p class="eyebrow">The Travel Experience</p>
+      <h2 class="text-h1 mt-4">10 countries. Countless small lessons.</h2>
+      <p class="text-body-l text-slate mt-6">
+        Travelling across 10 countries doesn't make anyone an expert on every destination — but it does build
+        practical, transferable judgement: how to sequence a trip, what's worth the time, how to plan around a
+        budget, and what questions actually matter when preparing to travel. That judgement is what gets applied to
+        every JM Travels itinerary, whether or not the Founder has personally been to that specific destination.
+      </p>
+      <div class="mt-8">
+        <Button href="/destinations" variant="secondary">See the destinations</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy-dark text-white">
+    <div class="container-jm max-w-3xl">
+      <p class="eyebrow text-gold-light">The Philosophy</p>
+      <h2 class="text-h1 mt-4 text-white">Travel is better when the details are thoughtfully planned.</h2>
+      <p class="text-body-l text-white/80 mt-6">
+        Most people don't struggle to want to travel — they struggle to plan it with confidence. JM Travels exists
+        to close that gap: not by pretending to have decades of history, but by being honest about where the
+        business is starting from, and building on it properly, one trip at a time.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm">
+      <p class="eyebrow">Our Approach</p>
+      <h2 class="text-h1 mt-4 max-w-2xl">Five steps, applied to every trip we plan.</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+        {approach.map((item, i) => (
+          <div class="reveal">
+            <p class="font-display text-4xl text-gold">{String(i + 1).padStart(2, "0")}</p>
+            <h3 class="text-h4 text-navy mt-3">{item.title}</h3>
+            <p class="text-body-s text-slate mt-2">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-sand">
+    <div class="container-jm">
+      <p class="eyebrow">Building Through Every Journey</p>
+      <h2 class="text-h1 mt-4 max-w-2xl">Every trip contributes to something bigger than one customer.</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+        {buildingBlocks.map((item) => (
+          <div class="card-surface shadow-soft p-6 reveal">
+            <h3 class="text-h4 text-navy">{item.title}</h3>
+            <p class="text-body-s text-slate mt-2">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 text-center">
+    <div class="container-jm max-w-xl mx-auto reveal">
+      <h2 class="text-h1">Let's plan your trip properly.</h2>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <Button href="/bespoke-travel" variant="primary">Plan My Trip</Button>
+        <Button href="/contact" variant="secondary">Get in Touch</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

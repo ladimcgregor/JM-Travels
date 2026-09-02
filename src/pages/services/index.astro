@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { services } from "@/data/services";
+---
+
+<BaseLayout
+  title="Services"
+  description="Organised trips, bespoke travel, visa assistance, travel consultations and full trip coordination — everything JM Travels can help plan."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Services</p>
+      <h1 class="text-h1 mt-4">One trusted partner for every part of the trip.</h1>
+      <p class="text-body-l text-slate mt-6">
+        From a fully organised trip you can simply join to a completely bespoke itinerary, JM Travels coordinates the
+        pieces so you don't have to manage them separately.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container-jm grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <div class="card-surface shadow-soft p-6 flex flex-col reveal">
+          <h2 class="text-h3 text-navy">{service.name}</h2>
+          <p class="text-body-s text-slate mt-2 flex-1">{service.short}</p>
+          <div class="flex items-center gap-4 mt-4 pt-4 border-t border-mist">
+            <a href={`/services/${service.slug}`} class="link-editorial text-body-s">Learn more →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy-dark text-white text-center">
+    <div class="container-jm max-w-xl mx-auto reveal">
+      <h2 class="text-h1 text-white">Not sure which service fits?</h2>
+      <p class="text-body-l text-white/80 mt-4">
+        Start with a consultation — we'll help you figure out the right approach for your trip.
+      </p>
+      <div class="mt-8">
+        <Button href="/consultations" variant="gold">Book a Consultation</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

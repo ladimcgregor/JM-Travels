@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TripCard from "@/components/TripCard.astro";
+
+const trips = (await getCollection("trips")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Organised Trips"
+  description="Ready-to-join organised trips from JM Travels — curated destinations, itineraries and inclusions you can simply join."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Organised Trips</p>
+      <h1 class="text-h1 mt-4">Curated trips you can simply join.</h1>
+      <p class="text-body-l text-slate mt-6">
+        Each trip below has a defined itinerary, dates and inclusions. Want something built entirely around you
+        instead? Look at <a href="/bespoke-travel" class="link-editorial">bespoke travel</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-28">
+    <div class="container-jm">
+      {trips.length > 0 ? (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {trips.map((trip) => <TripCard trip={trip} />)}
+        </div>
+      ) : (
+        <p class="text-body text-slate">New trips are being added — check back soon, or tell us what you have in mind.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+---
+
+<BaseLayout
+  title="Refer Someone"
+  description="Know someone planning a trip? Refer them to JM Travels."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Refer Someone</p>
+      <h1 class="text-h1 mt-4">Good trips are worth talking about.</h1>
+      <p class="text-body-l text-slate mt-6">
+        Many of our journeys begin with a recommendation. If you've travelled with us or worked with us, we'd love
+        to help someone in your circle plan their next adventure.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm max-w-2xl">
+      <EnquiryForm client:visible variant="referral" />
+    </div>
+  </section>
+</BaseLayout>

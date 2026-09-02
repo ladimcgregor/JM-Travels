@@ -1,0 +1,95 @@
+---
+import "@fontsource-variable/manrope";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@/styles/global.css";
+
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+import WhatsAppFloat from "@/components/WhatsAppFloat.astro";
+import { site } from "@/config/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  transparentNav?: boolean;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description = site.description,
+  ogImage = "/images/og-default.jpg",
+  transparentNav = false,
+  noindex = false,
+  structuredData,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const jsonLd = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+    <meta name="generator" content={Astro.generator} />
+
+    {jsonLd.map((entry) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+    ))}
+
+    {site.integrations.gaMeasurementId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.integrations.gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ id: site.integrations.gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', id, { anonymize_ip: true });
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-4 focus:left-4 focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-sm">
+      Skip to content
+    </a>
+    <Nav transparent={transparentNav} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+    <script>
+      import "@/scripts/reveal";
+    </script>
+  </body>
+</html>

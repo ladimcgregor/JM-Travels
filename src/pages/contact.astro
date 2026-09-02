@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+
+const channels = [
+  { label: "WhatsApp", value: site.contact.whatsappDisplay, href: whatsappLink(whatsappMessages.general) },
+  { label: "Phone", value: site.contact.phoneDisplay, href: `tel:${site.contact.phoneDisplay.replace(/\s/g, "")}` },
+  { label: "Email", value: site.contact.email, href: `mailto:${site.contact.email}` },
+  { label: "Instagram", value: site.social.instagramHandle, href: site.social.instagram },
+  { label: "TikTok", value: site.social.tiktokHandle, href: site.social.tiktok },
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with JM Travels via WhatsApp, phone, email or the contact form."
+>
+  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+    <div class="container-jm max-w-2xl">
+      <p class="eyebrow">Contact</p>
+      <h1 class="text-h1 mt-4">Tell us about your trip.</h1>
+      <p class="text-body-l text-slate mt-6">{site.contact.location}</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="space-y-5">
+        {channels.map((c) => (
+          <div>
+            <p class="text-label text-slate">{c.label}</p>
+            <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined} class="text-h4 text-navy hover:text-gold transition-colors">
+              {c.value}
+            </a>
+          </div>
+        ))}
+      </div>
+      <div class="lg:col-span-2">
+        <EnquiryForm client:visible variant="contact" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
