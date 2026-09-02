@@ -136,6 +136,16 @@
   }
 
   /* ---- Fluid editorial type scale (mobile -> desktop from the design system) ---- */
+  /* One deliberately oversized moment: the homepage hero headline only. Bigger
+     than the standard display scale so the type itself fills the frame instead
+     of floating in a corner of a photo. */
+  .text-hero-xl {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-size: clamp(38px, 4vw + 2.5rem, 108px);
+  }
   .text-display-xl {
     font-family: var(--font-display);
     font-weight: 700;
@@ -411,4 +421,19 @@
     display: flex;
     width: max-content;
   }
+
+  /* Slow, continuous ambient movement for full-bleed hero photography (not
+     scroll-linked, just always drifting) so the hero reads as alive rather
+     than a static poster. Respects prefers-reduced-motion below. */
+  .hero-kenburns {
+    animation: hero-kenburns 24s ease-in-out infinite alternate;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-kenburns { animation: none; }
+  }
+}
+
+@keyframes hero-kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1.5%, -1%); }
 }
