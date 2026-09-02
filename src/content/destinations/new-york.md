@@ -18,7 +18,7 @@ thingsToDo:
 visaInformation: "US visa requirements vary significantly by nationality, including ESTA eligibility for some countries. JM Travels provides guidance on documentation and appointment preparation; final decisions are made solely by US consular authorities."
 travelTips:
   - "Book popular restaurants and Broadway tickets well in advance"
-  - "The subway is the fastest way to move around — a weekly MetroCard is usually worth it"
+  - "The subway is the fastest way to move around; a weekly MetroCard is usually worth it"
 founderVisited: false
 order: 8
 ---

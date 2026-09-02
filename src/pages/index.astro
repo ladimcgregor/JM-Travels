@@ -79,7 +79,7 @@ const structuredData = {
 ---
 
 <BaseLayout
-  title={`${site.name} — ${site.tagline}`}
+  title={`${site.name}: ${site.tagline}`}
   description={site.description}
   transparentNav
   structuredData={structuredData}
@@ -130,7 +130,7 @@ const structuredData = {
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:grid-flow-dense gap-4 mt-12">
         {whatWeDo.map((item) => (
-          <a href={item.href} class={`group relative block overflow-hidden rounded-md shadow-soft reveal min-h-[220px] ${item.span}`}>
+          <a href={item.href} class={`hover-grow group relative block overflow-hidden rounded-md shadow-soft reveal min-h-[220px] ${item.span}`}>
             <img
               src={item.image}
               alt={item.title}
@@ -161,11 +161,11 @@ const structuredData = {
         <h2 class="text-h1 mt-4 max-w-md">Travel planning should feel exciting, not overwhelming.</h2>
         <p class="text-body-l text-slate mt-6 max-w-md">
           JM Travels combines practical travel experience, personalised planning, attention to detail, destination
-          knowledge, reliable coordination and responsive support — so the details are handled properly, not just
+          knowledge, reliable coordination and responsive support, so the details are handled properly, not just
           promised.
         </p>
         <div class="grid grid-cols-2 gap-3 mt-8 max-w-md">
-          <div class="rounded-md shadow-soft overflow-hidden translate-y-4" data-scroll-img>
+          <div class="hover-grow rounded-md shadow-soft overflow-hidden translate-y-4" data-scroll-img>
             <img
               src="https://picsum.photos/seed/jm-why-1/600/750"
               alt="Detail from a JM Travels itinerary in progress"
@@ -175,7 +175,7 @@ const structuredData = {
               class="w-full aspect-[4/5] object-cover"
             />
           </div>
-          <div class="rounded-md shadow-soft overflow-hidden -translate-y-4" data-scroll-img>
+          <div class="hover-grow rounded-md shadow-soft overflow-hidden -translate-y-4" data-scroll-img>
             <img
               src="https://picsum.photos/seed/jm-why-2/600/750"
               alt="A JM Travels trip in motion"
@@ -211,7 +211,7 @@ const structuredData = {
   <!-- FOUNDER STORY -->
   <section class="py-16 md:py-24">
     <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
-      <div class="order-2 lg:order-1 reveal rounded-md" data-scroll-img>
+      <div class="hover-grow order-2 lg:order-1 reveal rounded-md" data-scroll-img>
         <img
           src={site.founder.photo}
           onerror="this.src='https://picsum.photos/seed/jm-founder/1000/1200'"
@@ -223,15 +223,15 @@ const structuredData = {
         />
       </div>
       <div class="order-1 lg:order-2 reveal">
-        <p class="eyebrow">The Founder Story</p>
+        <p class="eyebrow">The Lead Traveller</p>
         <h2 class="text-h1 mt-4">Built from a love of travel. Growing through every journey.</h2>
         <p class="text-body-l text-slate mt-6">
           JM Travels began with a simple idea: travel is better when the details are thoughtfully planned. Having
-          travelled across 10 countries and planned trips for family and friends, the Founder saw an opportunity to
-          turn that passion and practical experience into a service that helps others travel with greater confidence.
+          travelled across 10 countries and planned trips for family and friends, Jemima saw an opportunity to turn
+          that passion and practical experience into a service that helps others travel with greater confidence.
         </p>
         <div class="mt-8">
-          <Button href="/about" variant="secondary">Meet the Founder</Button>
+          <Button href="/about" variant="secondary">Meet Jemima</Button>
         </div>
       </div>
     </div>
@@ -254,13 +254,13 @@ const structuredData = {
         </div>
       ) : (
         <p class="text-body text-white/70 mt-8 max-w-xl">
-          The Founder's own travel history across 10 countries will appear here — add the visited destinations in{" "}
+          Jemima's own travel history across 10 countries will appear here: add the visited destinations in{" "}
           <code class="text-gold-light">src/content/destinations</code> and set <code class="text-gold-light">founderVisited: true</code>.
         </p>
       )}
       <p class="text-body-s text-white/50 mt-6 max-w-2xl">
-        These are places the Founder has personally travelled to — not a claim that JM Travels has operated trips
-        there yet. We're clear about that distinction because it matters.
+        These are places Jemima has personally travelled to, not a claim that JM Travels has operated trips there
+        yet. We're clear about that distinction because it matters.
       </p>
     </div>
   </section>
@@ -296,7 +296,7 @@ const structuredData = {
         </div>
       </div>
       <div class="reveal grid grid-cols-3 gap-3">
-        <div class="col-span-2 rounded-md shadow-soft overflow-hidden" data-scroll-img>
+        <div class="hover-grow col-span-2 rounded-md shadow-soft overflow-hidden" data-scroll-img>
           <img
             src="https://picsum.photos/seed/jm-bespoke-1/700/900"
             alt="A bespoke JM Travels itinerary being planned"
@@ -307,7 +307,7 @@ const structuredData = {
           />
         </div>
         <div class="grid gap-3">
-          <div class="rounded-md shadow-soft overflow-hidden" data-scroll-img>
+          <div class="hover-grow rounded-md shadow-soft overflow-hidden" data-scroll-img>
             <img
               src="https://picsum.photos/seed/jm-bespoke-2/500/500"
               alt="Detail from a JM Travels bespoke trip"
@@ -317,7 +317,7 @@ const structuredData = {
               class="w-full aspect-square object-cover"
             />
           </div>
-          <div class="rounded-md shadow-soft overflow-hidden" data-scroll-img>
+          <div class="hover-grow rounded-md shadow-soft overflow-hidden" data-scroll-img>
             <img
               src="https://picsum.photos/seed/jm-bespoke-3/500/500"
               alt="A moment from a bespoke trip"
@@ -342,7 +342,7 @@ const structuredData = {
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
         {howItWorks.map((step) => (
           <div class="reveal">
-            <div class="relative w-16 h-16">
+            <div class="hover-grow relative w-16 h-16 rounded-full">
               <img
                 src={step.image}
                 alt=""
@@ -381,7 +381,7 @@ const structuredData = {
         </div>
       ) : (
         <div class="grid lg:grid-cols-2 gap-6 mt-10 items-stretch">
-          <div class="rounded-md shadow-soft overflow-hidden min-h-[220px]" data-scroll-img>
+          <div class="hover-grow rounded-md shadow-soft overflow-hidden min-h-[220px]" data-scroll-img>
             <img
               src="https://picsum.photos/seed/jm-testimonials-honest/1000/700"
               alt="A trip currently being planned by JM Travels"
@@ -394,8 +394,8 @@ const structuredData = {
           <div class="card-surface shadow-soft p-8 flex flex-col justify-center reveal">
             <p class="text-h3 text-navy">We're building our track record, honestly.</p>
             <p class="text-body text-slate mt-3">
-              JM Travels is a new business. As we complete trips, real testimonials from real customers will appear
-              here — we'd rather show you nothing than show you something fabricated.
+              JM Travels is a new business. As we complete trips, real testimonials from real customers will show up
+              right here. We'd rather show you nothing than fake it.
             </p>
           </div>
         </div>
@@ -415,7 +415,7 @@ const structuredData = {
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {journalArticles.map((article) => (
-          <a href={`/journal/${article.id}`} class="group block reveal">
+          <a href={`/journal/${article.id}`} class="hover-grow group block reveal">
             <div class="aspect-[4/3] overflow-hidden rounded-md">
               <img
                 src={article.data.heroImage}
@@ -446,7 +446,7 @@ const structuredData = {
             loading="lazy"
             width="56"
             height="56"
-            class="w-14 h-14 rounded-full object-cover border-2 border-sand shadow-soft"
+            class="hover-grow w-14 h-14 rounded-full object-cover border-2 border-sand shadow-soft"
           />
         ))}
       </div>

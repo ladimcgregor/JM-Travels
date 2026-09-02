@@ -9,12 +9,12 @@ gallery:
   - "https://picsum.photos/seed/zanzibar-1/900/700"
   - "https://picsum.photos/seed/zanzibar-2/900/700"
   - "https://picsum.photos/seed/zanzibar-3/900/700"
-summary: "A slow, beach-forward escape built around Stone Town's history, turquoise water and unhurried evenings — designed for couples who want the details handled."
+summary: "A slow, beach-forward escape built around Stone Town's history, turquoise water and unhurried evenings, designed for couples who want the details handled."
 highlights:
   - "Private airport transfer on arrival and departure"
   - "Guided Stone Town history walk"
   - "Sunset dhow cruise with light dinner"
-  - "A full free day for the beach — no itinerary, on purpose"
+  - "A full free day for the beach: no itinerary, on purpose"
 included:
   - "4 nights beachfront accommodation"
   - "Daily breakfast"
@@ -37,7 +37,7 @@ itinerary:
     description: "Guided walk through Stone Town's markets, alleys and historic sites, followed by free time."
   - day: "Day 3"
     title: "Beach day"
-    description: "A fully open day — no fixed plans. Optional add-ons available on request."
+    description: "A fully open day, no fixed plans. Optional add-ons available on request."
   - day: "Day 4"
     title: "Sunset dhow cruise"
     description: "An evening sail along the coast with a light dinner as the sun goes down."

@@ -70,7 +70,7 @@ const journal = defineCollection({
       "Travel Tips",
       "Visa Guides",
       "Itinerary Ideas",
-      "Founder Stories",
+      "Lead Traveller Stories",
       "Trip Recaps",
       "Travel Planning",
     ]),

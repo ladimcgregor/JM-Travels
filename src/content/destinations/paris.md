@@ -3,7 +3,7 @@ country: "France"
 city: "Paris"
 region: "Europe"
 heroImage: "https://picsum.photos/seed/paris-hero/1600/1000"
-overview: "Paris rewards planning more than most European cities — the highlights are famous for a reason, but the best trips leave room for neighbourhoods, food markets and slower afternoons between the major sights."
+overview: "Paris rewards planning more than most European cities. The highlights are famous for a reason, but the best trips leave room for neighbourhoods, food markets and slower afternoons between the major sights."
 whyVisit:
   - "World-class art, architecture and food in a walkable city"
   - "Strong base for short trips elsewhere in Europe"

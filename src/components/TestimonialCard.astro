@@ -14,7 +14,7 @@ const { customerName, destination, tripType, quote, photo } = testimonial.data;
   </blockquote>
   <figcaption class="flex items-center gap-3 mt-6 pt-6 border-t border-mist">
     {photo && (
-      <img src={photo} alt={customerName} width="44" height="44" loading="lazy" class="w-11 h-11 rounded-full object-cover" />
+      <img src={photo} alt={customerName} width="44" height="44" loading="lazy" class="hover-grow w-11 h-11 rounded-full object-cover" />
     )}
     <div>
       <p class="text-body-s font-semibold text-navy">{customerName}</p>

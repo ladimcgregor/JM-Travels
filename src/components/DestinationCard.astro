@@ -8,7 +8,7 @@ const { destination } = Astro.props;
 const { country, city, heroImage } = destination.data;
 ---
 
-<a href={`/destinations/${destination.id}`} class="group relative block aspect-[3/4] overflow-hidden rounded-md reveal">
+<a href={`/destinations/${destination.id}`} class="hover-grow group relative block aspect-[3/4] overflow-hidden rounded-md reveal">
   <img
     src={heroImage}
     alt={city ? `${city}, ${country}` : country}

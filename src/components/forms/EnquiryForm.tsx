@@ -140,7 +140,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
 
     if (!accessKey) {
       setErrorMsg(
-        "This form isn't fully configured yet — please email or WhatsApp us directly using the details on this page."
+        "This form isn't fully configured yet. Please email or WhatsApp us directly using the details on this page."
       );
       return;
     }
@@ -175,7 +175,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
   if (status === "success") {
     return (
       <div className="card-surface shadow-soft p-8 text-center" role="status">
-        <p className="text-h3 text-navy">Thank you — we've got it.</p>
+        <p className="text-h3 text-navy">Thank you, we've got it.</p>
         <p className="text-body text-slate mt-2">
           We'll be in touch shortly. If it's urgent, message us directly on WhatsApp.
         </p>

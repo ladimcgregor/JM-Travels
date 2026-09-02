@@ -18,7 +18,7 @@ const categories = [...new Set(articles.map((a) => a.data.category))];
       <p class="eyebrow">Travel Journal</p>
       <h1 class="text-h1 mt-4">Guides, tips and lessons from the road.</h1>
       <p class="text-body-l text-slate mt-6">
-        A growing library of practical travel knowledge — destination guides, visa checklists, itinerary ideas and
+        A growing library of practical travel knowledge: destination guides, visa checklists, itinerary ideas and
         honest travel tips.
       </p>
     </div>
@@ -33,7 +33,7 @@ const categories = [...new Set(articles.map((a) => a.data.category))];
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((article) => (
-          <a href={`/journal/${article.id}`} class="group block reveal">
+          <a href={`/journal/${article.id}`} class="hover-grow group block reveal">
             <div class="aspect-[4/3] overflow-hidden rounded-md">
               <img
                 src={article.data.heroImage}

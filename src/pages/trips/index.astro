@@ -8,7 +8,7 @@ const trips = (await getCollection("trips")).sort((a, b) => a.data.order - b.dat
 
 <BaseLayout
   title="Organised Trips"
-  description="Ready-to-join organised trips from JM Travels — curated destinations, itineraries and inclusions you can simply join."
+  description="Ready-to-join organised trips from JM Travels: curated destinations, itineraries and inclusions you can simply join."
 >
   <section class="pt-16 pb-12 md:pt-24 md:pb-16">
     <div class="container-jm max-w-2xl">
@@ -28,7 +28,7 @@ const trips = (await getCollection("trips")).sort((a, b) => a.data.order - b.dat
           {trips.map((trip) => <TripCard trip={trip} />)}
         </div>
       ) : (
-        <p class="text-body text-slate">New trips are being added — check back soon, or tell us what you have in mind.</p>
+        <p class="text-body text-slate">New trips are being added, so check back soon, or tell us what you have in mind.</p>
       )}
     </div>
   </section>

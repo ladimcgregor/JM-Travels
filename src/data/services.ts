@@ -31,7 +31,7 @@ export const services: Service[] = [
     image: "https://picsum.photos/seed/jm-svc-bespoke/900/700",
     short: "Personalised journeys designed around your preferences.",
     description:
-      "Trips built entirely around your destination, dates, budget and interests — not a template. We ask the right questions up front so the itinerary actually fits how you like to travel.",
+      "Trips built entirely around your destination, dates, budget and interests, not a template. We ask the right questions up front so the itinerary actually fits how you like to travel.",
     whoFor: "Anyone who doesn't want a fixed package and would rather have the trip designed around them.",
     included: ["A structured planning consultation", "A custom itinerary", "Accommodation, transfer and activity coordination", "Ongoing support before and during travel"],
     process: ["Tell us what you're planning", "We design the journey", "You review and confirm", "We coordinate the details", "You travel"],
@@ -70,7 +70,7 @@ export const services: Service[] = [
     image: "https://picsum.photos/seed/jm-svc-group/900/700",
     short: "Friends, families and organised groups.",
     description:
-      "Group trips create their own coordination headaches — different schedules, budgets and preferences. We centralise the planning so one person isn't stuck chasing everyone else.",
+      "Group trips create their own coordination headaches: different schedules, budgets and preferences. We centralise the planning so one person isn't stuck chasing everyone else.",
     whoFor: "Friend groups, families, professional communities and other groups travelling together.",
     included: ["Group itinerary design", "Centralised coordination and communication", "Group-rate accommodation where available", "A single point of contact for the whole group"],
     process: ["Group brief", "Itinerary design", "Group confirmation", "Travel"],
@@ -83,7 +83,7 @@ export const services: Service[] = [
     image: "https://picsum.photos/seed/jm-svc-visa/900/700",
     short: "Structured support for visa preparation.",
     description:
-      "Guidance and support through the visa preparation process — requirement checks, document checklists and appointment preparation.",
+      "Guidance and support through the visa preparation process: requirement checks, document checklists and appointment preparation.",
     whoFor: "Anyone who wants structured support navigating a visa application.",
     included: ["Requirement guidance", "Document checklist", "Application preparation support", "Appointment guidance"],
     process: ["Tell us your destination and travel dates", "We confirm your requirement", "We help you prepare your documents", "You attend your appointment"],
@@ -96,7 +96,7 @@ export const services: Service[] = [
     image: "https://picsum.photos/seed/jm-svc-consult/900/700",
     short: "Professional guidance before booking.",
     description:
-      "Expert guidance before you book or travel — destination selection, itinerary sense-checks, or simply a second opinion on your plan.",
+      "Expert guidance before you book or travel: destination selection, itinerary sense-checks, or simply a second opinion on your plan.",
     whoFor: "Travellers who want clarity before committing to a destination, itinerary or booking.",
     included: ["A structured consultation call or chat", "Destination and timing guidance", "Itinerary review", "Practical next steps"],
     process: ["Request a consultation", "We discuss your plans", "You leave with a clear recommendation"],

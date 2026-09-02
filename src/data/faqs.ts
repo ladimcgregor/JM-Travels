@@ -15,7 +15,7 @@ export const faqs: Faq[] = [
     category: "General",
     question: "Is JM Travels new?",
     answer:
-      "Yes — JM Travels is a new business, built on real, practical travel experience. Our Founder has travelled across 10 countries and planned trips for family and friends. We're upfront about being early, and we're building our track record deliberately, one trip at a time.",
+      "Yes, JM Travels is a new business, built on real, practical travel experience. Jemima, our Lead Traveller, has travelled across 10 countries and planned trips for family and friends. We're upfront about being early, and we're building our track record deliberately, one trip at a time.",
   },
   {
     category: "Organised Trips",
@@ -27,13 +27,13 @@ export const faqs: Faq[] = [
     category: "Bespoke Travel",
     question: "What's the difference between an organised trip and a bespoke trip?",
     answer:
-      "An organised trip is a ready-made itinerary you join. A bespoke trip is designed from scratch around your destination, dates, budget and preferences — nothing is fixed until it fits what you want.",
+      "An organised trip is a ready-made itinerary you join. A bespoke trip is designed from scratch around your destination, dates, budget and preferences: nothing is fixed until it fits what you want.",
   },
   {
     category: "Bespoke Travel",
     question: "How long does it take to plan a bespoke trip?",
     answer:
-      "It depends on the destination and complexity, but a good rule of thumb is to start the conversation at least 6-8 weeks before you'd like to travel, especially if visa processing is involved. Shorter timelines are sometimes possible — ask us.",
+      "It depends on the destination and complexity, but a good rule of thumb is to start the conversation at least 6-8 weeks before you'd like to travel, especially if visa processing is involved. Shorter timelines are sometimes possible, so just ask us.",
   },
   {
     category: "Visa",
@@ -57,13 +57,13 @@ export const faqs: Faq[] = [
     category: "Group Travel",
     question: "Can JM Travels plan a trip for a group?",
     answer:
-      "Yes — group trips for friends, families and professional communities are one of our core services. We coordinate the whole group through a single point of contact so no one person is left chasing everyone else.",
+      "Yes, group trips for friends, families and professional communities are one of our core services. We coordinate the whole group through a single point of contact so no one person is left chasing everyone else.",
   },
   {
     category: "General",
-    question: "I'm a first-time international traveller — can you help with the basics?",
+    question: "I'm a first-time international traveller. Can you help with the basics?",
     answer:
-      "Absolutely. A large part of what we do is exactly this — helping first-time travellers navigate destination selection, visa requirements, flights, accommodation and itinerary planning with confidence.",
+      "Absolutely. A large part of what we do is exactly this: helping first-time travellers navigate destination selection, visa requirements, flights, accommodation and itinerary planning with confidence.",
   },
   {
     category: "General",

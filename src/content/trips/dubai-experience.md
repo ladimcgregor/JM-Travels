@@ -9,7 +9,7 @@ gallery:
   - "https://picsum.photos/seed/dubai-1/900/700"
   - "https://picsum.photos/seed/dubai-2/900/700"
   - "https://picsum.photos/seed/dubai-3/900/700"
-summary: "A well-paced first look at Dubai — city, desert and skyline — designed to work whether you're travelling solo, as a couple or with a group of friends."
+summary: "A well-paced first look at Dubai: city, desert and skyline, designed to work whether you're travelling solo, as a couple or with a group of friends."
 highlights:
   - "Burj Khalifa 'At the Top' access"
   - "Desert safari with dinner"
@@ -49,4 +49,4 @@ relatedDestinationSlug: "dubai"
 order: 2
 ---
 
-An example itinerary for a first Dubai trip. Group sizes, dates and add-ons (yacht time, extra excursions) can be adjusted — reach out and we'll shape it around your group.
+An example itinerary for a first Dubai trip. Group sizes, dates and add-ons (yacht time, extra excursions) can be adjusted: reach out and we'll shape it around your group.

@@ -18,7 +18,7 @@ thingsToDo:
 visaInformation: "Visa requirements for South Africa vary by nationality. JM Travels helps confirm your specific requirement and prepares your documentation; final decisions rest solely with South African immigration authorities."
 travelTips:
   - "Book Winelands tastings in advance during peak season"
-  - "Weather can shift quickly — pack layers even in summer"
+  - "Weather can shift quickly, so pack layers even in summer"
   - "Use a trusted transfer provider for airport and evening travel"
 founderVisited: false
 order: 3

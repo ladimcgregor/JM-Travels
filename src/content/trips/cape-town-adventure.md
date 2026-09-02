@@ -9,7 +9,7 @@ gallery:
   - "https://picsum.photos/seed/capetown-1/900/700"
   - "https://picsum.photos/seed/capetown-2/900/700"
   - "https://picsum.photos/seed/capetown-3/900/700"
-summary: "Table Mountain, the Cape Winelands and the coastal drive to Cape Point — a well-rounded trip for groups of friends who want scenery, food and a bit of adventure."
+summary: "Table Mountain, the Cape Winelands and the coastal drive to Cape Point: a well-rounded trip for groups of friends who want scenery, food and a bit of adventure."
 highlights:
   - "Table Mountain cable car"
   - "Cape Winelands day trip with tastings"
@@ -44,7 +44,7 @@ itinerary:
     description: "Scenic drive to Cape Point and the penguin colony at Boulders Beach."
   - day: "Day 5"
     title: "Free day"
-    description: "Open day for optional add-ons — shark cage diving, Robben Island or simply resting."
+    description: "Open day for optional add-ons: shark cage diving, Robben Island or simply resting."
   - day: "Day 6"
     title: "Departure"
     description: "Group transfer to the airport."

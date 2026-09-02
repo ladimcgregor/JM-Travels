@@ -13,12 +13,12 @@ export const site = {
   legalName: "JM Travels", // REPLACE: registered business name if different
   tagline: "Travel better. We'll plan the details.",
   description:
-    "JM Travels helps you travel better by taking care of the planning, coordination and details behind your journey — from curated trips you can simply join to bespoke experiences designed around you.",
+    "JM Travels takes care of the planning, coordination and details behind your journey: from curated trips you can simply join to bespoke experiences designed around you.",
 
   founder: {
-    name: "[Founder Name]", // REPLACE: founder's real name
-    title: "Founder, JM Travels",
-    photo: "/images/founder/founder-portrait.jpg", // REPLACE: add a real photo at this path
+    name: "Jemima",
+    title: "Lead Traveller, JM Travels",
+    photo: "/images/founder/founder-portrait.jpg", // REPLACE: add a real photo of Jemima at this path
   },
 
   contact: {
