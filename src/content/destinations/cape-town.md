@@ -2,7 +2,7 @@
 country: "South Africa"
 city: "Cape Town"
 region: "Africa"
-heroImage: "https://picsum.photos/seed/capetown-hero/1600/1000"
+heroImage: "/images/photos/cape-town-bo-kaap.jpg"
 overview: "Cape Town brings together mountain, coastline and wine country within a short drive of each other, which makes it one of the most efficient destinations for a group trip that wants variety without constant travel days."
 whyVisit:
   - "Table Mountain, coastline and Winelands within easy reach of each other"

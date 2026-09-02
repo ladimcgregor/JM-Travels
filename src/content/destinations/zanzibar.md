@@ -2,7 +2,7 @@
 country: "Tanzania"
 city: "Zanzibar"
 region: "Indian Ocean"
-heroImage: "https://picsum.photos/seed/zanzibar-hero/1600/1000"
+heroImage: "/images/photos/zanzibar-dhow-sunset.jpg"
 overview: "Zanzibar pairs Stone Town's centuries of trading history with some of the calmest, clearest water on the East African coast. It rewards a slower pace: long lunches, short excursions and a lot of unscheduled beach time."
 whyVisit:
   - "Warm, calm water well suited to swimming rather than just photos"

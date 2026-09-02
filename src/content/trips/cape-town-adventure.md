@@ -4,11 +4,10 @@ destination: "Cape Town, South Africa"
 region: "Africa"
 tripType: ["Groups", "Couples", "Adventure"]
 duration: "6 days / 5 nights"
-heroImage: "https://picsum.photos/seed/capetown-hero/1600/1000"
+heroImage: "/images/photos/cape-town-bo-kaap.jpg"
 gallery:
-  - "https://picsum.photos/seed/capetown-1/900/700"
-  - "https://picsum.photos/seed/capetown-2/900/700"
-  - "https://picsum.photos/seed/capetown-3/900/700"
+  - "/images/photos/cape-town-table-mountain.jpg"
+  - "/images/photos/cape-town-bo-kaap-2.jpg"
 summary: "Table Mountain, the Cape Winelands and the coastal drive to Cape Point: a well-rounded trip for groups of friends who want scenery, food and a bit of adventure."
 highlights:
   - "Table Mountain cable car"

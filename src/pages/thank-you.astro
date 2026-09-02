@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+---
+
+<BaseLayout title="Thank You" description="Your enquiry has been received." noindex>
+  <section class="py-24 md:py-40 text-center">
+    <div class="container-jm max-w-lg mx-auto">
+      <p class="eyebrow justify-center">Received</p>
+      <h1 class="text-h1 mt-4">Thank you, we've got it.</h1>
+      <p class="text-body-l text-slate mt-4">
+        {site.founder.name} and the team typically reply within {site.responseTimePromise}. If it's urgent, message
+        us directly on WhatsApp and we'll pick it up faster.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
+          WhatsApp Us
+        </Button>
+        <Button href="/" variant="secondary">Back to Home</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

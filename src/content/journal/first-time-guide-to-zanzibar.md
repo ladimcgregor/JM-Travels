@@ -2,7 +2,7 @@
 title: "First-Time Guide to Zanzibar"
 category: "Destination Guides"
 date: 2026-09-01
-heroImage: "https://picsum.photos/seed/zanzibar-journal/1600/1000"
+heroImage: "/images/photos/zanzibar-dhow-2.jpg"
 excerpt: "What to know before your first trip to Zanzibar: timing, where to stay, and how to split your days between Stone Town and the beach."
 relatedDestinationSlug: "zanzibar"
 ---

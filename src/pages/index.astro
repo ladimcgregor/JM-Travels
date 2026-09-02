@@ -27,7 +27,7 @@ const whatWeDo = [
     description: "Curated travel experiences that customers can simply join.",
     cta: "Explore Trips",
     href: "/trips",
-    image: "https://picsum.photos/seed/jm-bento-organised/1200/1200",
+    image: "/images/photos/serengeti-migration.jpg",
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
@@ -35,7 +35,7 @@ const whatWeDo = [
     description: "Personalised journeys designed around your preferences.",
     cta: "Create My Trip",
     href: "/bespoke-travel",
-    image: "https://picsum.photos/seed/jm-bento-bespoke/1200/600",
+    image: "/images/photos/luxury-resort-aerial.jpg",
     span: "lg:col-span-2 lg:row-span-1",
   },
   {
@@ -43,7 +43,7 @@ const whatWeDo = [
     description: "Guidance and support through the visa preparation process.",
     cta: "Get Visa Support",
     href: "/visa-assistance",
-    image: "https://picsum.photos/seed/jm-bento-visa/700/700",
+    image: "/images/photos/middle-east-architecture.jpg",
     span: "lg:col-span-1 lg:row-span-1",
   },
   {
@@ -51,7 +51,7 @@ const whatWeDo = [
     description: "Expert guidance before you book or travel.",
     cta: "Book a Consultation",
     href: "/consultations",
-    image: "https://picsum.photos/seed/jm-bento-consult/700/700",
+    image: "/images/photos/lagos-street.jpg",
     span: "lg:col-span-1 lg:row-span-1",
   },
 ];
@@ -62,7 +62,7 @@ const destinationMarquee = [
   "Cape Town",
   "Maldives",
   "Mauritius",
-  "Paris",
+  "Santorini",
   "Bali",
   "New York",
 ];
@@ -87,7 +87,7 @@ const structuredData = {
   <!-- HERO -->
   <section class="relative min-h-[92vh] flex items-end bg-navy-dark overflow-hidden" data-scroll-img>
     <img
-      src="https://picsum.photos/seed/jm-hero/1920/1280"
+      src="/images/photos/cape-town-table-mountain.jpg"
       alt="A JM Travels destination at golden hour"
       class="absolute inset-0 w-full h-full object-cover opacity-80"
       fetchpriority="high"
@@ -102,7 +102,12 @@ const structuredData = {
       </p>
       <div class="flex flex-wrap gap-4 mt-8">
         <Button href={site.primaryCta.href} variant="gold">Plan My Trip</Button>
-        <Button href="/trips" variant="secondary" class="!text-white !border-white hover:!bg-white hover:!text-navy">
+        <Button
+          href="/trips"
+          variant="secondary"
+          class="!bg-transparent !text-white !border-white hover:!bg-white hover:!text-navy"
+          style="--btn-shadow: var(--color-gold-light)"
+        >
           Explore Our Trips
         </Button>
       </div>
@@ -167,7 +172,7 @@ const structuredData = {
         <div class="grid grid-cols-2 gap-3 mt-8 max-w-md">
           <div class="hover-grow rounded-md shadow-soft overflow-hidden translate-y-4" data-scroll-img>
             <img
-              src="https://picsum.photos/seed/jm-why-1/600/750"
+              src="/images/photos/africa-basilica.jpg"
               alt="Detail from a JM Travels itinerary in progress"
               loading="lazy"
               width="600"
@@ -177,7 +182,7 @@ const structuredData = {
           </div>
           <div class="hover-grow rounded-md shadow-soft overflow-hidden -translate-y-4" data-scroll-img>
             <img
-              src="https://picsum.photos/seed/jm-why-2/600/750"
+              src="/images/photos/africa-coastal-fort.jpg"
               alt="A JM Travels trip in motion"
               loading="lazy"
               width="600"
@@ -214,7 +219,7 @@ const structuredData = {
       <div class="hover-grow order-2 lg:order-1 reveal rounded-md" data-scroll-img>
         <img
           src={site.founder.photo}
-          onerror="this.src='https://picsum.photos/seed/jm-founder/1000/1200'"
+          onerror="this.src='/images/founder/founder-placeholder.jpg'"
           alt={site.founder.name}
           loading="lazy"
           width="1000"
@@ -298,7 +303,7 @@ const structuredData = {
       <div class="reveal grid grid-cols-3 gap-3">
         <div class="hover-grow col-span-2 rounded-md shadow-soft overflow-hidden" data-scroll-img>
           <img
-            src="https://picsum.photos/seed/jm-bespoke-1/700/900"
+            src="/images/photos/luxury-resort-aerial.jpg"
             alt="A bespoke JM Travels itinerary being planned"
             loading="lazy"
             width="700"
@@ -309,7 +314,7 @@ const structuredData = {
         <div class="grid gap-3">
           <div class="hover-grow rounded-md shadow-soft overflow-hidden" data-scroll-img>
             <img
-              src="https://picsum.photos/seed/jm-bespoke-2/500/500"
+              src="/images/photos/santorini-oia-sunset.jpg"
               alt="Detail from a JM Travels bespoke trip"
               loading="lazy"
               width="500"
@@ -319,7 +324,7 @@ const structuredData = {
           </div>
           <div class="hover-grow rounded-md shadow-soft overflow-hidden" data-scroll-img>
             <img
-              src="https://picsum.photos/seed/jm-bespoke-3/500/500"
+              src="/images/photos/bali-kelingking-beach.jpg"
               alt="A moment from a bespoke trip"
               loading="lazy"
               width="500"
@@ -383,7 +388,7 @@ const structuredData = {
         <div class="grid lg:grid-cols-2 gap-6 mt-10 items-stretch">
           <div class="hover-grow rounded-md shadow-soft overflow-hidden min-h-[220px]" data-scroll-img>
             <img
-              src="https://picsum.photos/seed/jm-testimonials-honest/1000/700"
+              src="/images/photos/serengeti-migration-2.jpg"
               alt="A trip currently being planned by JM Travels"
               loading="lazy"
               width="1000"
@@ -437,17 +442,17 @@ const structuredData = {
   <!-- REFERRAL -->
   <section class="py-16 md:py-24 bg-sand">
     <div class="container-jm text-center max-w-2xl mx-auto reveal">
-      <div class="flex justify-center -space-x-3 mb-6">
-        {["jm-refer-a", "jm-refer-b", "jm-refer-c", "jm-refer-d"].map((seed) => (
-          <img
-            src={`https://picsum.photos/seed/${seed}/120/120`}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            width="56"
-            height="56"
-            class="hover-grow w-14 h-14 rounded-full object-cover border-2 border-sand shadow-soft"
-          />
+      <div class="flex justify-center -space-x-3 mb-6" aria-hidden="true">
+        {["#102A43", "#B8955A", "#52606D", "#081C2C"].map((color) => (
+          <span
+            class="hover-grow w-12 h-12 rounded-full border-2 border-sand shadow-soft flex items-center justify-center"
+            style={`background:${color}`}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
         ))}
       </div>
       <p class="eyebrow justify-center">Referral</p>
@@ -465,7 +470,7 @@ const structuredData = {
   <!-- FINAL CTA -->
   <section class="relative py-24 md:py-32 bg-navy-dark text-white overflow-hidden" data-scroll-img>
     <img
-      src="https://picsum.photos/seed/jm-final-cta/1920/900"
+      src="/images/photos/dakar-monument.jpg"
       alt=""
       aria-hidden="true"
       class="absolute inset-0 w-full h-full object-cover opacity-30"

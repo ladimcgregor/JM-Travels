@@ -1,7 +1,7 @@
 ---
 country: "Mauritius"
 region: "Indian Ocean"
-heroImage: "https://picsum.photos/seed/mauritius-hero/1600/1000"
+heroImage: "/images/photos/mauritius-lagoon.jpg"
 overview: "Mauritius offers more variety than a typical island destination: lagoons and beaches, but also mountains, waterfalls and a genuinely multicultural food scene worth exploring beyond the resort."
 whyVisit:
   - "Good balance of beach relaxation and things to actually do"

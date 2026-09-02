@@ -2,7 +2,7 @@
 country: "United Arab Emirates"
 city: "Dubai"
 region: "Middle East"
-heroImage: "https://picsum.photos/seed/dubai-hero/1600/1000"
+heroImage: "/images/photos/dubai-burj-khalifa.jpg"
 overview: "Dubai works well as a first international trip or a quick, high-impact getaway: modern infrastructure, short flight times from many hubs, and a mix of city, desert and beach in one destination."
 whyVisit:
   - "Easy to navigate for first-time international travellers"

@@ -1,0 +1,18 @@
+---
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+---
+
+<div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-warm-white border-t border-mist shadow-soft px-4 py-3 flex gap-3" style="padding-bottom: max(12px, env(safe-area-inset-bottom));">
+  <a
+    href={whatsappLink(whatsappMessages.general)}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-whatsapp flex-1"
+    style="--btn-shadow: transparent; box-shadow: none;"
+  >
+    WhatsApp
+  </a>
+  <a href={site.primaryCta.href} class="btn btn-primary flex-1" style="--btn-shadow: transparent; box-shadow: none;">
+    {site.primaryCta.label}
+  </a>
+</div>

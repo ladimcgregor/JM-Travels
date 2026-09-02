@@ -2,7 +2,7 @@
 title: "Why I Started JM Travels"
 category: "Lead Traveller Stories"
 date: 2026-07-20
-heroImage: "https://picsum.photos/seed/founder-journal/1600/1000"
+heroImage: "/images/photos/lagos-street-2.jpg"
 excerpt: "A note from Jemima, our Lead Traveller, on why JM Travels exists and what travelling across 10 countries taught her about planning a trip properly."
 ---
 

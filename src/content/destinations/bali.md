@@ -2,7 +2,7 @@
 country: "Indonesia"
 city: "Bali"
 region: "Asia"
-heroImage: "https://picsum.photos/seed/bali-hero/1600/1000"
+heroImage: "/images/photos/bali-rice-terrace.jpg"
 overview: "Bali covers a lot of ground for one island: beaches in the south, rice terraces and temples inland, and a wellness and food culture that has become a destination in its own right."
 whyVisit:
   - "Wide range of experiences from surf towns to mountain retreats"

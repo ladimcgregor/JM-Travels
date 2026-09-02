@@ -18,23 +18,24 @@ colors:
   warning: "#A9752B"
 typography:
   display:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
-    fontSize: "clamp(2.625rem, 6vw, 4rem)"
-    fontWeight: 500
-    lineHeight: 1.05
-    letterSpacing: "-0.01em"
+    fontFamily: "Bricolage Grotesque Variable, system-ui, sans-serif"
+    fontSize: "clamp(2.625rem, 6vw, 4.25rem)"
+    fontWeight: 700
+    lineHeight: 1.02
+    letterSpacing: "-0.02em"
   h1:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
+    fontFamily: "Bricolage Grotesque Variable, system-ui, sans-serif"
     fontSize: "clamp(2.125rem, 3.4vw, 2.75rem)"
-    fontWeight: 600
-    lineHeight: 1.12
+    fontWeight: 700
+    lineHeight: 1.1
+    letterSpacing: "-0.015em"
   body:
-    fontFamily: "Manrope Variable, Manrope, Arial, sans-serif"
+    fontFamily: "Onest Variable, system-ui, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "Manrope Variable, Manrope, Arial, sans-serif"
+    fontFamily: "Onest Variable, system-ui, sans-serif"
     fontSize: "12px"
     fontWeight: 700
     letterSpacing: "0.14em"
@@ -91,7 +92,7 @@ and voice, not from saturation or clutter.
 
 **Key Characteristics:**
 - Warm navy-and-sand editorial canvas with gold used sparingly, never as a dominant fill
-- Serif display type for emotion, a clean grotesque for everything functional
+- A characterful display grotesque (Bricolage Grotesque) for headlines, a clean sans (Onest) for everything functional
 - Photography-led: every major section carries real imagery, never a bare text block
 - Every touchable surface (card, circle, image, button) responds to the cursor with a soft scale-up
 - Restrained motion: reveals and scroll-scrubbed image treatment, never bounce or elastic
@@ -122,19 +123,20 @@ and gold used only as an accent, never a fill.
 
 ## 3. Typography
 
-**Display Font:** Cormorant Garamond (with Georgia fallback)
-**Body Font:** Manrope (with Arial fallback)
+**Display Font:** Bricolage Grotesque, variable weight (with system-ui fallback)
+**Body Font:** Onest, variable weight (with system-ui fallback)
 
-**Character:** An editorial serif for emotion and aspiration paired with a clean, current grotesque for everything
-functional. Two fonts, never more; the serif never carries dense information and the sans never carries a hero
-headline.
+**Character:** A display grotesque with real personality (angled joints, a bit of movement in the letterforms)
+paired with a clean, current sans for everything functional. Chosen specifically to avoid the reflex editorial-serif
+pairing: this is a brand that should feel current and a little alive, not like a museum caption. Two fonts, never
+more; the display face never carries dense information and the body face never carries a hero headline.
 
 ### Hierarchy
-- **Display** (500, clamp(42px, 6vw, 64px), 1.05): hero and campaign headlines only.
-- **H1** (600, clamp(34px, 3.4vw, 44px), 1.12): page titles.
-- **H2** (600, clamp(28px, 2.2vw, 32px), 1.18): major section headings.
-- **H3/H4** (600–700, 18–24px): subsections, card titles.
-- **Body** (400, 16px, 1.6; body-large 17–18px): standard copy, capped at 65–75ch.
+- **Display** (700, clamp(42px, 6vw, 68px), 1.02, -0.02em tracking): hero and campaign headlines only.
+- **H1** (700, clamp(34px, 3.4vw, 44px), 1.1, -0.015em tracking): page titles.
+- **H2** (700, clamp(28px, 2.2vw, 32px), 1.16): major section headings.
+- **H3/H4** (600 to 700, 18 to 24px): subsections, card titles.
+- **Body** (400, 16px, 1.6; body-large 17 to 18px): standard copy, capped at 65 to 75ch.
 - **Label** (700, 12px, 0.14em tracking, uppercase): eyebrows, metadata, badges.
 
 ### Named Rules

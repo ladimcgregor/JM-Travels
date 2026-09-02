@@ -2,7 +2,7 @@
 title: "How to Spend 5 Days in Dubai"
 category: "Itinerary Ideas"
 date: 2026-08-15
-heroImage: "https://picsum.photos/seed/dubai-journal/1600/1000"
+heroImage: "/images/photos/dubai-burj-khalifa.jpg"
 excerpt: "A balanced 5-day Dubai itinerary that mixes the big-ticket sights with enough breathing room to actually enjoy them."
 relatedDestinationSlug: "dubai"
 ---

@@ -1,0 +1,44 @@
+---
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  light?: boolean;
+}
+const { items, light = false } = Astro.props;
+
+const allItems: Crumb[] = [{ label: "Home", href: "/" }, ...items];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: allItems.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, Astro.site) } : {}),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
+
+<nav aria-label="Breadcrumb" class:list={["text-body-s", light ? "text-white/75" : "text-slate"]}>
+  <ol class="flex flex-wrap items-center gap-1.5">
+    {allItems.map((item, i) => (
+      <li class="flex items-center gap-1.5">
+        {i > 0 && <span aria-hidden="true">/</span>}
+        {item.href && i < allItems.length - 1 ? (
+          <a href={item.href} class:list={["hover:underline", light ? "hover:text-white" : "hover:text-navy"]}>
+            {item.label}
+          </a>
+        ) : (
+          <span class:list={light ? "text-white" : "text-charcoal"} aria-current="page">{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

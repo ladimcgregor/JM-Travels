@@ -3,6 +3,7 @@ interface Props {
   href?: string;
   variant?: "primary" | "secondary" | "gold" | "whatsapp";
   class?: string;
+  style?: string;
   target?: string;
   rel?: string;
   type?: "button" | "submit";
@@ -12,6 +13,7 @@ const {
   href,
   variant = "primary",
   class: className = "",
+  style,
   target,
   rel,
   type = "button",
@@ -33,6 +35,7 @@ const Tag = href ? "a" : "button";
   rel={rel}
   type={!href ? type : undefined}
   class={`btn ${variantClass} ${className}`}
+  style={style}
 >
   <slot />
 </Tag>

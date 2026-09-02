@@ -5,19 +5,19 @@ import Button from "@/components/Button.astro";
 import { site } from "@/config/site";
 
 const approach = [
-  { title: "Listen", description: "Understand what you actually want from the trip, not just the destination.", image: "https://picsum.photos/seed/jm-approach-1/300/300" },
-  { title: "Plan", description: "Design an itinerary that reflects your priorities, pace and budget.", image: "https://picsum.photos/seed/jm-approach-2/300/300" },
-  { title: "Coordinate", description: "Bring accommodation, transport, activities and documentation together.", image: "https://picsum.photos/seed/jm-approach-3/300/300" },
-  { title: "Support", description: "Stay reachable before and during your trip, not just up to booking.", image: "https://picsum.photos/seed/jm-approach-4/300/300" },
-  { title: "Learn", description: "Capture what worked and what didn't, so the next trip is better than the last.", image: "https://picsum.photos/seed/jm-approach-5/300/300" },
+  { title: "Listen", description: "Understand what you actually want from the trip, not just the destination.", image: "/images/photos/lagos-street-2.jpg" },
+  { title: "Plan", description: "Design an itinerary that reflects your priorities, pace and budget.", image: "/images/photos/bali-rice-terrace-2.jpg" },
+  { title: "Coordinate", description: "Bring accommodation, transport, activities and documentation together.", image: "/images/photos/zanzibar-dhow-2.jpg" },
+  { title: "Support", description: "Stay reachable before and during your trip, not just up to booking.", image: "/images/photos/cape-town-bo-kaap-2.jpg" },
+  { title: "Learn", description: "Capture what worked and what didn't, so the next trip is better than the last.", image: "/images/photos/rwanda-highlands.jpg" },
 ];
 
 const buildingBlocks = [
-  { title: "Destination knowledge", description: "Every trip sharpens our understanding of a place: timing, logistics, what's worth it.", image: "https://picsum.photos/seed/jm-building-1/700/500" },
-  { title: "Supplier knowledge", description: "We learn which hotels, drivers and operators are genuinely reliable.", image: "https://picsum.photos/seed/jm-building-2/700/500" },
-  { title: "Customer insight", description: "Every conversation teaches us more about what travellers actually need.", image: "https://picsum.photos/seed/jm-building-3/700/500" },
-  { title: "Travel content", description: "Real trips create real guides, tips and stories for future travellers.", image: "https://picsum.photos/seed/jm-building-4/700/500" },
-  { title: "Operational experience", description: "Each trip refines the process behind the next one.", image: "https://picsum.photos/seed/jm-building-5/700/500" },
+  { title: "Destination knowledge", description: "Every trip sharpens our understanding of a place: timing, logistics, what's worth it.", image: "/images/photos/bali-kelingking-beach.jpg" },
+  { title: "Supplier knowledge", description: "We learn which hotels, drivers and operators are genuinely reliable.", image: "/images/photos/luxury-resort-aerial.jpg" },
+  { title: "Customer insight", description: "Every conversation teaches us more about what travellers actually need.", image: "/images/photos/lagos-street.jpg" },
+  { title: "Travel content", description: "Real trips create real guides, tips and stories for future travellers.", image: "/images/photos/santorini-oia-sunset.jpg" },
+  { title: "Operational experience", description: "Each trip refines the process behind the next one.", image: "/images/photos/victoria-falls-2.jpg" },
 ];
 ---
 
@@ -28,7 +28,7 @@ const buildingBlocks = [
   <PageHero
     eyebrow="Our Story"
     title="Why JM Travels was created."
-    image="https://picsum.photos/seed/jm-hero-about/1920/1100"
+    image="/images/photos/lagos-street.jpg"
     imageAlt="The beginning of the JM Travels story"
   >
     <p class="text-body-l text-white/85 mt-4 max-w-xl">
@@ -42,7 +42,7 @@ const buildingBlocks = [
       <div class="hover-grow reveal rounded-md" data-scroll-img>
         <img
           src={site.founder.photo}
-          onerror="this.src='https://picsum.photos/seed/jm-founder-about/1000/1200'"
+          onerror="this.src='/images/founder/founder-placeholder.jpg'"
           alt={site.founder.name}
           loading="lazy"
           width="1000"
@@ -84,10 +84,10 @@ const buildingBlocks = [
       </div>
       <div class="grid grid-cols-2 gap-3 reveal">
         <div class="hover-grow rounded-md shadow-soft overflow-hidden translate-y-6" data-scroll-img>
-          <img src="https://picsum.photos/seed/jm-travelexp-1/600/750" alt="A moment from a JM Travels planning journey" loading="lazy" width="600" height="750" class="w-full aspect-[4/5] object-cover" />
+          <img src="/images/photos/victoria-falls.jpg" alt="Victoria Falls, one of the many places travel judgement is built from" loading="lazy" width="600" height="750" class="w-full aspect-[4/5] object-cover" />
         </div>
         <div class="hover-grow rounded-md shadow-soft overflow-hidden" data-scroll-img>
-          <img src="https://picsum.photos/seed/jm-travelexp-2/600/750" alt="Travel notes and itinerary planning" loading="lazy" width="600" height="750" class="w-full aspect-[4/5] object-cover" />
+          <img src="/images/photos/rwanda-gorilla.jpg" alt="A mountain gorilla in Rwanda, the kind of moment good planning makes possible" loading="lazy" width="600" height="750" class="w-full aspect-[4/5] object-cover" />
         </div>
       </div>
     </div>

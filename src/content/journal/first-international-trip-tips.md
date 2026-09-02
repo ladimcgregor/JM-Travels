@@ -2,7 +2,7 @@
 title: "10 Things to Know Before Your First International Trip"
 category: "Travel Tips"
 date: 2026-08-05
-heroImage: "https://picsum.photos/seed/traveltips-journal/1600/1000"
+heroImage: "/images/photos/lagos-street.jpg"
 excerpt: "Practical, unglamorous advice for first-time international travellers: the kind of things that are obvious in hindsight and expensive to learn the hard way."
 ---
 

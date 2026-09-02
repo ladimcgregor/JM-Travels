@@ -4,11 +4,10 @@ destination: "Zanzibar, Tanzania"
 region: "Indian Ocean"
 tripType: ["Couples", "Leisure", "Honeymoon"]
 duration: "5 days / 4 nights"
-heroImage: "https://picsum.photos/seed/zanzibar-hero/1600/1000"
+heroImage: "/images/photos/zanzibar-dhow-sunset.jpg"
 gallery:
-  - "https://picsum.photos/seed/zanzibar-1/900/700"
-  - "https://picsum.photos/seed/zanzibar-2/900/700"
-  - "https://picsum.photos/seed/zanzibar-3/900/700"
+  - "/images/photos/zanzibar-dhow-2.jpg"
+  - "/images/photos/mauritius-lagoon.jpg"
 summary: "A slow, beach-forward escape built around Stone Town's history, turquoise water and unhurried evenings, designed for couples who want the details handled."
 highlights:
   - "Private airport transfer on arrival and departure"

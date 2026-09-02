@@ -4,11 +4,9 @@ destination: "Dubai, United Arab Emirates"
 region: "Middle East"
 tripType: ["Solo", "Couples", "Groups"]
 duration: "4 days / 3 nights"
-heroImage: "https://picsum.photos/seed/dubai-hero/1600/1000"
+heroImage: "/images/photos/dubai-burj-khalifa.jpg"
 gallery:
-  - "https://picsum.photos/seed/dubai-1/900/700"
-  - "https://picsum.photos/seed/dubai-2/900/700"
-  - "https://picsum.photos/seed/dubai-3/900/700"
+  - "/images/photos/luxury-resort-aerial.jpg"
 summary: "A well-paced first look at Dubai: city, desert and skyline, designed to work whether you're travelling solo, as a couple or with a group of friends."
 highlights:
   - "Burj Khalifa 'At the Top' access"

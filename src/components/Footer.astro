@@ -7,7 +7,10 @@ const year = new Date().getFullYear();
 <footer class="bg-navy text-white">
   <div class="container-jm py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
     <div class="md:col-span-2">
-      <p class="font-display text-2xl font-semibold">{site.name}</p>
+      <div class="flex items-center gap-2.5">
+        <img src="/images/logo/jm-travels-mark-white.png" alt="" class="h-8 w-auto" />
+        <p class="font-display text-2xl font-semibold">{site.name}</p>
+      </div>
       <p class="mt-4 text-body-s text-white/70 max-w-sm">{site.description}</p>
       <div class="flex items-center gap-4 mt-6">
         <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="JM Travels on Instagram" class="text-white/70 hover:text-gold transition-colors">

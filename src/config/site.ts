@@ -27,7 +27,13 @@ export const site = {
     phoneDisplay: "+234 000 000 0000", // REPLACE
     email: "hello@jmtravels.com", // REPLACE
     location: "Lagos, Nigeria", // REPLACE if different / add serviced markets
+    latitude: 6.5244, // REPLACE with a real office location if there is one
+    longitude: 3.3792, // Currently centred on Lagos generally, not a specific address
   },
+
+  // Shown near forms and on the thank-you page. Keep this realistic and update it
+  // if actual response times change as the business grows.
+  responseTimePromise: "1 business day",
 
   social: {
     instagram: "https://instagram.com/jmtravels", // REPLACE

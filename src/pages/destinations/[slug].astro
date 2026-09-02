@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Button from "@/components/Button.astro";
 import TripCard from "@/components/TripCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 
 export async function getStaticPaths() {
   const destinations = await getCollection("destinations");
@@ -42,7 +43,7 @@ const structuredData = {
     <img src={heroImage} alt={displayName} class="absolute inset-0 w-full h-full object-cover opacity-85" fetchpriority="high" />
     <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/30 to-transparent"></div>
     <div class="container-jm relative pb-12 text-white">
-      <a href="/destinations" class="text-body-s text-white/80 hover:text-white">← All destinations</a>
+      <Breadcrumbs light items={[{ label: "Destinations", href: "/destinations" }, { label: displayName }]} />
       <h1 class="text-display-l mt-4 text-white">{displayName}</h1>
     </div>
   </section>

@@ -2,9 +2,9 @@
 title: "What You Need Before Applying for a Schengen Visa"
 category: "Visa Guides"
 date: 2026-08-24
-heroImage: "https://picsum.photos/seed/schengen-journal/1600/1000"
+heroImage: "/images/photos/santorini-oia-sunset.jpg"
 excerpt: "A practical checklist of what to prepare before you book a Schengen visa appointment, and where most applications run into avoidable problems."
-relatedDestinationSlug: "paris"
+relatedDestinationSlug: "santorini"
 ---
 
 The Schengen visa process is manageable once you know what's being asked of you, but a surprising number of applications get delayed over documentation issues that are easy to avoid. Here's what to have ready before you book an appointment.

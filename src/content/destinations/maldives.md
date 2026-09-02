@@ -1,7 +1,7 @@
 ---
 country: "Maldives"
 region: "Indian Ocean"
-heroImage: "https://picsum.photos/seed/maldives-hero/1600/1000"
+heroImage: "/images/photos/maldives-overwater.jpg"
 overview: "The Maldives is built for slowing down: overwater villas, house-reef snorkelling and very little reason to leave the resort unless you want to. It's a strong fit for honeymoons and milestone trips."
 whyVisit:
   - "Among the most reliably beautiful water in the world"

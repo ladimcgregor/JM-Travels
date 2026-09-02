@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent } from "react";
 import { z } from "zod";
+import { site } from "@/config/site";
 
 type FieldType = "text" | "email" | "tel" | "textarea" | "select";
 
@@ -160,8 +161,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
       });
       const json = await res.json();
       if (json.success) {
-        setStatus("success");
-        formRef.current?.reset();
+        window.location.href = "/thank-you";
       } else {
         setStatus("error");
         setErrorMsg("Something went wrong sending your enquiry. Please try again or reach us on WhatsApp.");
@@ -234,7 +234,8 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
       </button>
 
       <p className="text-body-s text-slate">
-        By submitting, you agree to be contacted by JM Travels about your enquiry. See our{" "}
+        We typically reply within {site.responseTimePromise}. By submitting,
+        you agree to be contacted by JM Travels about your enquiry. See our{" "}
         <a href="/privacy-policy" className="link-editorial">
           Privacy Policy
         </a>

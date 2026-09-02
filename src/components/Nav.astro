@@ -18,8 +18,10 @@ const path = Astro.url.pathname;
   data-transparent={transparent ? "true" : "false"}
 >
   <div class="jm-nav-bar container-jm flex items-center justify-between h-20">
-    <a href="/" class="font-display text-2xl font-semibold text-navy tracking-tight" data-nav-logo>
-      JM Travels
+    <a href="/" class="flex items-center gap-2.5 text-navy" data-nav-logo>
+      <img src="/images/logo/jm-travels-mark-navy.png" alt="" class="h-8 w-auto logo-mark-navy" />
+      <img src="/images/logo/jm-travels-mark-white.png" alt="" class="h-8 w-auto logo-mark-white hidden" />
+      <span class="font-display text-2xl font-semibold tracking-tight">JM Travels</span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
@@ -91,6 +93,8 @@ const path = Astro.url.pathname;
   .jm-nav-transparent:not([data-scrolled="true"]) .jm-nav-bar [data-nav-logo] {
     color: var(--color-white);
   }
+  .jm-nav-transparent:not([data-scrolled="true"]) .logo-mark-navy { display: none; }
+  .jm-nav-transparent:not([data-scrolled="true"]) .logo-mark-white { display: block; }
 </style>
 
 <script>

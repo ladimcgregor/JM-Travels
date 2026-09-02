@@ -11,16 +11,34 @@ const channels = [
   { label: "Instagram", value: site.social.instagramHandle, href: site.social.instagram },
   { label: "TikTok", value: site.social.tiktokHandle, href: site.social.tiktok },
 ];
+
+const { latitude, longitude } = site.contact;
+const mapBbox = `${longitude - 0.15}%2C${latitude - 0.1}%2C${longitude + 0.15}%2C${latitude + 0.1}`;
+const mapEmbedSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBbox}&layer=mapnik&marker=${latitude}%2C${longitude}`;
+const directionsHref = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: site.name,
+  email: site.contact.email,
+  telephone: site.contact.phoneDisplay,
+  areaServed: site.contact.location,
+  address: { "@type": "PostalAddress", addressLocality: site.contact.location },
+  geo: { "@type": "GeoCoordinates", latitude, longitude },
+  sameAs: [site.social.instagram, site.social.tiktok],
+};
 ---
 
 <BaseLayout
   title="Contact"
   description="Get in touch with JM Travels via WhatsApp, phone, email or the contact form."
+  structuredData={structuredData}
 >
   <PageHero
     eyebrow="Contact"
     title="Tell us about your trip."
-    image="https://picsum.photos/seed/jm-hero-contact/1920/1100"
+    image="/images/photos/lagos-street-2.jpg"
     imageAlt="JM Travels ready to help plan your trip"
   >
     <p class="text-body-l text-white/85 mt-4">{site.contact.location}</p>
@@ -37,9 +55,31 @@ const channels = [
             </a>
           </div>
         ))}
+        <p class="text-body-s text-slate pt-2">
+          We typically reply within {site.responseTimePromise}.
+        </p>
       </div>
       <div class="lg:col-span-2">
         <EnquiryForm client:visible variant="contact" />
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 md:pb-24">
+    <div class="container-jm">
+      <div class="card-surface shadow-soft overflow-hidden">
+        <iframe
+          src={mapEmbedSrc}
+          class="w-full h-80 block border-0"
+          loading="lazy"
+          title={`Map showing JM Travels' service area in ${site.contact.location}`}
+        ></iframe>
+        <div class="p-5 flex flex-wrap items-center justify-between gap-3">
+          <p class="text-body-s text-slate">{site.contact.location}</p>
+          <a href={directionsHref} target="_blank" rel="noopener noreferrer" class="link-editorial text-body-s">
+            Get directions →
+          </a>
+        </div>
       </div>
     </div>
   </section>
