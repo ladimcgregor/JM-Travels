@@ -15,7 +15,7 @@ export const faqs: Faq[] = [
     category: "General",
     question: "Is JM Travels new?",
     answer:
-      "Yes, JM Travels is a new business, built on real, practical travel experience. Jemima, our Lead Traveller, has travelled across 10 countries and planned trips for family and friends. We're upfront about being early, and we're building our track record deliberately, one trip at a time.",
+      "JM Travels is personally led by Jemima, our Lead Traveller, who has travelled across 10 countries and planned trips for family and friends long before turning it into a service. Every itinerary draws on that same hands-on experience, not a call-centre script, and we're building the track record to match, one trip at a time.",
   },
   {
     category: "Organised Trips",
