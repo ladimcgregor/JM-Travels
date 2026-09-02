@@ -11,7 +11,10 @@
  *   UI/Body - Onest (variable). Navigation, body copy, forms, buttons, cards, metadata.
  *
  * Palette is intentionally restrained: navy for authority, warm white/sand for a premium
- * canvas, muted gold as an accent only (never a dominant fill).
+ * canvas, an ember terracotta as an accent only (never a dominant fill). Kept on the
+ * `--color-gold` / `--color-gold-light` tokens for a minimal diff, but the hue is a
+ * vivid burnt-orange coral now, not the muted tan-gold that read as a generic
+ * AI-template accent.
  */
 
 @theme {
@@ -20,8 +23,8 @@
   --color-navy-dark: #081c2c;
   --color-warm-white: #fcfaf6;
   --color-sand: #f4efe6;
-  --color-gold: #b8955a;
-  --color-gold-light: #d8c29a;
+  --color-gold: #bf4c22;
+  --color-gold-light: #e89273;
   --color-charcoal: #263238;
   --color-slate: #52606d;
   --color-mist: #e8e2d8;
@@ -360,7 +363,7 @@
   .field-input:focus {
     outline: none;
     border-color: var(--color-gold);
-    box-shadow: 0 0 0 3px rgba(184, 149, 90, 0.18);
+    box-shadow: 0 0 0 3px rgba(191, 76, 34, 0.18);
   }
   .field-error {
     margin-top: 6px;

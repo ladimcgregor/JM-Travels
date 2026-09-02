@@ -6,8 +6,8 @@ colors:
   navy-dark: "#081C2C"
   warm-white: "#FCFAF6"
   sand: "#F4EFE6"
-  gold: "#B8955A"
-  gold-light: "#D8C29A"
+  gold: "#BF4C22"
+  gold-light: "#E89273"
   charcoal: "#263238"
   slate: "#52606D"
   mist: "#E8E2D8"
@@ -91,7 +91,7 @@ cards, identical icon-grid cards). Alive and current does not mean loud: energy 
 and voice, not from saturation or clutter.
 
 **Key Characteristics:**
-- Warm navy-and-sand editorial canvas with gold used sparingly, never as a dominant fill
+- Warm navy-and-sand editorial canvas with an ember terracotta accent used sparingly, never as a dominant fill
 - A characterful display grotesque (Bricolage Grotesque) for headlines, a clean sans (Onest) for everything functional
 - Photography-led: every major section carries real imagery, never a bare text block
 - Every touchable surface (card, circle, image, button) responds to the cursor with a soft scale-up
@@ -100,15 +100,18 @@ and voice, not from saturation or clutter.
 ## 2. Colors
 
 The palette is deliberately narrow: a deep navy for authority, a warm off-white/sand canvas for premium calm,
-and gold used only as an accent, never a fill.
+and a vivid ember terracotta used only as an accent, never a fill.
 
 ### Primary
 - **JM Navy** (#102A43): headers, primary buttons, dark section backgrounds, primary text on light surfaces.
 - **Deep Navy** (#081C2C): hero/CTA overlays, the darkest anchor surface, primary-button hover state.
 
 ### Secondary
-- **Muted Gold** (#B8955A): the one accent color. Eyebrow labels, rules, hover states, icons, the gold CTA variant. Never a background fill larger than a button.
-- **Light Gold** (#D8C29A): gold-on-dark hover state, soft accent borders.
+- **Ember** (#BF4C22): the one accent color. A vivid burnt-orange terracotta, not a muted tan-gold (the previous
+  #B8955A read as a generic AI-template luxury accent and was replaced). Category tags, numbered markers, rules,
+  hover states, icons, the "gold" CTA variant (kept on that name for historical continuity in code/props). Never
+  a background fill larger than a button.
+- **Light Ember** (#E89273): ember-on-dark hover state, soft accent borders, selection highlight.
 
 ### Neutral
 - **Warm White** (#FCFAF6): primary page background.
@@ -119,7 +122,7 @@ and gold used only as an accent, never a fill.
 - **White** (#FFFFFF): text on dark/navy surfaces, card surfaces.
 
 ### Named Rules
-**The One Accent Rule.** Gold never fills more than a button or a thin rule. If gold is covering more than a small fraction of the viewport, it has become a fill color and needs to be replaced with navy, sand, or photography.
+**The One Accent Rule.** Ember never fills more than a button or a thin rule. If ember is covering more than a small fraction of the viewport, it has become a fill color and needs to be replaced with navy, sand, or photography.
 
 ## 3. Typography
 
@@ -140,7 +143,7 @@ more; the display face never carries dense information and the body face never c
 - **Label** (700, 12px, 0.14em tracking, uppercase): eyebrows, metadata, badges.
 
 ### Named Rules
-**The No-Dash Rule.** Eyebrow labels are a colored word or short phrase alone (`SERVICES`, `MEET THE LEAD TRAVELLER`), never prefixed with a decorative rule character (`——`, `--`, em dash). A leading dash before a label is a template tell; drop it and let the gold color and letter-spacing carry the label instead.
+**The No-Dash Rule (historical).** The site used to pair small tracked-caps eyebrow labels above section headings; eyebrows have since been removed site-wide (they read as an AI-template tell on their own) and headings now carry section identity unaided. This rule survives as a guard: if a labeled tag is ever reintroduced, it must never be prefixed with a decorative rule character (`——`, `--`, em dash).
 
 ## 4. Elevation
 
@@ -159,7 +162,7 @@ background, not from layered drop shadows.
 ### Buttons
 - **Shape:** 8px radius, 14px vertical / 24px horizontal padding, 14px bold label text.
 - **Primary:** navy fill, white text; hover deepens to Deep Navy (#081C2C).
-- **Gold:** gold fill, deep-navy text; hover lightens to Light Gold (#D8C29A). Reserved for the single strongest CTA on a dark section.
+- **Gold (Ember):** ember fill (#BF4C22), deep-navy text; hover lightens to Light Ember (#E89273). Reserved for the single strongest CTA on a dark section. Kept on the "gold" name in code/props for continuity.
 - **Secondary:** transparent fill, navy border and text; hover fills navy with white text.
 - **WhatsApp:** #25D366 fill, dark-green text; the one deliberate brand-color exception, used only for WhatsApp CTAs.
 
@@ -171,7 +174,7 @@ background, not from layered drop shadows.
 
 ### Inputs / Fields
 - **Style:** warm-white background, 1px Mist border, 8px radius, 16px type.
-- **Focus:** border shifts to gold plus a soft gold glow ring (`box-shadow: 0 0 0 3px rgba(184,149,90,0.18)`).
+- **Focus:** border shifts to ember plus a soft ember glow ring (`box-shadow: 0 0 0 3px rgba(191,76,34,0.18)`).
 - **Error:** error-red border plus adjacent text, never color alone.
 
 ### Navigation
@@ -189,9 +192,8 @@ founder/Lead Traveller portrait, and the referral avatar cluster.
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep gold to a single accent role: eyebrows, one CTA variant, rules, hover states.
+- **Do** keep ember to a single accent role: category tags/markers, one CTA variant, rules, hover states.
 - **Do** give every card, circle, and standalone image a subtle cursor-reactive scale-up (`transform: scale(1.04)` range) on hover, eased with `ease-out-quart` or similar, never elastic or bouncy.
-- **Do** write eyebrow labels as a plain gold word or short phrase, letter-spaced and uppercase, with no leading dash or rule character.
 - **Do** refer to Jemima as "the Lead Traveller," never "the Founder," across copy, headings, and page titles.
 - **Do** lead every major section with real photography or a photographic collage; a bare text block is a failure state, not a placeholder.
 
