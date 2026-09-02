@@ -210,21 +210,6 @@
     max-width: 68ch;
   }
 
-  /* ---- Eyebrow ----
-     Navy, not gold: an accent-coloured tracked label is a common
-     AI-generated-site tell. No leading rule/dash either, see DESIGN.md
-     "No-Dash Rule". Dark-background instances override to white/85 inline. */
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-navy);
-  }
-
   /* ---- Buttons ----
      A named, deliberate "pop" style: a solid 2px border plus a hard, unblurred
      offset shadow. Hover lifts the button away from its shadow; a press collapses
@@ -422,11 +407,11 @@
     width: max-content;
   }
 
-  /* Slow, continuous ambient movement for full-bleed hero photography (not
+  /* Continuous ambient movement for full-bleed hero photography (not
      scroll-linked, just always drifting) so the hero reads as alive rather
      than a static poster. Respects prefers-reduced-motion below. */
   .hero-kenburns {
-    animation: hero-kenburns 24s ease-in-out infinite alternate;
+    animation: hero-kenburns 11s ease-in-out infinite alternate;
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-kenburns { animation: none; }
@@ -435,5 +420,5 @@
 
 @keyframes hero-kenburns {
   0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.12) translate(-1.5%, -1%); }
+  100% { transform: scale(1.18) translate(-2.5%, -1.5%); }
 }

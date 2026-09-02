@@ -45,13 +45,16 @@ const structuredData = {
     <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/30 to-transparent"></div>
     <div class="container-jm relative pb-12 text-white">
       <Breadcrumbs light items={[{ label: "Trips", href: "/trips" }, { label: title }]} />
-      <p class="eyebrow !text-white/85 mt-4">{destination}</p>
-      <h1 class="text-display-l mt-3 text-white">{title}</h1>
+      <h1 class="text-display-xl mt-4 text-white">{title}</h1>
     </div>
   </section>
 
   <section class="py-10 border-b border-mist">
     <div class="container-jm flex flex-wrap gap-8">
+      <div>
+        <p class="text-label text-slate">Destination</p>
+        <p class="text-body font-semibold text-navy mt-1">{destination}</p>
+      </div>
       <div>
         <p class="text-label text-slate">Duration</p>
         <p class="text-body font-semibold text-navy mt-1">{duration}</p>

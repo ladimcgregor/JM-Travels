@@ -26,7 +26,6 @@ const buildingBlocks = [
   description="Meet Jemima, the Lead Traveller behind JM Travels, and learn how practical travel experience across 10 countries became a travel planning business."
 >
   <PageHero
-    eyebrow="Our Story"
     title="Why JM Travels was created."
     image="/images/photos/lagos-street.jpg"
     imageAlt="The beginning of the JM Travels story"
@@ -51,8 +50,7 @@ const buildingBlocks = [
         />
       </div>
       <div class="reveal">
-        <p class="eyebrow">Meet the Lead Traveller</p>
-        <h2 class="text-h1 mt-4">{site.founder.name}</h2>
+        <h2 class="text-display-l">Meet {site.founder.name}, your Lead Traveller.</h2>
         <p class="text-body-l text-slate mt-6">
           Jemima has travelled across 10 countries and planned trips for family and friends: real, practical
           experience with the decisions involved in travel planning, from destination selection and itinerary
@@ -70,8 +68,7 @@ const buildingBlocks = [
   <section class="py-16 md:py-24">
     <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
       <div class="reveal">
-        <p class="eyebrow">The Travel Experience</p>
-        <h2 class="text-h1 mt-4">10 countries. Countless small lessons.</h2>
+        <h2 class="text-display-l">10 countries. Countless small lessons.</h2>
         <p class="text-body-l text-slate mt-6">
           Travelling across 10 countries doesn't make anyone an expert on every destination, but it does build
           practical, transferable judgement: how to sequence a trip, what's worth the time, how to plan around a
@@ -95,8 +92,7 @@ const buildingBlocks = [
 
   <section class="py-16 md:py-24 bg-navy-dark text-white">
     <div class="container-jm max-w-3xl">
-      <p class="eyebrow !text-white/85">The Philosophy</p>
-      <h2 class="text-h1 mt-4 text-white">Travel is better when the details are thoughtfully planned.</h2>
+      <h2 class="text-display-l text-white">Travel is better when the details are thoughtfully planned.</h2>
       <p class="text-body-l text-white/80 mt-6">
         Most people don't struggle to want to travel; they struggle to plan it with confidence. JM Travels exists
         to close that gap: not by pretending to have decades of history, but by being honest about where the
@@ -107,8 +103,7 @@ const buildingBlocks = [
 
   <section class="py-16 md:py-24">
     <div class="container-jm">
-      <p class="eyebrow">Our Approach</p>
-      <h2 class="text-h1 mt-4 max-w-2xl">Five steps, applied to every trip we plan.</h2>
+      <h2 class="text-display-l max-w-2xl">Five steps, applied to every trip we plan.</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
         {approach.map((item, i) => (
           <div class="reveal">
@@ -128,8 +123,7 @@ const buildingBlocks = [
 
   <section class="py-16 md:py-24 bg-sand">
     <div class="container-jm">
-      <p class="eyebrow">Building Through Every Journey</p>
-      <h2 class="text-h1 mt-4 max-w-2xl">Every trip contributes to something bigger than one customer.</h2>
+      <h2 class="text-display-l max-w-2xl">Every trip contributes to something bigger than one customer.</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-12">
         {buildingBlocks.map((item) => (
           <div class="card-surface shadow-soft overflow-hidden reveal group">

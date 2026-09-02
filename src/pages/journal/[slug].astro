@@ -36,9 +36,8 @@ const structuredData = {
   <article class="py-16 md:py-24">
     <div class="container-jm max-w-3xl">
       <Breadcrumbs items={[{ label: "Journal", href: "/journal" }, { label: title }]} />
-      <p class="eyebrow mt-6">{category}</p>
-      <h1 class="text-h1 mt-4">{title}</h1>
-      <p class="text-body-s text-slate mt-3">{author} &middot; {formattedDate}</p>
+      <h1 class="text-display-l mt-6">{title}</h1>
+      <p class="text-body-s text-slate mt-3">{category} &middot; {author} &middot; {formattedDate}</p>
 
       <img
         src={heroImage}
