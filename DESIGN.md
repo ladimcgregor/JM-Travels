@@ -160,7 +160,8 @@ background, not from layered drop shadows.
 ## 5. Components
 
 ### Buttons
-- **Shape:** 8px radius, 14px vertical / 24px horizontal padding, 14px bold label text.
+- **Shape:** fully rounded pill (`border-radius: 9999px`), 14px vertical / 28px horizontal padding, 14px bold label text. Flat fill or a bordered outline, no drop shadow or offset "pop" shadow — that read as a dated template device and was dropped in favor of the same cursor-reactive scale used on cards.
+- **Hover/Press:** `scale(1.04)` on hover, `scale(0.97)` on press (the button's own version of the Cursor-Reactive Surface below), alongside a fill/border color shift per variant. No lift-and-shadow trick.
 - **Primary:** navy fill, white text; hover deepens to Deep Navy (#081C2C).
 - **Gold (Ember):** ember fill (#BF4C22), deep-navy text; hover lightens to Light Ember (#E89273). Reserved for the single strongest CTA on a dark section. Kept on the "gold" name in code/props for continuity.
 - **Secondary:** transparent fill, navy border and text; hover fills navy with white text.
@@ -187,7 +188,7 @@ Every card, circular photo, and standalone image in the system scales up subtly 
 cursor moves over it, on a fast, exponential ease-out with no bounce. This is the primary way the brand feels
 "alive" without adding visual noise: no color changes, no new elements, just a soft, immediate physical response
 to attention. Applies to: bento/service cards, trip and destination cards, circular step/process photos, the
-founder/Lead Traveller portrait, and the referral avatar cluster.
+founder/Lead Traveller portrait, the referral avatar cluster, and (at a slightly higher 1.04x) every button.
 
 ## 6. Do's and Don'ts
 

@@ -214,11 +214,12 @@
   }
 
   /* ---- Buttons ----
-     A named, deliberate "pop" style: a solid 2px border plus a hard, unblurred
-     offset shadow. Hover lifts the button away from its shadow; a press collapses
-     it flat. This is the brand's one moment of playfulness, distinctive rather
-     than a flat-fill-with-fade-on-hover button. See DESIGN.md "Cursor-Reactive
-     Surface". No blur, no gradient, no glassmorphism. */
+     Flat, fully-rounded pill buttons: a solid fill (or a bordered outline for
+     the secondary variant), no shadow trickery. The brand's "alive" moment
+     comes from the same cursor-reactive scale used on cards and images (see
+     DESIGN.md "Cursor-Reactive Surface"), not from an offset hard-shadow —
+     that read as a dated template device. No blur, no gradient, no
+     glassmorphism. */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -228,26 +229,22 @@
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.01em;
-    border-radius: var(--radius-sm);
-    padding: 13px 24px;
+    border-radius: 9999px;
+    padding: 14px 28px;
     border: 2px solid transparent;
-    box-shadow: 4px 4px 0 0 var(--btn-shadow, var(--color-gold));
-    transition: background-color 220ms var(--ease-editorial), color 220ms var(--ease-editorial), border-color 220ms var(--ease-editorial), transform 220ms var(--ease-out-expo), box-shadow 220ms var(--ease-out-expo);
+    transition: background-color 220ms var(--ease-editorial), color 220ms var(--ease-editorial), border-color 220ms var(--ease-editorial), transform 300ms var(--ease-out-expo);
     white-space: nowrap;
   }
   @media (hover: hover) and (pointer: fine) {
     .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 0 var(--btn-shadow, var(--color-gold));
+      transform: scale(1.04);
     }
   }
   .btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0 0 0 0 var(--btn-shadow, var(--color-gold));
+    transform: scale(0.97);
   }
 
   .btn-primary {
-    --btn-shadow: var(--color-gold);
     background: var(--color-navy);
     border-color: var(--color-navy);
     color: var(--color-white);
@@ -255,7 +252,6 @@
   .btn-primary:hover { background: var(--color-navy-dark); border-color: var(--color-navy-dark); }
 
   .btn-secondary {
-    --btn-shadow: var(--color-navy);
     background: var(--color-warm-white);
     color: var(--color-navy);
     border-color: var(--color-navy);
@@ -263,20 +259,18 @@
   .btn-secondary:hover { background: var(--color-navy); color: var(--color-white); }
 
   .btn-gold {
-    --btn-shadow: var(--color-navy);
     background: var(--color-gold);
-    border-color: var(--color-navy-dark);
+    border-color: var(--color-gold);
     color: var(--color-navy-dark);
   }
-  .btn-gold:hover { background: var(--color-gold-light); }
+  .btn-gold:hover { background: var(--color-gold-light); border-color: var(--color-gold-light); }
 
   .btn-whatsapp {
-    --btn-shadow: #0b3d20;
     background: #25d366;
-    border-color: #0b3d20;
+    border-color: #25d366;
     color: #0b3d20;
   }
-  .btn-whatsapp:hover { background: #1ebc59; }
+  .btn-whatsapp:hover { background: #1ebc59; border-color: #1ebc59; }
 
   /* ---- Editorial link ---- */
   .link-editorial {
