@@ -20,6 +20,5 @@ travelTips:
   - "Book Winelands tastings in advance during peak season"
   - "Weather can shift quickly, so pack layers even in summer"
   - "Use a trusted transfer provider for airport and evening travel"
-founderVisited: false
 order: 3
 ---

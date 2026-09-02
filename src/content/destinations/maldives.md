@@ -18,6 +18,5 @@ visaInformation: "Most nationalities receive a free 30-day visa-on-arrival for t
 travelTips:
   - "Resort transfers (speedboat or seaplane) can be a significant part of the budget, so factor this in early"
   - "Alcohol is generally limited to resort islands, not local islands"
-founderVisited: false
 order: 4
 ---

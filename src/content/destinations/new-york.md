@@ -19,6 +19,5 @@ visaInformation: "US visa requirements vary significantly by nationality, includ
 travelTips:
   - "Book popular restaurants and Broadway tickets well in advance"
   - "The subway is the fastest way to move around; a weekly MetroCard is usually worth it"
-founderVisited: false
 order: 8
 ---

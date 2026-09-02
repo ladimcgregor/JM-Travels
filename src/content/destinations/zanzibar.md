@@ -20,6 +20,5 @@ travelTips:
   - "Dress modestly in Stone Town out of respect for local custom"
   - "Book beachfront accommodation slightly outside Stone Town for quieter evenings"
   - "Carry small notes, since card acceptance is inconsistent outside larger hotels"
-founderVisited: false
 order: 1
 ---

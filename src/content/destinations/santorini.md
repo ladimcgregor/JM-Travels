@@ -19,6 +19,5 @@ visaInformation: "Santorini falls under the Schengen Area, which requires a Sche
 travelTips:
   - "Book caldera-view accommodation well in advance; it sells out first"
   - "Ferries and flights get fully booked in peak season, so lock in travel dates early"
-founderVisited: false
 order: 6
 ---

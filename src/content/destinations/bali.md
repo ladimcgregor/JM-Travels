@@ -19,6 +19,5 @@ visaInformation: "Many nationalities can obtain a Visa on Arrival for Indonesia 
 travelTips:
   - "Traffic between regions (Seminyak, Ubud, Uluwatu) can take longer than expected, so build in buffer time"
   - "Respect temple dress codes (sarongs are often provided or required)"
-founderVisited: false
 order: 7
 ---

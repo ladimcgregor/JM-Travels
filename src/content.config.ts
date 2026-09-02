@@ -42,7 +42,6 @@ const destinations = defineCollection({
     thingsToDo: z.array(z.string()).default([]),
     visaInformation: z.string().optional(),
     travelTips: z.array(z.string()).default([]),
-    founderVisited: z.boolean().default(false),
     order: z.number().default(0),
   }),
 });

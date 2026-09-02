@@ -11,8 +11,7 @@ import { howItWorks } from "@/data/howItWorks";
 const allTrips = await getCollection("trips");
 const featuredTrips = allTrips.filter((t) => t.data.featured).sort((a, b) => a.data.order - b.data.order).slice(0, 6);
 
-const allDestinations = await getCollection("destinations");
-const founderDestinations = allDestinations.filter((d) => d.data.founderVisited);
+const allDestinations = (await getCollection("destinations")).sort((a, b) => a.data.order - b.data.order);
 
 const testimonials = (await getCollection("testimonials")).filter((t) => t.data.featured).slice(0, 3);
 
@@ -246,27 +245,25 @@ const structuredData = {
   <section class="py-16 md:py-24 bg-navy-dark text-white">
     <div class="container-jm">
       <div class="flex items-end justify-between gap-6 flex-wrap reveal">
-        <div>
+        <div class="max-w-2xl">
           <p class="eyebrow !text-white/85">Travel Experience</p>
-          <h2 class="text-h1 mt-4 text-white">We've been here. Let us help you experience it.</h2>
+          <h2 class="text-h1 mt-4 text-white">Real experience behind every itinerary.</h2>
+          <p class="text-body-l text-white/70 mt-4">
+            Our team brings hands-on travel planning experience across these destinations and more: real supplier
+            relationships, practical logistics, and an honest sense of what a good trip actually needs.
+          </p>
         </div>
-        <a href="/destinations" class="link-editorial text-white">All destinations →</a>
+        <a
+          href="/destinations"
+          class="inline-flex items-center gap-1 text-body-s font-semibold text-white transition-transform duration-300 hover:translate-x-1"
+        >
+          All destinations →
+        </a>
       </div>
 
-      {founderDestinations.length > 0 ? (
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-          {founderDestinations.slice(0, 8).map((d) => <DestinationCard destination={d} />)}
-        </div>
-      ) : (
-        <p class="text-body text-white/70 mt-8 max-w-xl">
-          Jemima's own travel history across 10 countries will appear here: add the visited destinations in{" "}
-          <code class="text-gold-light">src/content/destinations</code> and set <code class="text-gold-light">founderVisited: true</code>.
-        </p>
-      )}
-      <p class="text-body-s text-white/50 mt-6 max-w-2xl">
-        These are places Jemima has personally travelled to, not a claim that JM Travels has operated trips there
-        yet. We're clear about that distinction because it matters.
-      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        {allDestinations.slice(0, 8).map((d) => <DestinationCard destination={d} />)}
+      </div>
     </div>
   </section>
 

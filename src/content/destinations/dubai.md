@@ -20,6 +20,5 @@ travelTips:
   - "Summer heat is intense, so plan outdoor activities for early morning or evening"
   - "Dress codes apply in malls, mosques and some public areas"
   - "Public transport (Metro) is efficient and inexpensive for getting around the city"
-founderVisited: false
 order: 2
 ---

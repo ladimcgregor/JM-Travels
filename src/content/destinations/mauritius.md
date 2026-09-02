@@ -18,6 +18,5 @@ visaInformation: "Many nationalities can enter Mauritius visa-free or with visa-
 travelTips:
   - "Rent a car or arrange transfers in advance, as public transport is limited outside main towns"
   - "The east coast tends to be calmer for swimming than the west"
-founderVisited: false
 order: 5
 ---
