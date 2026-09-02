@@ -408,7 +408,7 @@
      scroll-linked, just always drifting) so the hero reads as alive rather
      than a static poster. Respects prefers-reduced-motion below. */
   .hero-kenburns {
-    animation: hero-kenburns 11s ease-in-out infinite alternate;
+    animation: hero-kenburns 8s ease-in-out infinite alternate;
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-kenburns { animation: none; }
