@@ -2,75 +2,225 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
 
-const lastUpdated = "1 September 2026";
+const lastUpdated = "2 September 2026";
+
+const sections = [
+  { id: "who-we-are", label: "1. Who we are" },
+  { id: "scope", label: "2. Scope of this policy" },
+  { id: "information-we-collect", label: "3. Information we collect" },
+  { id: "how-we-collect", label: "4. How we collect information" },
+  { id: "legal-basis", label: "5. Our legal basis for processing" },
+  { id: "how-we-use", label: "6. How we use your information" },
+  { id: "visa-documentation", label: "7. Visa and travel documentation" },
+  { id: "sharing", label: "8. Sharing and disclosure of information" },
+  { id: "international-transfers", label: "9. International data transfers" },
+  { id: "cookies", label: "10. Cookies and analytics" },
+  { id: "retention", label: "11. Data retention" },
+  { id: "security", label: "12. Data security" },
+  { id: "childrens-privacy", label: "13. Children's privacy" },
+  { id: "your-rights", label: "14. Your rights" },
+  { id: "third-party-links", label: "15. Third-party links" },
+  { id: "changes", label: "16. Changes to this policy" },
+  { id: "contact", label: "17. Contact us" },
+];
 ---
 
-<BaseLayout title="Privacy Policy" description="How JM Travels collects, uses and protects your personal information." noindex={false}>
+<BaseLayout title="Privacy Policy" description="How JM Travels collects, uses, discloses and protects your personal information." noindex={false}>
   <section class="py-16 md:py-24">
     <div class="container-jm max-w-3xl prose-copy space-y-6 text-body text-charcoal">
       <h1 class="text-display-l text-navy">Privacy Policy</h1>
       <p class="text-body-s text-slate">Last updated: {lastUpdated}</p>
 
       <p>
-        This Privacy Policy explains how {site.legalName} ("JM Travels", "we", "us") collects, uses, discloses and
-        protects personal information when you use our website or contact us about our services.
+        {site.legalName} ("JM Travels", "we", "us" or "our") respects your privacy and is committed to protecting
+        the personal information of everyone who visits this website or engages our travel planning, coordination
+        and consulting services. This Privacy Policy explains what information we collect, why we collect it, how
+        we use and share it, and the choices and rights available to you.
+      </p>
+      <p>
+        By using this website, submitting a form, or engaging our services, you acknowledge that you have read and
+        understood this Privacy Policy. If you do not agree with any part of it, please do not use this website or
+        submit your information to us.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Information we collect</h2>
-      <p>We collect information you provide directly to us, such as when you submit an enquiry, bespoke trip request, consultation request or referral, including:</p>
+      <nav aria-label="Table of contents" class="card-surface shadow-soft p-6">
+        <p class="text-label text-slate mb-3">On this page</p>
+        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 list-none pl-0 text-body-s">
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`} class="link-editorial">{s.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <h2 id="who-we-are" class="text-h3 text-navy pt-4">1. Who we are</h2>
+      <p>
+        JM Travels is a travel planning, coordination and consulting business operating out of{" "}
+        {site.contact.location}. For the purposes of applicable data protection law, including the Nigeria Data
+        Protection Act 2023 ("NDPA"), JM Travels is the data controller responsible for the personal information
+        described in this policy.
+      </p>
+
+      <h2 id="scope" class="text-h3 text-navy pt-4">2. Scope of this policy</h2>
+      <p>
+        This policy applies to personal information we collect through this website (including enquiry, bespoke
+        trip, consultation, visa assistance and referral forms), through WhatsApp, email or phone communication with
+        us, and in the course of planning, booking and coordinating a trip on your behalf. It does not apply to
+        third-party suppliers, websites or platforms we may refer you to, which maintain their own privacy practices.
+      </p>
+
+      <h2 id="information-we-collect" class="text-h3 text-navy pt-4">3. Information we collect</h2>
+      <p>We collect the following categories of personal information:</p>
       <ul class="list-disc pl-5 space-y-1">
-        <li>Name, email address, phone number and WhatsApp number</li>
-        <li>Travel preferences, destinations, dates and budget information</li>
-        <li>Any other information you choose to share with us in a message or form</li>
+        <li><strong>Identity and contact information:</strong> full name, email address, phone number and WhatsApp number.</li>
+        <li><strong>Travel details:</strong> destinations, travel dates, number and type of travellers, budget range, accommodation and activity preferences, and any special requirements you disclose.</li>
+        <li><strong>Travel documentation:</strong> where relevant to a specific request (in particular visa assistance), passport details, nationality, and other documentation you choose to share with us.</li>
+        <li><strong>Communications:</strong> the content of enquiries, messages and any other correspondence you send us through the website, WhatsApp, email or phone.</li>
+        <li><strong>Referral information:</strong> if you refer someone to us, the name and contact details of the person you refer.</li>
+        <li><strong>Technical and usage information:</strong> pages visited, referral source, approximate location, device and browser type, and similar data collected automatically via cookies or analytics tools where enabled. See our{" "}
+          <a href="/cookie-policy" class="link-editorial">Cookie Policy</a> for details.
+        </li>
       </ul>
       <p>
-        We also collect limited technical information automatically, such as pages visited, referral source and
-        general device/browser information, via analytics tools.
+        We do not knowingly collect payment card details through this website. Where payment is required for a
+        confirmed trip, this is arranged separately and directly with the relevant supplier or through a
+        payment channel communicated to you in your proposal, not stored by JM Travels.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">How we use information</h2>
+      <h2 id="how-we-collect" class="text-h3 text-navy pt-4">4. How we collect information</h2>
+      <p>We collect personal information when you:</p>
       <ul class="list-disc pl-5 space-y-1">
-        <li>To respond to enquiries and provide requested services</li>
-        <li>To plan, coordinate and communicate about your trip</li>
-        <li>To improve our website, services and content</li>
-        <li>To understand which channels and content generate genuine interest</li>
+        <li>Submit a form on this website (bespoke trip, contact, consultation, visa assistance or referral);</li>
+        <li>Message us directly via WhatsApp, email or phone;</li>
+        <li>Browse this website, via cookies and similar technologies where enabled; or</li>
+        <li>Provide documentation or information to us in the course of planning and coordinating your trip.</li>
       </ul>
 
-      <h2 class="text-h3 text-navy pt-4">Visa and travel documentation</h2>
+      <h2 id="legal-basis" class="text-h3 text-navy pt-4">5. Our legal basis for processing</h2>
+      <p>Depending on the circumstances, we process your personal information on one or more of the following bases:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Consent:</strong> where you have voluntarily provided information to us, such as by submitting a form.</li>
+        <li><strong>Performance of a contract:</strong> where processing is necessary to respond to your enquiry or to plan, coordinate and deliver the travel services you have requested.</li>
+        <li><strong>Legitimate interests:</strong> where processing helps us operate, secure and improve our website and services, provided this does not override your rights and interests.</li>
+        <li><strong>Legal obligation:</strong> where we are required to process or retain information to comply with applicable law, including immigration, tax or record-keeping requirements.</li>
+      </ul>
+
+      <h2 id="how-we-use" class="text-h3 text-navy pt-4">6. How we use your information</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>To respond to enquiries and provide the specific service requested (organised trip, bespoke travel, visa assistance, consultation or referral follow-up);</li>
+        <li>To plan, coordinate, confirm and communicate with you about your trip, including with relevant third-party suppliers;</li>
+        <li>To send you service-related communications, such as proposals, itinerary updates and responses to your requests;</li>
+        <li>To maintain records for legal, accounting, tax and dispute-resolution purposes;</li>
+        <li>To understand how visitors use our website and which content or channels are genuinely useful, so we can improve them; and</li>
+        <li>To detect, prevent and address fraud, misuse of our forms, or security issues (for example, automated spam submissions).</li>
+      </ul>
+      <p>We do not use your personal information for automated decision-making that produces legal or similarly significant effects on you.</p>
+
+      <h2 id="visa-documentation" class="text-h3 text-navy pt-4">7. Visa and travel documentation</h2>
       <p>
-        Where visa assistance is requested, we may need to review certain travel documentation as part of that
-        support. We only collect what is necessary for the specific service requested, and we do not request
-        sensitive documents without a clear, specific business reason.
+        Where visa assistance is requested, we may need to review certain travel documentation, which may include
+        passport details and other identifying information, as part of that support. We only collect what is
+        reasonably necessary for the specific service requested, we do not request sensitive documents without a
+        clear business reason, and we do not retain copies of such documentation for longer than necessary to
+        provide the assistance requested (see{" "}
+        <a href="#retention" class="link-editorial">Section 11, Data retention</a>).
+      </p>
+      <p>
+        JM Travels does not issue visas, does not act as an immigration authority, and cannot guarantee visa
+        approval. Final decisions rest solely with the relevant embassy, consulate or immigration authority.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Sharing of information</h2>
+      <h2 id="sharing" class="text-h3 text-navy pt-4">8. Sharing and disclosure of information</h2>
+      <p>We do not sell, rent or trade your personal information. We may share necessary information with:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Travel suppliers:</strong> hotels, airlines, transfer providers, activity operators and visa support partners, strictly to the extent necessary to coordinate the travel services you have requested.</li>
+        <li><strong>Service providers:</strong> third parties who support our operations, such as our website form processor (Web3Forms), website hosting provider (Vercel), and, where enabled, analytics providers (for example, Google Analytics). These providers process information on our behalf and are not authorised to use it for their own purposes.</li>
+        <li><strong>Legal and regulatory authorities:</strong> where disclosure is required by law, regulation, legal process, or to protect the rights, property or safety of JM Travels, our customers, or others.</li>
+        <li><strong>A successor entity:</strong> in the event of a merger, acquisition or sale of business assets, subject to equivalent protection of your information.</li>
+      </ul>
+
+      <h2 id="international-transfers" class="text-h3 text-navy pt-4">9. International data transfers</h2>
       <p>
-        We do not sell your personal information. We may share necessary details with third-party suppliers
-        (hotels, transfer providers, activity operators, visa support partners) strictly to coordinate the travel
-        services you have requested.
+        Because we coordinate international travel, your personal information may be transferred to and processed
+        by suppliers, service providers or authorities located outside Nigeria, including in the destination country
+        of your trip. Where we transfer personal information internationally, we take reasonable steps to ensure it
+        continues to be protected in a manner consistent with this policy and applicable law.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Data security</h2>
+      <h2 id="cookies" class="text-h3 text-navy pt-4">10. Cookies and analytics</h2>
       <p>
-        We take reasonable technical and organisational measures to protect personal information, including secure
-        form handling and restricted access to customer information. No method of transmission or storage is
-        completely secure, and we cannot guarantee absolute security.
+        This website uses cookies and similar technologies for essential functionality and, where enabled, to
+        understand how the site is used. Full details, including how to manage or disable cookies, are set out in
+        our <a href="/cookie-policy" class="link-editorial">Cookie Policy</a>.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Your rights</h2>
+      <h2 id="retention" class="text-h3 text-navy pt-4">11. Data retention</h2>
       <p>
-        You may request access to, correction of, or deletion of your personal information by contacting us at{" "}
-        <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+        We retain personal information for as long as necessary to fulfil the purposes described in this policy,
+        including to provide the services requested, maintain business and tax records, resolve disputes, and
+        comply with our legal obligations. Enquiry and form submissions that do not lead to an engagement are
+        retained only for a reasonable period to allow follow-up, after which they are deleted or anonymised.
+        Travel documentation shared for visa assistance is retained only for the duration of that specific request
+        and a reasonable period afterward, unless a longer period is required by law.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Contact</h2>
+      <h2 id="security" class="text-h3 text-navy pt-4">12. Data security</h2>
       <p>
-        Questions about this policy can be sent to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+        We take reasonable technical and organisational measures to protect personal information against
+        unauthorised access, loss, misuse or alteration, including secure form handling, encrypted transmission
+        (HTTPS), and restricted access to customer information on a need-to-know basis. No method of transmission
+        or storage is completely secure, and we cannot guarantee absolute security. If we become aware of a data
+        breach that poses a real risk of harm to you, we will notify you and the relevant authority as required by
+        applicable law.
+      </p>
+
+      <h2 id="childrens-privacy" class="text-h3 text-navy pt-4">13. Children's privacy</h2>
+      <p>
+        Our website and services are not directed at, and are not intended for use by, individuals under the age of
+        18. We do not knowingly collect personal information from children. If you believe a child has provided us
+        with personal information, please contact us so we can delete it.
+      </p>
+
+      <h2 id="your-rights" class="text-h3 text-navy pt-4">14. Your rights</h2>
+      <p>Subject to applicable law, you have the right to:</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Request confirmation of, and access to, the personal information we hold about you;</li>
+        <li>Request correction of inaccurate or incomplete personal information;</li>
+        <li>Request deletion of your personal information, subject to our legal and legitimate business retention needs;</li>
+        <li>Object to, or request that we restrict, certain processing of your personal information;</li>
+        <li>Withdraw consent at any time, where processing is based on consent, without affecting processing already carried out; and</li>
+        <li>Lodge a complaint with the Nigeria Data Protection Commission (NDPC), or another applicable supervisory authority, if you believe your data protection rights have been infringed.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, contact us at{" "}
+        <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>. We will respond
+        within a reasonable timeframe and in accordance with applicable law.
+      </p>
+
+      <h2 id="third-party-links" class="text-h3 text-navy pt-4">15. Third-party links</h2>
+      <p>
+        This website may contain links to third-party websites, social media platforms or supplier sites. We are not
+        responsible for the privacy practices or content of those third parties, and we encourage you to review
+        their own privacy policies before providing them with personal information.
+      </p>
+
+      <h2 id="changes" class="text-h3 text-navy pt-4">16. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our practices, services, or legal
+        requirements. The "Last updated" date at the top of this page indicates when it was last revised. Material
+        changes will be reflected on this page; we encourage you to review it periodically.
+      </p>
+
+      <h2 id="contact" class="text-h3 text-navy pt-4">17. Contact us</h2>
+      <p>
+        Questions, requests or complaints about this policy or our handling of your personal information can be sent
+        to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>, or via the{" "}
+        <a href="/contact" class="link-editorial">Contact page</a>.
       </p>
 
       <p class="text-body-s text-slate pt-6 border-t border-mist">
-        This policy is a general starting point and should be reviewed by a qualified professional for the specific
-        jurisdictions in which JM Travels operates before relying on it.
+        This policy is provided as a general, good-faith description of our data practices and does not constitute
+        legal advice. It should be reviewed by a qualified legal professional familiar with the specific
+        jurisdictions in which JM Travels operates before being relied upon as a complete compliance measure.
       </p>
     </div>
   </section>

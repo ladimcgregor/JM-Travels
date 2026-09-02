@@ -2,73 +2,250 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
 
-const lastUpdated = "1 September 2026";
+const lastUpdated = "2 September 2026";
+
+const sections = [
+  { id: "acceptance", label: "1. Acceptance of these terms" },
+  { id: "eligibility", label: "2. Eligibility" },
+  { id: "our-role", label: "3. Our role" },
+  { id: "services", label: "4. Services we offer" },
+  { id: "enquiries-proposals", label: "5. Enquiries and proposals" },
+  { id: "booking-payment", label: "6. Booking confirmation and payment" },
+  { id: "pricing", label: "7. Pricing and currency" },
+  { id: "cancellations", label: "8. Cancellations, amendments and refunds" },
+  { id: "visa", label: "9. Visa assistance" },
+  { id: "documentation", label: "10. Travel documentation and eligibility" },
+  { id: "insurance", label: "11. Travel insurance" },
+  { id: "health-safety", label: "12. Health, safety and travel risk" },
+  { id: "conduct", label: "13. Client conduct and compliance" },
+  { id: "force-majeure", label: "14. Force majeure" },
+  { id: "liability", label: "15. Limitation of liability" },
+  { id: "ip", label: "16. Intellectual property" },
+  { id: "referrals", label: "17. Referral program" },
+  { id: "complaints", label: "18. Complaints" },
+  { id: "governing-law", label: "19. Governing law and disputes" },
+  { id: "general", label: "20. General provisions" },
+  { id: "changes", label: "21. Changes to these terms" },
+  { id: "contact", label: "22. Contact us" },
+];
 ---
 
-<BaseLayout title="Terms & Conditions" description="Terms and conditions for using the JM Travels website and services.">
+<BaseLayout title="Terms & Conditions" description="Terms and conditions for using the JM Travels website and engaging our travel planning services.">
   <section class="py-16 md:py-24">
     <div class="container-jm max-w-3xl prose-copy space-y-6 text-body text-charcoal">
       <h1 class="text-display-l text-navy">Terms &amp; Conditions</h1>
       <p class="text-body-s text-slate">Last updated: {lastUpdated}</p>
 
       <p>
-        These Terms &amp; Conditions govern your use of the {site.name} website and any travel planning,
-        consulting or coordination services you request from us. By using this website or engaging our services,
-        you agree to these terms.
+        These Terms &amp; Conditions ("Terms") govern your use of the {site.name} website and any travel planning,
+        coordination or consulting services you request from {site.legalName} ("JM Travels", "we", "us" or "our").
+        By using this website, submitting a form, or engaging our services, you agree to be bound by these Terms. If
+        you do not agree, please do not use this website or engage our services.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Our role</h2>
+      <nav aria-label="Table of contents" class="card-surface shadow-soft p-6">
+        <p class="text-label text-slate mb-3">On this page</p>
+        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 list-none pl-0 text-body-s">
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`} class="link-editorial">{s.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <h2 id="acceptance" class="text-h3 text-navy pt-4">1. Acceptance of these terms</h2>
       <p>
-        JM Travels acts as a travel planning and coordination partner. For many components of a trip (flights,
-        accommodation, activities, transfers), we coordinate with third-party suppliers on your behalf. Those
-        suppliers' own terms and conditions may also apply to your booking.
+        These Terms apply from the moment you first use this website and continue to apply for the duration of any
+        service engagement with JM Travels. Submitting a form, messaging us, or accepting a proposal constitutes
+        acceptance of these Terms in respect of that engagement.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Enquiries and proposals</h2>
+      <h2 id="eligibility" class="text-h3 text-navy pt-4">2. Eligibility</h2>
       <p>
-        Submitting an enquiry or form on this website does not constitute a booking. A trip is only confirmed once
-        you have received and accepted a written proposal or itinerary and any required payment has been made.
+        Our services are intended for individuals aged 18 or over who have the legal capacity to enter into a
+        binding agreement. If you are booking or enquiring on behalf of other travellers, including minors, you
+        confirm that you are authorised to do so and that you accept these Terms on their behalf as well as your
+        own.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Pricing</h2>
+      <h2 id="our-role" class="text-h3 text-navy pt-4">3. Our role</h2>
       <p>
-        Where prices are shown, they are indicative and subject to confirmation based on availability, travel dates
-        and supplier pricing at the time of booking. Final pricing will always be confirmed with you before payment
-        is requested.
+        JM Travels acts as a travel planning, coordination and advisory intermediary. For most components of a trip
+        (flights, accommodation, activities, transfers, visa processing), we arrange or coordinate with independent
+        third-party suppliers on your behalf; we are not the airline, hotel, tour operator, visa authority or
+        insurer. Those suppliers' own terms, conditions, fare rules and cancellation policies apply to your booking
+        in addition to these Terms, and we will bring the relevant ones to your attention where practical.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Visa assistance</h2>
+      <h2 id="services" class="text-h3 text-navy pt-4">4. Services we offer</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Organised trips:</strong> pre-designed itineraries with set dates, inclusions and pricing that you can join.</li>
+        <li><strong>Bespoke travel:</strong> itineraries designed around your destination, dates, budget and preferences.</li>
+        <li><strong>Visa assistance:</strong> requirement guidance, document checklists and application preparation support.</li>
+        <li><strong>Travel consultations:</strong> paid or complimentary guidance sessions on destination choice, itinerary review or trip planning questions.</li>
+        <li><strong>Referrals:</strong> a program through which existing customers and contacts can introduce new customers to JM Travels.</li>
+      </ul>
+
+      <h2 id="enquiries-proposals" class="text-h3 text-navy pt-4">5. Enquiries and proposals</h2>
       <p>
-        JM Travels does not issue visas and cannot guarantee visa approval. Final decisions are made solely by the
-        relevant embassy, consulate, immigration authority or other competent authority. Our role is limited to
-        guidance, document preparation support and process navigation.
+        Submitting an enquiry or form on this website does not constitute a booking and creates no obligation on
+        either party. A trip is only confirmed once you have received a written proposal or itinerary from us,
+        accepted it, and made any required payment. Proposals are valid only for the period stated in the proposal
+        (or, if none is stated, a reasonable period), after which pricing and availability may change.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Cancellations and changes</h2>
+      <h2 id="booking-payment" class="text-h3 text-navy pt-4">6. Booking confirmation and payment</h2>
       <p>
-        Cancellation and change terms depend on the specific suppliers involved in your trip (airlines, hotels,
-        activity operators) and will be communicated clearly as part of your proposal or booking confirmation before
-        you commit.
+        Payment terms (including any deposit, instalment schedule, final balance due date, and accepted payment
+        methods) will be set out clearly in your proposal or booking confirmation before any payment is requested.
+        A booking is only secured once the required deposit or payment has been received and confirmed by us. We
+        will not request full payment before a proposal has been accepted unless otherwise agreed in writing.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Limitation of liability</h2>
+      <h2 id="pricing" class="text-h3 text-navy pt-4">7. Pricing and currency</h2>
       <p>
-        While we take care in selecting and coordinating suppliers, JM Travels is not liable for the acts, errors,
-        omissions, delays or cancellations of third-party suppliers, or for circumstances beyond our reasonable
-        control (including but not limited to natural events, government action, or carrier changes).
+        Where prices are shown on this website or in early conversations, they are indicative and subject to
+        confirmation based on availability, travel dates, exchange rates and supplier pricing at the time of
+        booking. Final pricing will always be confirmed with you in writing before payment is requested. Prices may
+        be quoted in more than one currency for convenience; the currency and amount stated in your final proposal
+        is the binding one.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Governing law</h2>
-      <p>These terms are governed by the laws of the jurisdiction in which JM Travels is registered and operates.</p>
-
-      <h2 class="text-h3 text-navy pt-4">Contact</h2>
+      <h2 id="cancellations" class="text-h3 text-navy pt-4">8. Cancellations, amendments and refunds</h2>
       <p>
-        Questions about these terms can be sent to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+        Cancellation, amendment and refund terms depend on the specific suppliers involved in your trip (airlines,
+        hotels, activity operators, visa processing bodies) and will be communicated clearly as part of your
+        proposal or booking confirmation before you commit. In general:
+      </p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Amounts already paid to third-party suppliers are subject to that supplier's own cancellation policy and may be non-refundable, in whole or in part;</li>
+        <li>Any JM Travels planning or service fee, where charged, is generally non-refundable once work has commenced on your itinerary, except where required by law or otherwise stated in your proposal; and</li>
+        <li>Where JM Travels is able to recover a refund from a supplier on your behalf, we will pass on the amount recovered, less any non-recoverable transaction costs.</li>
+      </ul>
+
+      <h2 id="visa" class="text-h3 text-navy pt-4">9. Visa assistance</h2>
+      <p>
+        JM Travels does not issue visas and cannot guarantee visa approval, processing time, or the accuracy of
+        requirements communicated by third-party consulates or agencies. Our role is limited to requirement
+        guidance, document checklist preparation and process navigation support. Final decisions on any visa or
+        entry permit application are made solely by the relevant embassy, consulate, immigration authority or other
+        competent authority, and any fees paid to such authorities are separate from, and in addition to, our
+        service fees.
+      </p>
+
+      <h2 id="documentation" class="text-h3 text-navy pt-4">10. Travel documentation and eligibility</h2>
+      <p>
+        You are responsible for ensuring that you and every traveller on your booking hold a valid passport (with
+        the validity and blank-page requirements demanded by your destination), any required visa or entry permit,
+        and any health documentation (such as vaccination certificates) required for travel. We will assist and
+        advise where requested, but JM Travels is not liable for denied boarding, denied entry, deportation, or
+        other consequences arising from incomplete, invalid or non-compliant travel documentation.
+      </p>
+
+      <h2 id="insurance" class="text-h3 text-navy pt-4">11. Travel insurance</h2>
+      <p>
+        We strongly recommend that every traveller obtain comprehensive travel insurance covering, at minimum,
+        medical emergencies, trip cancellation or interruption, and lost or delayed baggage, appropriate to the
+        destination and activities planned. JM Travels is not an insurer, does not sell insurance, and is not
+        responsible for losses that adequate travel insurance would otherwise have covered.
+      </p>
+
+      <h2 id="health-safety" class="text-h3 text-navy pt-4">12. Health, safety and travel risk</h2>
+      <p>
+        International travel carries inherent risks, including but not limited to changes in weather, political or
+        civil conditions, health advisories, and local infrastructure. You are responsible for reviewing relevant
+        government travel advisories and health guidance for your destination before travel. By booking with us,
+        you acknowledge and accept these inherent risks.
+      </p>
+
+      <h2 id="conduct" class="text-h3 text-navy pt-4">13. Client conduct and compliance</h2>
+      <p>
+        You agree to comply with the terms, conditions and conduct rules of every third-party supplier involved in
+        your trip (airlines, hotels, tour operators and others), as well as the laws, customs and entry requirements
+        of every country you visit or transit through. JM Travels reserves the right to decline or discontinue
+        service to any individual whose conduct is abusive, fraudulent, or puts JM Travels or a supplier at legal or
+        reputational risk.
+      </p>
+
+      <h2 id="force-majeure" class="text-h3 text-navy pt-4">14. Force majeure</h2>
+      <p>
+        JM Travels is not liable for any failure or delay in performing its obligations where that failure or delay
+        results from circumstances beyond its reasonable control, including but not limited to natural disasters,
+        pandemics or public health emergencies, war, civil unrest, terrorism, government action, strikes, or
+        airline, airport or supplier failures or changes. Where a force majeure event affects your trip, we will
+        work with you in good faith to explore available options, subject to the relevant suppliers' own policies.
+      </p>
+
+      <h2 id="liability" class="text-h3 text-navy pt-4">15. Limitation of liability</h2>
+      <p>
+        While we take care in selecting and coordinating reputable suppliers, JM Travels acts as an intermediary and
+        is not liable for the acts, errors, omissions, delays, cancellations, misrepresentations or negligence of
+        any third-party supplier, or for circumstances beyond our reasonable control. To the maximum extent
+        permitted by applicable law, JM Travels' total liability arising out of or in connection with any service
+        shall not exceed the total service fees paid by you to JM Travels for that specific trip, and JM Travels
+        shall not be liable for indirect, incidental, special or consequential loss, including loss of enjoyment or
+        loss of opportunity. Nothing in these Terms excludes or limits liability that cannot lawfully be excluded or
+        limited.
+      </p>
+
+      <h2 id="ip" class="text-h3 text-navy pt-4">16. Intellectual property</h2>
+      <p>
+        All content on this website, including text, images, graphics, itineraries and branding, is owned by or
+        licensed to JM Travels and is protected by applicable intellectual property law. You may view and share
+        content for personal, non-commercial purposes, but may not reproduce, distribute or create derivative works
+        from it without our prior written consent.
+      </p>
+
+      <h2 id="referrals" class="text-h3 text-navy pt-4">17. Referral program</h2>
+      <p>
+        Where JM Travels operates a referral program, any reward, discount or incentive offered is subject to the
+        specific terms communicated to you at the time and may be changed or withdrawn at our discretion for future
+        referrals. Referral rewards are not transferable and have no cash value unless expressly stated.
+      </p>
+
+      <h2 id="complaints" class="text-h3 text-navy pt-4">18. Complaints</h2>
+      <p>
+        If you are unhappy with any aspect of our service, please contact us as soon as possible so we can attempt
+        to resolve the issue directly. Where a complaint relates to a third-party supplier, we will support you in
+        raising it with the relevant supplier, though the supplier's own complaints process and policies will
+        ultimately govern the outcome.
+      </p>
+
+      <h2 id="governing-law" class="text-h3 text-navy pt-4">19. Governing law and disputes</h2>
+      <p>
+        These Terms are governed by the laws of the Federal Republic of Nigeria. Both parties agree to first attempt
+        to resolve any dispute arising from these Terms or our services through good-faith negotiation. If a
+        dispute cannot be resolved this way, it shall be subject to the exclusive jurisdiction of the courts of
+        Lagos State, Nigeria, without prejudice to any mandatory consumer protection rights you may have in your
+        own jurisdiction.
+      </p>
+
+      <h2 id="general" class="text-h3 text-navy pt-4">20. General provisions</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Severability:</strong> if any provision of these Terms is found unenforceable, the remaining provisions continue in full force.</li>
+        <li><strong>Entire agreement:</strong> these Terms, together with your accepted proposal, constitute the entire agreement between you and JM Travels for that trip, superseding any prior discussions.</li>
+        <li><strong>No waiver:</strong> our failure to enforce any provision of these Terms is not a waiver of our right to do so later.</li>
+      </ul>
+
+      <h2 id="changes" class="text-h3 text-navy pt-4">21. Changes to these terms</h2>
+      <p>
+        We may update these Terms from time to time to reflect changes in our services or legal requirements. The
+        "Last updated" date at the top of this page indicates when it was last revised. Changes apply prospectively
+        and do not affect a trip for which you have already received and accepted a proposal, unless required by
+        law or otherwise agreed.
+      </p>
+
+      <h2 id="contact" class="text-h3 text-navy pt-4">22. Contact us</h2>
+      <p>
+        Questions about these Terms can be sent to{" "}
+        <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>, or via the{" "}
+        <a href="/contact" class="link-editorial">Contact page</a>.
       </p>
 
       <p class="text-body-s text-slate pt-6 border-t border-mist">
-        This document is a general starting point and should be reviewed by a qualified professional for the
-        specific jurisdictions in which JM Travels operates before relying on it.
+        This document is provided as a general, good-faith description of our business terms and does not
+        constitute legal advice. It should be reviewed by a qualified legal professional familiar with the specific
+        jurisdictions in which JM Travels operates before being relied upon as a complete or binding legal
+        agreement.
       </p>
     </div>
   </section>

@@ -2,38 +2,128 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
 
-const lastUpdated = "1 September 2026";
+const lastUpdated = "2 September 2026";
+
+const sections = [
+  { id: "what-are-cookies", label: "1. What are cookies" },
+  { id: "how-we-use-cookies", label: "2. How we use cookies" },
+  { id: "types", label: "3. Types of cookies on this site" },
+  { id: "third-party", label: "4. Third-party cookies" },
+  { id: "duration", label: "5. How long cookies last" },
+  { id: "managing", label: "6. Managing and disabling cookies" },
+  { id: "do-not-track", label: "7. Do Not Track signals" },
+  { id: "changes", label: "8. Changes to this policy" },
+  { id: "contact", label: "9. Contact us" },
+];
 ---
 
-<BaseLayout title="Cookie Policy" description="How JM Travels uses cookies and similar technologies.">
+<BaseLayout title="Cookie Policy" description="How JM Travels uses cookies and similar technologies on this website.">
   <section class="py-16 md:py-24">
     <div class="container-jm max-w-3xl prose-copy space-y-6 text-body text-charcoal">
       <h1 class="text-display-l text-navy">Cookie Policy</h1>
       <p class="text-body-s text-slate">Last updated: {lastUpdated}</p>
 
       <p>
-        This website uses a minimal set of cookies and similar technologies to help it function and to understand
-        how visitors use the site.
+        This Cookie Policy explains how {site.legalName} ("JM Travels", "we", "us" or "our") uses cookies and
+        similar technologies on this website, what they do, and the choices available to you. It should be read
+        alongside our <a href="/privacy-policy" class="link-editorial">Privacy Policy</a>, which explains more
+        broadly how we handle personal information.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">What we use</h2>
+      <nav aria-label="Table of contents" class="card-surface shadow-soft p-6">
+        <p class="text-label text-slate mb-3">On this page</p>
+        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 list-none pl-0 text-body-s">
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`} class="link-editorial">{s.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <h2 id="what-are-cookies" class="text-h3 text-navy pt-4">1. What are cookies</h2>
+      <p>
+        Cookies are small text files placed on your device when you visit a website. They are widely used to make
+        websites function properly, to remember your preferences, and to help site owners understand how their
+        website is used. "Similar technologies" includes things like local storage, which some browser features and
+        scripts use in a comparable way.
+      </p>
+
+      <h2 id="how-we-use-cookies" class="text-h3 text-navy pt-4">2. How we use cookies</h2>
+      <p>
+        We use a deliberately minimal set of cookies: those required for the website to function correctly, and,
+        where enabled, an analytics cookie that helps us understand overall traffic patterns so we can improve the
+        site. We do not use cookies to build advertising profiles, and we do not sell or share cookie data with
+        advertisers.
+      </p>
+
+      <h2 id="types" class="text-h3 text-navy pt-4">3. Types of cookies on this site</h2>
       <ul class="list-disc pl-5 space-y-1">
-        <li><strong>Essential cookies:</strong> required for basic site functionality.</li>
-        <li><strong>Analytics:</strong> if enabled, an anonymised analytics tool helps us understand traffic sources and page popularity so we can improve the site.</li>
+        <li>
+          <strong>Strictly necessary cookies:</strong> required for core site functionality, such as remembering
+          that you have interacted with certain interface elements during your visit. The site cannot function
+          properly without these, and they do not require consent under most data protection laws.
+        </li>
+        <li>
+          <strong>Analytics / performance cookies:</strong> where enabled, we use an analytics tool (currently
+          Google Analytics, if configured) to understand which pages are visited, how visitors arrived at the site,
+          and general, aggregated usage patterns. This information is used in an aggregated form and is not used to
+          personally identify you for marketing purposes.
+        </li>
       </ul>
+      <p>We do not use advertising cookies, cross-site tracking cookies, or social media tracking pixels.</p>
+
+      <h2 id="third-party" class="text-h3 text-navy pt-4">4. Third-party cookies</h2>
       <p>
-        We do not use advertising or cross-site tracking cookies.
+        Where analytics is enabled, cookies may be set by our analytics provider (Google Analytics) in accordance
+        with its own privacy and cookie practices. We do not control these third-party cookies directly; you can
+        find more information in{" "}
+        <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" class="link-editorial">
+          Google's own cookie policy
+        </a>. If, in the future, we embed third-party content on this site (for example, a map), that provider may
+        also set its own cookies when that content loads.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Managing cookies</h2>
+      <h2 id="duration" class="text-h3 text-navy pt-4">5. How long cookies last</h2>
       <p>
-        You can control or delete cookies through your browser settings. Disabling non-essential cookies will not
-        prevent you from using the core parts of this website.
+        Some cookies are "session" cookies, which are deleted automatically when you close your browser. Others are
+        "persistent" cookies, which remain on your device for a set period (or until you delete them) so the site
+        can recognise you on a return visit. Analytics cookies, where enabled, are typically persistent and are
+        governed by the retention periods set by the analytics provider.
       </p>
 
-      <h2 class="text-h3 text-navy pt-4">Contact</h2>
+      <h2 id="managing" class="text-h3 text-navy pt-4">6. Managing and disabling cookies</h2>
       <p>
-        Questions about this policy can be sent to <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>.
+        Most browsers allow you to view, manage, delete and block cookies through their settings. Because the exact
+        steps vary by browser, we recommend checking your browser's help documentation (for example, searching
+        "manage cookies" for Chrome, Safari, Firefox or Edge). Disabling non-essential cookies will not prevent you
+        from using the core parts of this website, though some features that rely on remembering your preferences
+        may not work as intended.
+      </p>
+
+      <h2 id="do-not-track" class="text-h3 text-navy pt-4">7. Do Not Track signals</h2>
+      <p>
+        Some browsers offer a "Do Not Track" (DNT) signal. There is currently no unified industry standard for how
+        websites should respond to DNT signals, so this site does not currently respond differently when a DNT
+        signal is detected. You can still manage cookies directly through your browser settings as described above.
+      </p>
+
+      <h2 id="changes" class="text-h3 text-navy pt-4">8. Changes to this policy</h2>
+      <p>
+        We may update this Cookie Policy from time to time to reflect changes in the cookies and technologies we
+        use, or for legal reasons. The "Last updated" date at the top of this page indicates when it was last
+        revised.
+      </p>
+
+      <h2 id="contact" class="text-h3 text-navy pt-4">9. Contact us</h2>
+      <p>
+        Questions about this policy can be sent to{" "}
+        <a href={`mailto:${site.contact.email}`} class="link-editorial">{site.contact.email}</a>, or via the{" "}
+        <a href="/contact" class="link-editorial">Contact page</a>.
+      </p>
+
+      <p class="text-body-s text-slate pt-6 border-t border-mist">
+        This policy is provided as a general, good-faith description of our cookie practices and does not
+        constitute legal advice. It should be reviewed by a qualified legal professional familiar with the specific
+        jurisdictions in which JM Travels operates before being relied upon as a complete compliance measure.
       </p>
     </div>
   </section>
