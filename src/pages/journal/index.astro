@@ -5,8 +5,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 const articles = (await getCollection("journal"))
   .filter((a) => !a.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const categories = [...new Set(articles.map((a) => a.data.category))];
 ---
 
 <BaseLayout
@@ -25,11 +23,6 @@ const categories = [...new Set(articles.map((a) => a.data.category))];
 
   <section class="pb-20 md:pb-28">
     <div class="container-jm">
-      <div class="flex flex-wrap gap-2 mb-10">
-        {categories.map((cat) => (
-          <span class="badge">{cat}</span>
-        ))}
-      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((article) => (
           <a href={`/journal/${article.id}`} class="hover-grow group block reveal">
