@@ -22,9 +22,9 @@ export const site = {
   },
 
   contact: {
-    whatsappNumber: "2340000000000", // REPLACE: international format, digits only, no leading +
-    whatsappDisplay: "+234 000 000 0000", // REPLACE: human-readable version for display
-    phoneDisplay: "+234 000 000 0000", // REPLACE
+    whatsappNumber: "2348143720768",
+    whatsappDisplay: "+234 814 372 0768",
+    phoneDisplay: "+234 814 372 0768",
     email: "hello@jmtravels.com", // REPLACE
     location: "Lagos, Nigeria", // REPLACE if different / add serviced markets
     latitude: 6.5244, // REPLACE with a real office location if there is one
