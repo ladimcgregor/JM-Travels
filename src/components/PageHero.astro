@@ -12,7 +12,7 @@ const { eyebrow, title, image, imageAlt = "" } = Astro.props;
   <img src={image} alt={imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-80" fetchpriority="high" />
   <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/35 to-transparent"></div>
   <div class="container-jm relative pb-10 text-white">
-    <p class="eyebrow text-gold-light">{eyebrow}</p>
+    <p class="eyebrow !text-white/85">{eyebrow}</p>
     <h1 class="text-display-l mt-3 text-white max-w-2xl">{title}</h1>
     <slot />
   </div>
