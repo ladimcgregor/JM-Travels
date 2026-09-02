@@ -18,7 +18,7 @@ export const site = {
   founder: {
     name: "Jemima",
     title: "Lead Traveller, JM Travels",
-    photo: "/images/founder/founder-portrait.jpg", // REPLACE: add a real photo of Jemima at this path
+    photo: "/images/founder/founder-portrait.jpg",
   },
 
   contact: {

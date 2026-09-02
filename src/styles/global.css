@@ -200,8 +200,10 @@
     max-width: 68ch;
   }
 
-  /* ---- Eyebrow ---- */
-  /* No leading rule/dash before eyebrow labels — see DESIGN.md "No-Dash Rule". */
+  /* ---- Eyebrow ----
+     Navy, not gold: an accent-coloured tracked label is a common
+     AI-generated-site tell. No leading rule/dash either, see DESIGN.md
+     "No-Dash Rule". Dark-background instances override to white/85 inline. */
   .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -210,7 +212,7 @@
     font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: var(--color-navy);
   }
 
   /* ---- Buttons ----

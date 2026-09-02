@@ -192,7 +192,7 @@ const structuredData = {
           </div>
         </div>
       </div>
-      <div class="grid gap-4">
+      <div class="divide-y divide-mist border-t border-mist lg:mt-2">
         {[
           { title: "Practical travel experience", note: "Judgement built from real trips, not theory." },
           { title: "Personalised planning", note: "Every itinerary reflects your priorities, not a template." },
@@ -200,9 +200,9 @@ const structuredData = {
           { title: "Destination knowledge", note: "Timing, sequencing and what's actually worth it." },
           { title: "Reliable coordination", note: "One point of contact for every moving part." },
           { title: "Responsive support", note: "Reachable before and during your trip." },
-        ].map((point) => (
-          <div data-pin-item class="card-surface shadow-soft p-5 flex items-start gap-4">
-            <span class="mt-1 w-2 h-2 rounded-full bg-gold shrink-0"></span>
+        ].map((point, i) => (
+          <div data-pin-item class="flex items-baseline gap-5 py-5">
+            <span class="font-display text-h3 text-gold shrink-0 w-9">{String(i + 1).padStart(2, "0")}</span>
             <div>
               <p class="text-h4 text-navy">{point.title}</p>
               <p class="text-body-s text-slate mt-1">{point.note}</p>
