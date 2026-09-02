@@ -1,6 +1,7 @@
 export interface Service {
   slug: string;
   name: string;
+  image: string;
   short: string;
   description: string;
   whoFor: string;
@@ -14,6 +15,7 @@ export const services: Service[] = [
   {
     slug: "organised-trips",
     name: "Organised Trips",
+    image: "https://picsum.photos/seed/jm-svc-organised/900/700",
     short: "Curated travel experiences that customers can simply join.",
     description:
       "Ready-to-join trips with a defined destination, itinerary and inclusions. You show up; we've already handled the planning, coordination and logistics.",
@@ -26,6 +28,7 @@ export const services: Service[] = [
   {
     slug: "bespoke-trips",
     name: "Bespoke Trips",
+    image: "https://picsum.photos/seed/jm-svc-bespoke/900/700",
     short: "Personalised journeys designed around your preferences.",
     description:
       "Trips built entirely around your destination, dates, budget and interests — not a template. We ask the right questions up front so the itinerary actually fits how you like to travel.",
@@ -38,6 +41,7 @@ export const services: Service[] = [
   {
     slug: "solo-travel",
     name: "Solo Travel",
+    image: "https://picsum.photos/seed/jm-svc-solo/900/700",
     short: "Trips designed for individual travellers.",
     description:
       "Whether you want full independence with a safety net or a more guided experience, solo trips are planned with your comfort, pace and interests in mind.",
@@ -50,6 +54,7 @@ export const services: Service[] = [
   {
     slug: "couple-travel",
     name: "Couple Travel",
+    image: "https://picsum.photos/seed/jm-svc-couple/900/700",
     short: "Romantic and leisure experiences.",
     description:
       "Honeymoons, anniversaries and leisure trips designed around the pace and experiences that matter to you both.",
@@ -62,6 +67,7 @@ export const services: Service[] = [
   {
     slug: "group-travel",
     name: "Group Travel",
+    image: "https://picsum.photos/seed/jm-svc-group/900/700",
     short: "Friends, families and organised groups.",
     description:
       "Group trips create their own coordination headaches — different schedules, budgets and preferences. We centralise the planning so one person isn't stuck chasing everyone else.",
@@ -74,6 +80,7 @@ export const services: Service[] = [
   {
     slug: "visa-assistance",
     name: "Visa Assistance",
+    image: "https://picsum.photos/seed/jm-svc-visa/900/700",
     short: "Structured support for visa preparation.",
     description:
       "Guidance and support through the visa preparation process — requirement checks, document checklists and appointment preparation.",
@@ -86,6 +93,7 @@ export const services: Service[] = [
   {
     slug: "travel-consultations",
     name: "Travel Consultations",
+    image: "https://picsum.photos/seed/jm-svc-consult/900/700",
     short: "Professional guidance before booking.",
     description:
       "Expert guidance before you book or travel — destination selection, itinerary sense-checks, or simply a second opinion on your plan.",
@@ -98,6 +106,7 @@ export const services: Service[] = [
   {
     slug: "accommodation-flights",
     name: "Accommodation & Flights",
+    image: "https://picsum.photos/seed/jm-svc-accom/900/700",
     short: "Travel component coordination.",
     description: "Hotel research, selection and flight coordination so you're not left comparing dozens of tabs and options alone.",
     whoFor: "Anyone who wants the accommodation and flight legwork handled for them.",
@@ -109,6 +118,7 @@ export const services: Service[] = [
   {
     slug: "transfers-activities",
     name: "Transfers & Activities",
+    image: "https://picsum.photos/seed/jm-svc-transfers/900/700",
     short: "Ground transportation and experiences.",
     description: "Airport transfers, local transport and curated tours and activities coordinated as part of your trip.",
     whoFor: "Travellers who want reliable ground logistics and well-chosen activities.",

@@ -22,10 +22,49 @@ const journalArticles = (await getCollection("journal"))
   .slice(0, 3);
 
 const whatWeDo = [
-  { title: "Organised Trips", description: "Curated travel experiences that customers can simply join.", cta: "Explore Trips", href: "/trips" },
-  { title: "Bespoke Trips", description: "Personalised journeys designed around your preferences.", cta: "Create My Trip", href: "/bespoke-travel" },
-  { title: "Visa Assistance", description: "Guidance and support through the visa preparation process.", cta: "Get Visa Support", href: "/visa-assistance" },
-  { title: "Travel Consultations", description: "Expert guidance before you book or travel.", cta: "Book a Consultation", href: "/consultations" },
+  {
+    title: "Organised Trips",
+    description: "Curated travel experiences that customers can simply join.",
+    cta: "Explore Trips",
+    href: "/trips",
+    image: "https://picsum.photos/seed/jm-bento-organised/1200/1200",
+    span: "lg:col-span-2 lg:row-span-2",
+  },
+  {
+    title: "Bespoke Trips",
+    description: "Personalised journeys designed around your preferences.",
+    cta: "Create My Trip",
+    href: "/bespoke-travel",
+    image: "https://picsum.photos/seed/jm-bento-bespoke/1200/600",
+    span: "lg:col-span-2 lg:row-span-1",
+  },
+  {
+    title: "Visa Assistance",
+    description: "Guidance and support through the visa preparation process.",
+    cta: "Get Visa Support",
+    href: "/visa-assistance",
+    image: "https://picsum.photos/seed/jm-bento-visa/700/700",
+    span: "lg:col-span-1 lg:row-span-1",
+  },
+  {
+    title: "Travel Consultations",
+    description: "Expert guidance before you book or travel.",
+    cta: "Book a Consultation",
+    href: "/consultations",
+    image: "https://picsum.photos/seed/jm-bento-consult/700/700",
+    span: "lg:col-span-1 lg:row-span-1",
+  },
+];
+
+const destinationMarquee = [
+  "Zanzibar",
+  "Dubai",
+  "Cape Town",
+  "Maldives",
+  "Mauritius",
+  "Paris",
+  "Bali",
+  "New York",
 ];
 
 const structuredData = {
@@ -46,7 +85,7 @@ const structuredData = {
   structuredData={structuredData}
 >
   <!-- HERO -->
-  <section class="relative min-h-[92vh] flex items-end bg-navy-dark overflow-hidden">
+  <section class="relative min-h-[92vh] flex items-end bg-navy-dark overflow-hidden" data-scroll-img>
     <img
       src="https://picsum.photos/seed/jm-hero/1920/1280"
       alt="A JM Travels destination at golden hour"
@@ -70,6 +109,18 @@ const structuredData = {
     </div>
   </section>
 
+  <!-- DESTINATION MARQUEE -->
+  <div class="bg-navy py-5 border-b border-white/10" data-marquee data-marquee-duration="28">
+    <div class="flex gap-12 pr-12" data-marquee-track>
+      {[...destinationMarquee, ...destinationMarquee].map((name) => (
+        <span class="flex items-center gap-12 shrink-0 font-display text-2xl text-white/70 tracking-wide">
+          {name}
+          <span class="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true"></span>
+        </span>
+      ))}
+    </div>
+  </div>
+
   <!-- WHAT WE DO -->
   <section class="py-16 md:py-24">
     <div class="container-jm">
@@ -77,42 +128,80 @@ const structuredData = {
         <p class="eyebrow">What We Do</p>
         <h2 class="text-h1 mt-4">Everything between "I want to travel" and actually going.</h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:grid-flow-dense gap-4 mt-12">
         {whatWeDo.map((item) => (
-          <div class="card-surface shadow-soft p-6 flex flex-col reveal">
-            <h3 class="text-h4 text-navy">{item.title}</h3>
-            <p class="text-body-s text-slate mt-2 flex-1">{item.description}</p>
-            <a href={item.href} class="link-editorial text-body-s mt-4">{item.cta} →</a>
-          </div>
+          <a href={item.href} class={`group relative block overflow-hidden rounded-md shadow-soft reveal min-h-[220px] ${item.span}`}>
+            <img
+              src={item.image}
+              alt={item.title}
+              loading="lazy"
+              width="1200"
+              height="1200"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/25 to-transparent"></div>
+            <div class="relative h-full flex flex-col justify-end p-6">
+              <h3 class="text-h4 text-white">{item.title}</h3>
+              <p class="text-body-s text-white/75 mt-2 max-w-xs">{item.description}</p>
+              <span class="inline-flex items-center gap-1 text-body-s font-semibold text-gold-light mt-4 transition-transform duration-300 group-hover:translate-x-1">
+                {item.cta} →
+              </span>
+            </div>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
   <!-- WHY JM TRAVELS -->
-  <section class="py-16 md:py-24 bg-sand">
-    <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
-      <div class="reveal">
+  <section class="py-16 md:py-24 bg-sand overflow-hidden" data-pin-section>
+    <div class="container-jm grid lg:grid-cols-2 gap-12 lg:items-start">
+      <div data-pin-target class="lg:pb-16">
         <p class="eyebrow">Why JM Travels</p>
-        <h2 class="text-h1 mt-4">Travel planning should feel exciting, not overwhelming.</h2>
-        <p class="text-body-l text-slate mt-6">
+        <h2 class="text-h1 mt-4 max-w-md">Travel planning should feel exciting, not overwhelming.</h2>
+        <p class="text-body-l text-slate mt-6 max-w-md">
           JM Travels combines practical travel experience, personalised planning, attention to detail, destination
           knowledge, reliable coordination and responsive support — so the details are handled properly, not just
           promised.
         </p>
+        <div class="grid grid-cols-2 gap-3 mt-8 max-w-md">
+          <div class="rounded-md shadow-soft overflow-hidden translate-y-4" data-scroll-img>
+            <img
+              src="https://picsum.photos/seed/jm-why-1/600/750"
+              alt="Detail from a JM Travels itinerary in progress"
+              loading="lazy"
+              width="600"
+              height="750"
+              class="w-full aspect-[4/5] object-cover"
+            />
+          </div>
+          <div class="rounded-md shadow-soft overflow-hidden -translate-y-4" data-scroll-img>
+            <img
+              src="https://picsum.photos/seed/jm-why-2/600/750"
+              alt="A JM Travels trip in motion"
+              loading="lazy"
+              width="600"
+              height="750"
+              class="w-full aspect-[4/5] object-cover"
+            />
+          </div>
+        </div>
       </div>
-      <div class="grid sm:grid-cols-2 gap-6 reveal">
+      <div class="grid gap-4">
         {[
-          "Practical travel experience",
-          "Personalised planning",
-          "Attention to detail",
-          "Destination knowledge",
-          "Reliable coordination",
-          "Responsive support",
+          { title: "Practical travel experience", note: "Judgement built from real trips, not theory." },
+          { title: "Personalised planning", note: "Every itinerary reflects your priorities, not a template." },
+          { title: "Attention to detail", note: "The small logistics that make or break a trip." },
+          { title: "Destination knowledge", note: "Timing, sequencing and what's actually worth it." },
+          { title: "Reliable coordination", note: "One point of contact for every moving part." },
+          { title: "Responsive support", note: "Reachable before and during your trip." },
         ].map((point) => (
-          <div class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
-            <p class="text-body text-charcoal">{point}</p>
+          <div data-pin-item class="card-surface shadow-soft p-5 flex items-start gap-4">
+            <span class="mt-1 w-2 h-2 rounded-full bg-gold shrink-0"></span>
+            <div>
+              <p class="text-h4 text-navy">{point.title}</p>
+              <p class="text-body-s text-slate mt-1">{point.note}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -122,7 +211,7 @@ const structuredData = {
   <!-- FOUNDER STORY -->
   <section class="py-16 md:py-24">
     <div class="container-jm grid lg:grid-cols-2 gap-12 items-center">
-      <div class="order-2 lg:order-1 reveal">
+      <div class="order-2 lg:order-1 reveal rounded-md" data-scroll-img>
         <img
           src={site.founder.photo}
           onerror="this.src='https://picsum.photos/seed/jm-founder/1000/1200'"
@@ -206,15 +295,39 @@ const structuredData = {
           <Button href="/bespoke-travel" variant="primary">Build My Trip</Button>
         </div>
       </div>
-      <div class="reveal">
-        <img
-          src="https://picsum.photos/seed/jm-bespoke/1000/800"
-          alt="Planning a bespoke trip"
-          loading="lazy"
-          width="1000"
-          height="800"
-          class="w-full aspect-[5/4] object-cover rounded-md shadow-soft"
-        />
+      <div class="reveal grid grid-cols-3 gap-3">
+        <div class="col-span-2 rounded-md shadow-soft overflow-hidden" data-scroll-img>
+          <img
+            src="https://picsum.photos/seed/jm-bespoke-1/700/900"
+            alt="A bespoke JM Travels itinerary being planned"
+            loading="lazy"
+            width="700"
+            height="900"
+            class="w-full aspect-[7/9] object-cover"
+          />
+        </div>
+        <div class="grid gap-3">
+          <div class="rounded-md shadow-soft overflow-hidden" data-scroll-img>
+            <img
+              src="https://picsum.photos/seed/jm-bespoke-2/500/500"
+              alt="Detail from a JM Travels bespoke trip"
+              loading="lazy"
+              width="500"
+              height="500"
+              class="w-full aspect-square object-cover"
+            />
+          </div>
+          <div class="rounded-md shadow-soft overflow-hidden" data-scroll-img>
+            <img
+              src="https://picsum.photos/seed/jm-bespoke-3/500/500"
+              alt="A moment from a bespoke trip"
+              loading="lazy"
+              width="500"
+              height="500"
+              class="w-full aspect-square object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -229,8 +342,21 @@ const structuredData = {
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
         {howItWorks.map((step) => (
           <div class="reveal">
-            <p class="font-display text-4xl text-gold">{step.step}</p>
-            <h3 class="text-h4 text-navy mt-3">{step.title}</h3>
+            <div class="relative w-16 h-16">
+              <img
+                src={step.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                width="128"
+                height="128"
+                class="w-16 h-16 rounded-full object-cover shadow-soft"
+              />
+              <span class="absolute -bottom-2 -right-2 flex items-center justify-center w-7 h-7 rounded-full bg-navy text-white text-body-s font-display font-semibold">
+                {step.step.replace(/^0/, "")}
+              </span>
+            </div>
+            <h3 class="text-h4 text-navy mt-5">{step.title}</h3>
             <p class="text-body-s text-slate mt-2">{step.description}</p>
           </div>
         ))}
@@ -254,12 +380,24 @@ const structuredData = {
           {testimonials.map((t) => <TestimonialCard testimonial={t} />)}
         </div>
       ) : (
-        <div class="card-surface shadow-soft p-8 mt-10 max-w-xl reveal">
-          <p class="text-h3 text-navy">We're building our track record, honestly.</p>
-          <p class="text-body text-slate mt-3">
-            JM Travels is a new business. As we complete trips, real testimonials from real customers will appear
-            here — we'd rather show you nothing than show you something fabricated.
-          </p>
+        <div class="grid lg:grid-cols-2 gap-6 mt-10 items-stretch">
+          <div class="rounded-md shadow-soft overflow-hidden min-h-[220px]" data-scroll-img>
+            <img
+              src="https://picsum.photos/seed/jm-testimonials-honest/1000/700"
+              alt="A trip currently being planned by JM Travels"
+              loading="lazy"
+              width="1000"
+              height="700"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="card-surface shadow-soft p-8 flex flex-col justify-center reveal">
+            <p class="text-h3 text-navy">We're building our track record, honestly.</p>
+            <p class="text-body text-slate mt-3">
+              JM Travels is a new business. As we complete trips, real testimonials from real customers will appear
+              here — we'd rather show you nothing than show you something fabricated.
+            </p>
+          </div>
         </div>
       )}
     </div>
@@ -299,6 +437,19 @@ const structuredData = {
   <!-- REFERRAL -->
   <section class="py-16 md:py-24 bg-sand">
     <div class="container-jm text-center max-w-2xl mx-auto reveal">
+      <div class="flex justify-center -space-x-3 mb-6">
+        {["jm-refer-a", "jm-refer-b", "jm-refer-c", "jm-refer-d"].map((seed) => (
+          <img
+            src={`https://picsum.photos/seed/${seed}/120/120`}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            width="56"
+            height="56"
+            class="w-14 h-14 rounded-full object-cover border-2 border-sand shadow-soft"
+          />
+        ))}
+      </div>
       <p class="eyebrow justify-center">Referral</p>
       <h2 class="text-h1 mt-4">Good trips are worth talking about.</h2>
       <p class="text-body-l text-slate mt-4">
@@ -312,7 +463,7 @@ const structuredData = {
   </section>
 
   <!-- FINAL CTA -->
-  <section class="relative py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
+  <section class="relative py-24 md:py-32 bg-navy-dark text-white overflow-hidden" data-scroll-img>
     <img
       src="https://picsum.photos/seed/jm-final-cta/1920/900"
       alt=""

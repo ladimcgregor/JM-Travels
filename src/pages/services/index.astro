@@ -22,13 +22,25 @@ import { services } from "@/data/services";
   <section class="pb-20 md:pb-28">
     <div class="container-jm grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((service) => (
-        <div class="card-surface shadow-soft p-6 flex flex-col reveal">
-          <h2 class="text-h3 text-navy">{service.name}</h2>
-          <p class="text-body-s text-slate mt-2 flex-1">{service.short}</p>
-          <div class="flex items-center gap-4 mt-4 pt-4 border-t border-mist">
-            <a href={`/services/${service.slug}`} class="link-editorial text-body-s">Learn more →</a>
+        <a href={`/services/${service.slug}`} class="group card-surface shadow-soft flex flex-col overflow-hidden reveal">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.name}
+              loading="lazy"
+              width="900"
+              height="700"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            />
           </div>
-        </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h2 class="text-h3 text-navy">{service.name}</h2>
+            <p class="text-body-s text-slate mt-2 flex-1">{service.short}</p>
+            <span class="inline-flex items-center gap-1 text-body-s font-semibold text-navy mt-4 pt-4 border-t border-mist transition-transform duration-300 group-hover:translate-x-1 group-hover:text-gold">
+              Learn more →
+            </span>
+          </div>
+        </a>
       ))}
     </div>
   </section>

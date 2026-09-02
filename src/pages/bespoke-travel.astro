@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
 import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
 import { whatsappLink, whatsappMessages } from "@/config/site";
 import Button from "@/components/Button.astro";
@@ -9,11 +10,16 @@ import Button from "@/components/Button.astro";
   title="Bespoke Travel"
   description="Don't want a package? JM Travels builds bespoke trips around your destination, dates, budget and preferences."
 >
-  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
+  <PageHero
+    eyebrow="Bespoke Travel"
+    title="Don't want a package? Let's build your trip."
+    image="https://picsum.photos/seed/jm-hero-bespoke/1920/1100"
+    imageAlt="A bespoke trip being planned"
+  />
+
+  <section class="pt-12 pb-4">
     <div class="container-jm max-w-2xl">
-      <p class="eyebrow">Bespoke Travel</p>
-      <h1 class="text-h1 mt-4">Don't want a package? Let's build your trip.</h1>
-      <p class="text-body-l text-slate mt-6">
+      <p class="text-body-l text-slate">
         You don't have to choose a pre-designed itinerary. Tell us your destination, dates, budget and interests,
         and JM Travels will design a trip around you — sequencing, accommodation, activities and logistics included.
       </p>

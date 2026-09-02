@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
 import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
 
 const scenarios = [
@@ -16,16 +17,19 @@ const scenarios = [
   title="Travel Consultations"
   description="Book a travel consultation with JM Travels for expert guidance before you book or travel."
 >
-  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
-    <div class="container-jm max-w-2xl">
-      <p class="eyebrow">Travel Consultations</p>
-      <h1 class="text-h1 mt-4">Expert guidance before you book or travel.</h1>
-      <p class="text-body-l text-slate mt-6">A consultation might be right for you if:</p>
-    </div>
-    <div class="container-jm mt-8">
-      <ul class="grid sm:grid-cols-2 gap-4 max-w-3xl">
+  <PageHero
+    eyebrow="Travel Consultations"
+    title="Expert guidance before you book or travel."
+    image="https://picsum.photos/seed/jm-hero-consult/1920/1100"
+    imageAlt="A travel consultation in progress"
+  />
+
+  <section class="pt-12 pb-4">
+    <div class="container-jm">
+      <p class="text-body-l text-slate max-w-2xl">A consultation might be right for you if:</p>
+      <ul class="grid sm:grid-cols-2 gap-4 max-w-3xl mt-8">
         {scenarios.map((s) => (
-          <li class="card-surface shadow-soft p-4 text-body text-charcoal">"{s}"</li>
+          <li class="card-surface shadow-soft p-4 text-body text-charcoal reveal">"{s}"</li>
         ))}
       </ul>
     </div>

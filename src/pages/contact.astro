@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
 import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
 import { site, whatsappLink, whatsappMessages } from "@/config/site";
 
@@ -16,13 +17,14 @@ const channels = [
   title="Contact"
   description="Get in touch with JM Travels via WhatsApp, phone, email or the contact form."
 >
-  <section class="pt-16 pb-12 md:pt-24 md:pb-16 bg-sand">
-    <div class="container-jm max-w-2xl">
-      <p class="eyebrow">Contact</p>
-      <h1 class="text-h1 mt-4">Tell us about your trip.</h1>
-      <p class="text-body-l text-slate mt-6">{site.contact.location}</p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Contact"
+    title="Tell us about your trip."
+    image="https://picsum.photos/seed/jm-hero-contact/1920/1100"
+    imageAlt="JM Travels ready to help plan your trip"
+  >
+    <p class="text-body-l text-white/85 mt-4">{site.contact.location}</p>
+  </PageHero>
 
   <section class="py-16 md:py-24">
     <div class="container-jm grid lg:grid-cols-3 gap-12">

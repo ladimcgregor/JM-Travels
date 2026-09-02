@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import { faqs } from "@/data/faqs";
 
@@ -19,14 +20,14 @@ const structuredData = {
   description="Answers to common questions about planning, packages and visa support with JM Travels."
   structuredData={structuredData}
 >
-  <section class="pt-16 pb-12 md:pt-24 md:pb-16">
-    <div class="container-jm max-w-2xl">
-      <p class="eyebrow">FAQs</p>
-      <h1 class="text-h1 mt-4">Common questions, answered plainly.</h1>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="FAQs"
+    title="Common questions, answered plainly."
+    image="https://picsum.photos/seed/jm-hero-faqs/1920/1100"
+    imageAlt="Planning the practical details of a trip"
+  />
 
-  <section class="pb-20 md:pb-28">
+  <section class="py-16 md:py-24">
     <div class="container-jm max-w-3xl">
       <FaqAccordion faqs={faqs} />
     </div>

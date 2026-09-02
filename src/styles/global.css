@@ -338,22 +338,41 @@
   }
 
   /* ---- Reveal-on-scroll (progressive enhancement; JS adds .is-visible) ---- */
+  /* Initial hidden state only — GSAP (src/scripts/motion.ts) owns the actual
+     tween so no CSS transition is declared here (it would double-animate
+     against GSAP's own per-frame inline styles). */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 700ms var(--ease-editorial), transform 700ms var(--ease-editorial);
   }
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
   }
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1; }
   }
 
   .hairline {
     height: 1px;
     width: 100%;
     background: var(--color-mist);
+  }
+
+  /* Editorial image hover/scroll treatment: contained scale, never distorted. */
+  [data-scroll-img] {
+    overflow: hidden;
+  }
+  [data-scroll-img] img {
+    will-change: transform;
+  }
+
+  /* Infinite marquee track — duplicated content scrolls -50% then loops. */
+  [data-marquee] {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  [data-marquee-track] {
+    display: flex;
+    width: max-content;
   }
 }
