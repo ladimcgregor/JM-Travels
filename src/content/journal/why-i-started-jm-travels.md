@@ -3,10 +3,10 @@ title: "Why I Started JM Travels"
 category: "Lead Traveller Stories"
 date: 2026-07-20
 heroImage: "/images/photos/lagos-street-2.jpg"
-excerpt: "A note from Jemima, our Lead Traveller, on why JM Travels exists and what travelling across 10 countries taught her about planning a trip properly."
+excerpt: "A note from Jemima, our Lead Traveller, on why JM Travels exists and what years of travelling and planning trips taught her about doing it properly."
 ---
 
-I've travelled across 10 countries at this point, and planned most of those trips myself, plus a good number for
+I've spent years travelling widely at this point, planning most of those trips myself, plus a good number for
 family and friends along the way. Somewhere in that process, planning stopped feeling like a chore and started
 feeling like the part I actually enjoyed: figuring out how the pieces of a trip fit together so the person
 travelling doesn't have to think about it.
