@@ -45,7 +45,7 @@
 
   /* ---- Layout ---- */
   --container-max: 1280px;
-  --container-wide: 1440px;
+  --container-wide: 1600px;
 
   /* ---- Motion ---- */
   --ease-editorial: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -147,7 +147,7 @@
     font-weight: 700;
     line-height: 1.02;
     letter-spacing: -0.02em;
-    font-size: clamp(38px, 4vw + 2.5rem, 108px);
+    font-size: clamp(38px, 5vw + 1.75rem, 132px);
   }
   .text-display-xl {
     font-family: var(--font-display);
