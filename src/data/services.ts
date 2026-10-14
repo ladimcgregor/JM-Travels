@@ -112,8 +112,8 @@ export const services: Service[] = [
     whoFor: "Anyone who wants the accommodation and flight legwork handled for them.",
     included: ["Hotel research and shortlisting", "Flight research and booking coordination", "Confirmation management"],
     process: ["Share your requirements", "We shortlist options", "You confirm", "We coordinate booking"],
-    ctaLabel: "Get Started",
-    ctaHref: "/contact",
+    ctaLabel: "Enquire Now",
+    ctaHref: "/service-enquiry",
   },
   {
     slug: "transfers-activities",
@@ -124,8 +124,8 @@ export const services: Service[] = [
     whoFor: "Travellers who want reliable ground logistics and well-chosen activities.",
     included: ["Airport and local transfers", "Tours and activity bookings", "Escalation support if plans change"],
     process: ["Share your itinerary", "We arrange transfers and activities", "You receive confirmations"],
-    ctaLabel: "Get Started",
-    ctaHref: "/contact",
+    ctaLabel: "Enquire Now",
+    ctaHref: "/service-enquiry",
   },
 ];
 

@@ -18,13 +18,15 @@ const path = Astro.url.pathname;
   data-transparent={transparent ? "true" : "false"}
 >
   <div class="jm-nav-bar container-jm flex items-center justify-between h-20">
-    <a href="/" class="flex items-center gap-2.5 text-navy" data-nav-logo>
+    <a href="/" class="flex items-center gap-2.5 shrink-0 text-navy" data-nav-logo>
       <img src="/images/logo/jm-travels-mark-navy.png" alt="" class="h-8 w-auto logo-mark-navy" />
       <img src="/images/logo/jm-travels-mark-white.png" alt="" class="h-8 w-auto logo-mark-white hidden" />
-      <span class="font-display text-2xl font-semibold tracking-tight">JM Travels</span>
+      <span class="font-display text-2xl font-semibold tracking-tight whitespace-nowrap">JM Travels</span>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
+    <!-- Full desktop nav only from xl: seven links plus three buttons don't fit
+         at 1024px without squashing the logo, so laptops below 1280px get the menu. -->
+    <nav class="hidden xl:flex items-center gap-6 2xl:gap-8" aria-label="Primary">
       {site.nav.map((item) => (
         <a
           href={item.href}
@@ -39,16 +41,17 @@ const path = Astro.url.pathname;
       ))}
     </nav>
 
-    <div class="hidden lg:flex items-center gap-3">
-      <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
+    <div class="hidden xl:flex items-center gap-2.5">
+      <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer" class="!px-5 2xl:!px-7">
         WhatsApp
       </Button>
-      <Button href={site.primaryCta.href} variant="primary">{site.primaryCta.label}</Button>
+      <Button href={site.servicesCta.href} variant="secondary" class="nav-cta-outline !px-5 2xl:!px-7">{site.servicesCta.label}</Button>
+      <Button href={site.primaryCta.href} variant="primary" class="!px-5 2xl:!px-7">{site.primaryCta.label}</Button>
     </div>
 
     <button
       id="mobile-menu-toggle"
-      class="lg:hidden inline-flex items-center justify-center w-11 h-11 -mr-2"
+      class="xl:hidden inline-flex items-center justify-center w-11 h-11 -mr-2"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -65,15 +68,16 @@ const path = Astro.url.pathname;
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden lg:hidden bg-warm-white border-t border-mist">
+  <div id="mobile-menu" class="hidden xl:hidden bg-warm-white border-t border-mist">
     <nav class="container-jm py-6 flex flex-col gap-5" aria-label="Mobile">
       {site.nav.map((item) => (
         <a href={item.href} class="text-h4 text-navy">{item.label}</a>
       ))}
-      <div class="flex flex-col gap-3 pt-2">
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
         <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
           WhatsApp Us
         </Button>
+        <Button href={site.servicesCta.href} variant="secondary">{site.servicesCta.label}</Button>
         <Button href={site.primaryCta.href} variant="primary">{site.primaryCta.label}</Button>
       </div>
     </nav>
@@ -95,6 +99,17 @@ const path = Astro.url.pathname;
   .jm-nav-transparent:not([data-scrolled="true"]) .jm-nav-bar a,
   .jm-nav-transparent:not([data-scrolled="true"]) .jm-nav-bar [data-nav-logo] {
     color: var(--color-white);
+  }
+  /* The outline "Other Services" button sits on the hero photo until the nav
+     turns solid, so it flips to a white outline rather than a cream fill. */
+  .jm-nav-transparent:not([data-scrolled="true"]) :global(.nav-cta-outline) {
+    background: transparent;
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+  .jm-nav-transparent:not([data-scrolled="true"]) :global(.nav-cta-outline:hover) {
+    background: var(--color-white);
+    color: var(--color-navy);
   }
   .jm-nav-transparent:not([data-scrolled="true"]) .logo-mark-navy { display: none; }
   .jm-nav-transparent:not([data-scrolled="true"]) .logo-mark-white { display: block; }

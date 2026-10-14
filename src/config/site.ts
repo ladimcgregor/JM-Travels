@@ -53,11 +53,14 @@ export const site = {
   ],
 
   primaryCta: { label: "Plan My Trip", href: "/bespoke-travel" },
+  // For everything that isn't a full trip: visas, consultations, flights, hotels, transfers.
+  servicesCta: { label: "Other Services", href: "/service-enquiry" },
 
   // Pages that aren't in the main nav or on the (deliberately short) homepage,
   // surfaced in the footer so they stay discoverable.
   moreLinks: [
     { label: "Bespoke Travel", href: "/bespoke-travel" },
+    { label: "Service Enquiry", href: "/service-enquiry" },
     { label: "Visa Assistance", href: "/visa-assistance" },
     { label: "Consultations", href: "/consultations" },
     { label: "Testimonials", href: "/testimonials" },
@@ -92,6 +95,7 @@ export const whatsappMessages = {
   general: "Hi JM Travels, I'm interested in planning a trip and would like some assistance.",
   bespoke: "Hi JM Travels, I'd like to build a bespoke trip. Here's what I'm thinking:",
   visa: "Hi JM Travels, I'd like to enquire about visa assistance.",
+  services: "Hi JM Travels, I'd like to enquire about one of your services.",
   consultation: "Hi JM Travels, I'd like to book a travel consultation.",
   trip: (tripName: string) => `Hi JM Travels, I'm interested in the "${tripName}" trip.`,
 };

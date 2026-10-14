@@ -12,6 +12,8 @@ interface FieldDef {
   hint?: string;
   options?: string[];
   required?: boolean;
+  /** Overrides the default "<Label> is required" message (useful when the label is a question). */
+  requiredMessage?: string;
   maxLength?: number;
 }
 
@@ -19,7 +21,7 @@ interface FieldDef {
 // side by side on wider screens (contact pairs, departure date + trip length).
 type FieldRow = FieldDef | FieldDef[];
 
-export type FormVariant = "bespoke" | "contact" | "consultation" | "visa" | "referral";
+export type FormVariant = "bespoke" | "services" | "contact" | "consultation" | "visa" | "referral";
 
 const contactRow: FieldDef[] = [
   { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
@@ -39,6 +41,7 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
       label: "Where would you like to go?",
       type: "text",
       required: true,
+      requiredMessage: "Please tell us where you'd like to go",
       maxLength: 120,
       placeholder: "e.g. Zanzibar, or \"not sure yet\"",
     },
@@ -67,6 +70,51 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
       placeholder: "Optional: the occasion, a rough budget, or the kind of trip you have in mind.",
     },
   ],
+  // Anything that isn't a full trip. The timeline helps triage urgent requests
+  // (visa appointments, near-term flights) without asking for exact dates.
+  services: [
+    { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
+    [{ ...contactRow[0], required: false }, contactRow[1]],
+    {
+      name: "service",
+      label: "Which service do you need?",
+      type: "select",
+      options: [
+        "Visa assistance",
+        "Travel consultation",
+        "Flight booking",
+        "Hotel / accommodation booking",
+        "Airport transfers or activities",
+        "Something else",
+      ],
+      required: true,
+      requiredMessage: "Please choose the service you need",
+    },
+    [
+      {
+        name: "destination",
+        label: "Destination (if relevant)",
+        type: "text",
+        maxLength: 120,
+        placeholder: "e.g. United Kingdom, Dubai",
+      },
+      {
+        name: "timeline",
+        label: "When do you need this?",
+        type: "select",
+        options: ["As soon as possible", "Within 2 weeks", "Within 1 to 3 months", "More than 3 months away", "Just exploring for now"],
+        required: true,
+        requiredMessage: "Please tell us when you need this",
+      },
+    ],
+    {
+      name: "message",
+      label: "Tell us a bit more",
+      type: "textarea",
+      maxLength: 1500,
+      placeholder: "Optional: travel dates, number of people, visa type, or anything specific.",
+    },
+  ],
   contact: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
     [contactRow[0], { ...contactRow[1], required: false }],
@@ -87,6 +135,7 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
         "Something else",
       ],
       required: true,
+      requiredMessage: "Please choose what you need help with",
     },
     { name: "message", label: "A bit more detail", type: "textarea", maxLength: 1500 },
   ],
@@ -112,6 +161,7 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
 
 const SUBJECTS: Record<FormVariant, string> = {
   bespoke: "New Bespoke Trip Enquiry",
+  services: "New Service Enquiry",
   contact: "New Website Contact Message",
   consultation: "New Consultation Request",
   visa: "New Visa Assistance Enquiry",
@@ -124,7 +174,9 @@ function buildSchema(fields: FieldDef[]): z.ZodTypeAny {
     let s: z.ZodTypeAny = z.string().trim().max(f.maxLength ?? 2000);
     if (f.type === "email") s = (s as z.ZodString).email("Please enter a valid email");
     if (f.required) {
-      s = (s as z.ZodString).min(1, `${f.label} is required`);
+      const message =
+        f.requiredMessage ?? (f.type === "select" ? `Please choose ${f.label.toLowerCase()}` : `${f.label} is required`);
+      s = (s as z.ZodString).min(1, message);
     } else {
       s = s.optional().or(z.literal(""));
     }

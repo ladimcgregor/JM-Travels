@@ -1,0 +1,58 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import EnquiryForm from "@/components/forms/EnquiryForm.tsx";
+import Button from "@/components/Button.astro";
+import { site, whatsappLink, whatsappMessages } from "@/config/site";
+---
+
+<BaseLayout
+  title="Service Enquiry"
+  description="Need visa support, a travel consultation, flights, hotels or transfers rather than a full trip? Tell JM Travels what you need and we'll get back to you."
+>
+  <PageHero
+    title="Not a full trip? We can still help."
+    image="/images/photos/dubai-burj-khalifa.jpg"
+    imageAlt="The Dubai skyline at dusk"
+  />
+
+  <section class="pt-12 pb-4">
+    <div class="container-jm max-w-2xl">
+      <p class="text-body-l text-slate">
+        Visa support, a travel consultation, flights, hotels or airport transfers: pick the service you need, leave your
+        details, and we'll come back to you within {site.responseTimePromise}.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-jm grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <EnquiryForm client:visible variant="services" />
+      </div>
+      <aside class="space-y-6 h-fit">
+        <div class="card-surface shadow-soft p-6">
+          <h2 class="text-h4 text-navy">Prefer WhatsApp?</h2>
+          <p class="text-body-s text-slate mt-2">
+            If it's easier, message us directly and we'll pick up the conversation there.
+          </p>
+          <div class="mt-5">
+            <Button href={whatsappLink(whatsappMessages.services)} variant="whatsapp" target="_blank" rel="noopener noreferrer" class="w-full">
+              WhatsApp Us
+            </Button>
+          </div>
+        </div>
+        <div class="card-surface shadow-soft p-6">
+          <h2 class="text-h4 text-navy">Planning a whole trip?</h2>
+          <p class="text-body-s text-slate mt-2">
+            If you want us to plan the full journey (stays, activities and logistics together), use the trip form
+            instead.
+          </p>
+          <div class="mt-5">
+            <Button href={site.primaryCta.href} variant="secondary" class="w-full">{site.primaryCta.label}</Button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

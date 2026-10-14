@@ -214,8 +214,8 @@ const structuredData = {
     <div class="container-jm relative text-center max-w-3xl mx-auto reveal">
       <h2 class="text-display-l text-white">Where are you going next?</h2>
       <p class="text-body-l text-white/80 mt-5">
-        Tell us where and roughly when. We'll come back within {site.responseTimePromise} with a plan worth talking
-        about.
+        Tell us where and roughly when, or what you need help with.
+        We'll come back within {site.responseTimePromise} with a plan worth talking about.
       </p>
 
       <ol class="grid sm:grid-cols-3 gap-4 mt-10 text-left sm:text-center">
@@ -231,6 +231,13 @@ const structuredData = {
 
       <div class="flex flex-wrap justify-center gap-4 mt-10">
         <Button href={site.primaryCta.href} variant="gold">Plan My Trip</Button>
+        <Button
+          href={site.servicesCta.href}
+          variant="secondary"
+          class="!bg-transparent !text-white !border-white hover:!bg-white hover:!text-navy"
+        >
+          {site.servicesCta.label}
+        </Button>
         <Button href={whatsappLink(whatsappMessages.general)} variant="whatsapp" target="_blank" rel="noopener noreferrer">
           WhatsApp {site.name}
         </Button>
