@@ -105,7 +105,8 @@ intentional: it catches content mistakes before they reach the live site.
   answer every question up front. Trips, destinations, testimonials, the journal and the full process live on their
   own pages; pages outside the main nav are linked from the footer's "More" column. Keep it that way: resist adding
   sections back to the homepage.
-- A short trip enquiry form: name, email, WhatsApp, destination, dates, number of travellers and optional notes.
+- A short trip enquiry form: name, WhatsApp, optional email, destination, departure date, trip length, number of
+  travellers and optional notes.
   Budget, accommodation, interests and visa needs are covered in the follow-up conversation.
 - WhatsApp as a first-class conversion channel: a floating button on desktop, a full-width sticky bar on mobile,
   page-specific pre-filled messages, and a WhatsApp CTA alongside every form. A response-time promise appears near

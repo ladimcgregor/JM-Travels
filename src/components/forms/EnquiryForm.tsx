@@ -16,7 +16,7 @@ interface FieldDef {
 }
 
 // A row is either a single field (full width) or a group of fields laid out
-// side by side on wider screens (contact pairs, the departure/return dates).
+// side by side on wider screens (contact pairs, departure date + trip length).
 type FieldRow = FieldDef | FieldDef[];
 
 export type FormVariant = "bespoke" | "contact" | "consultation" | "visa" | "referral";
@@ -30,9 +30,10 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
   // Kept to the essentials: enough to reach out with a real sense of the trip.
   // Budget, accommodation, interests and visa needs come up in the follow-up
   // conversation (or in the optional notes) rather than as separate fields.
+  // WhatsApp is the main channel, so email is optional here.
   bespoke: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
-    contactRow,
+    [{ ...contactRow[0], required: false }, contactRow[1]],
     {
       name: "destination",
       label: "Where would you like to go?",
@@ -43,7 +44,13 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
     },
     [
       { name: "departureDate", label: "Departure date", type: "date", required: true, hint: "Approximate is fine." },
-      { name: "returnDate", label: "Return date", type: "date" },
+      {
+        name: "tripLength",
+        label: "Trip length",
+        type: "select",
+        options: ["2 to 3 nights", "4 to 6 nights", "1 week", "2 weeks", "More than 2 weeks", "Not sure yet"],
+        required: true,
+      },
     ],
     {
       name: "travellers",
@@ -123,13 +130,7 @@ function buildSchema(fields: FieldDef[]): z.ZodTypeAny {
     }
     shape[f.name] = s;
   }
-  const base = z.object(shape);
-  const hasDateRange = fields.some((f) => f.name === "departureDate") && fields.some((f) => f.name === "returnDate");
-  if (!hasDateRange) return base;
-  return base.refine(
-    (data) => !data.returnDate || !data.departureDate || data.returnDate >= data.departureDate,
-    { message: "Return date can't be before the departure date", path: ["returnDate"] }
-  );
+  return z.object(shape);
 }
 
 function formatDate(value: string) {
@@ -146,7 +147,6 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [departureDate, setDepartureDate] = useState("");
 
   const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY as string | undefined;
 
@@ -249,8 +249,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
           type="date"
           className="field-input"
           aria-describedby={f.hint ? `${f.name}-hint` : undefined}
-          min={f.name === "departureDate" ? today : departureDate || today}
-          onChange={f.name === "departureDate" ? (e) => setDepartureDate(e.target.value) : undefined}
+          min={today}
         />
       ) : (
         <input
