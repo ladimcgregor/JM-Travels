@@ -73,46 +73,6 @@ function initImageScrollScale() {
   });
 }
 
-/**
- * Pin a section's left column while its right column content staggers in.
- * Used once, tastefully, on the homepage "Why JM Travels" section.
- */
-function initPinnedSection() {
-  if (prefersReducedMotion()) return;
-  const section = document.querySelector<HTMLElement>("[data-pin-section]");
-  if (!section) return;
-  const pinTarget = section.querySelector<HTMLElement>("[data-pin-target]");
-  const items = gsap.utils.toArray<HTMLElement>("[data-pin-item]", section);
-  if (!pinTarget || !items.length) return;
-
-  if (window.matchMedia("(min-width: 1024px)").matches) {
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top+=96",
-      end: "bottom bottom",
-      pin: pinTarget,
-      pinSpacing: false,
-    });
-  }
-
-  gsap.fromTo(
-    items,
-    { autoAlpha: 0, y: 24 },
-    {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.7,
-      ease: "power2.out",
-      stagger: 0.15,
-      scrollTrigger: {
-        trigger: section,
-        start: "top 75%",
-        once: true,
-      },
-    }
-  );
-}
-
 /** Infinite marquee — duplicates content once via CSS, this just starts the loop. */
 function initMarquee() {
   const marquees = document.querySelectorAll<HTMLElement>("[data-marquee]:not([data-marquee-done])");
@@ -133,7 +93,6 @@ function initMarquee() {
 function init() {
   initReveal();
   initImageScrollScale();
-  initPinnedSection();
   initMarquee();
   ScrollTrigger.refresh();
 }

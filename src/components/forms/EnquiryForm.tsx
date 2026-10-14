@@ -9,57 +9,65 @@ interface FieldDef {
   label: string;
   type: FieldType;
   placeholder?: string;
+  hint?: string;
   options?: string[];
   required?: boolean;
   maxLength?: number;
 }
 
 // A row is either a single field (full width) or a group of fields laid out
-// side by side (used for the departure/return date pair).
+// side by side on wider screens (contact pairs, the departure/return dates).
 type FieldRow = FieldDef | FieldDef[];
 
 export type FormVariant = "bespoke" | "contact" | "consultation" | "visa" | "referral";
 
+const contactRow: FieldDef[] = [
+  { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
+  { name: "whatsapp", label: "WhatsApp / phone", type: "tel", required: true, maxLength: 25 },
+];
+
 const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
+  // Kept to the essentials: enough to reach out with a real sense of the trip.
+  // Budget, accommodation, interests and visa needs come up in the follow-up
+  // conversation (or in the optional notes) rather than as separate fields.
   bespoke: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
-    { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
-    { name: "whatsapp", label: "WhatsApp / phone", type: "tel", required: true, maxLength: 25 },
-    { name: "destination", label: "Destination", type: "text", required: true, maxLength: 120, placeholder: "Where do you want to go?" },
-    { name: "departureLocation", label: "Departure location", type: "text", maxLength: 120 },
+    contactRow,
+    {
+      name: "destination",
+      label: "Where would you like to go?",
+      type: "text",
+      required: true,
+      maxLength: 120,
+      placeholder: "e.g. Zanzibar, or \"not sure yet\"",
+    },
     [
-      { name: "departureDate", label: "Departure date", type: "date", required: true },
+      { name: "departureDate", label: "Departure date", type: "date", required: true, hint: "Approximate is fine." },
       { name: "returnDate", label: "Return date", type: "date" },
     ],
-    { name: "travellers", label: "Number of travellers", type: "text", required: true, maxLength: 20 },
     {
-      name: "travellerType",
-      label: "Traveller type",
+      name: "travellers",
+      label: "Number of travellers",
       type: "select",
-      options: ["Solo", "Couple", "Group", "Family"],
+      options: ["1", "2", "3 to 5", "6 to 10", "More than 10"],
       required: true,
     },
-    { name: "budget", label: "Approximate budget range", type: "text", maxLength: 120 },
-    { name: "accommodation", label: "Accommodation preference", type: "text", maxLength: 200 },
-    { name: "interests", label: "Interests & activities", type: "text", maxLength: 300 },
     {
-      name: "visaAssistance",
-      label: "Do you need visa assistance?",
-      type: "select",
-      options: ["Not sure yet", "Yes", "No"],
+      name: "message",
+      label: "Anything else we should know?",
+      type: "textarea",
+      maxLength: 1500,
+      placeholder: "Optional: the occasion, a rough budget, or the kind of trip you have in mind.",
     },
-    { name: "message", label: "Anything else we should know?", type: "textarea", maxLength: 1500 },
   ],
   contact: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
-    { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
-    { name: "whatsapp", label: "WhatsApp / phone", type: "tel", maxLength: 25 },
+    [contactRow[0], { ...contactRow[1], required: false }],
     { name: "message", label: "Tell us about your trip", type: "textarea", required: true, maxLength: 1500 },
   ],
   consultation: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
-    { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
-    { name: "whatsapp", label: "WhatsApp / phone", type: "tel", required: true, maxLength: 25 },
+    contactRow,
     {
       name: "topic",
       label: "What do you need help with?",
@@ -77,16 +85,19 @@ const FIELD_SETS: Record<FormVariant, FieldRow[]> = {
   ],
   visa: [
     { name: "name", label: "Full name", type: "text", required: true, maxLength: 100 },
-    { name: "email", label: "Email", type: "email", required: true, maxLength: 255 },
-    { name: "whatsapp", label: "WhatsApp / phone", type: "tel", required: true, maxLength: 25 },
+    contactRow,
     { name: "destination", label: "Destination", type: "text", required: true, maxLength: 120 },
     { name: "message", label: "Anything else we should know?", type: "textarea", maxLength: 1500 },
   ],
   referral: [
-    { name: "name", label: "Your name", type: "text", required: true, maxLength: 100 },
-    { name: "contact", label: "Your contact (email or WhatsApp)", type: "text", required: true, maxLength: 150 },
-    { name: "referralName", label: "Person you're referring", type: "text", required: true, maxLength: 100 },
-    { name: "referralContact", label: "Their contact (email or WhatsApp)", type: "text", required: true, maxLength: 150 },
+    [
+      { name: "name", label: "Your name", type: "text", required: true, maxLength: 100 },
+      { name: "contact", label: "Your contact (email or WhatsApp)", type: "text", required: true, maxLength: 150 },
+    ],
+    [
+      { name: "referralName", label: "Person you're referring", type: "text", required: true, maxLength: 100 },
+      { name: "referralContact", label: "Their contact (email or WhatsApp)", type: "text", required: true, maxLength: 150 },
+    ],
     { name: "referralPlan", label: "What are they planning?", type: "text", maxLength: 300 },
     { name: "message", label: "Optional message", type: "textarea", maxLength: 800 },
   ],
@@ -237,6 +248,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
           name={f.name}
           type="date"
           className="field-input"
+          aria-describedby={f.hint ? `${f.name}-hint` : undefined}
           min={f.name === "departureDate" ? today : departureDate || today}
           onChange={f.name === "departureDate" ? (e) => setDepartureDate(e.target.value) : undefined}
         />
@@ -248,7 +260,13 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
           placeholder={f.placeholder}
           maxLength={f.maxLength}
           className="field-input"
+          aria-describedby={f.hint ? `${f.name}-hint` : undefined}
         />
+      )}
+      {f.hint && (
+        <p id={`${f.name}-hint`} className="text-body-s text-slate mt-1.5">
+          {f.hint}
+        </p>
       )}
     </div>
   );
@@ -263,7 +281,7 @@ export default function EnquiryForm({ variant }: { variant: FormVariant }) {
 
       {rows.map((row) =>
         Array.isArray(row) ? (
-          <div key={row.map((f) => f.name).join("+")} className="grid sm:grid-cols-2 gap-4">
+          <div key={row.map((f) => f.name).join("+")} className="grid sm:grid-cols-2 gap-6 sm:gap-4">
             {row.map(renderField)}
           </div>
         ) : (

@@ -5,8 +5,8 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="bg-navy text-white">
-  <div class="container-jm py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
-    <div class="md:col-span-2">
+  <div class="container-jm py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+    <div class="col-span-2">
       <div class="flex items-center gap-2.5">
         <img src="/images/logo/jm-travels-mark-white.png" alt="" class="h-8 w-auto" />
         <p class="font-display text-2xl font-semibold">{site.name}</p>
@@ -35,6 +35,15 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
+      <p class="text-label text-gold mb-4">More</p>
+      <ul class="space-y-3">
+        {site.moreLinks.map((item) => (
+          <li><a href={item.href} class="text-body-s text-white/80 hover:text-white transition-colors">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="col-span-2 md:col-span-1">
       <p class="text-label text-gold mb-4">Contact</p>
       <ul class="space-y-3 text-body-s text-white/80">
         <li><a href={`mailto:${site.contact.email}`} class="hover:text-white transition-colors">{site.contact.email}</a></li>

@@ -72,10 +72,6 @@ Also:
   generated destination images gathered while building this). One destination, New York, still uses a Lorem Picsum
   placeholder because no real photo was available; search the codebase for `picsum.photos` to find it. Swap in
   JM Travels' own trip photography over time, the brief is explicit that this matters.
-- **Founder's travel history**: `src/content/destinations/*.md` currently has `founderVisited: false` on every
-  destination because the real list of 10 countries wasn't available while building this. Set it to `true` on the
-  ones Jemima has actually visited. Until at least one is `true`, the homepage "Travel Experience" section shows an
-  honest placeholder instead of guessing.
 - **Testimonials**: `src/content/testimonials/` is intentionally empty (the brief is explicit: never fabricate
   testimonials). See `src/content/testimonials/README.txt` for the exact format to add real ones as they come in.
 - **Legal pages**: Privacy Policy, Terms & Conditions and Cookie Policy are solid starting drafts, not a substitute
@@ -90,7 +86,7 @@ at the top) for structured fields, and a body below for freeform text/HTML.
 
 | To add/edit | Edit files in | Notes |
 |---|---|---|
-| An organised trip | `src/content/trips/` | Copy an existing file, change the frontmatter and body. `featured: true` shows it on the homepage. |
+| An organised trip | `src/content/trips/` | Copy an existing file, change the frontmatter and body. (`featured` is kept in the schema but isn't currently displayed anywhere, since the homepage no longer lists trips.) |
 | A destination | `src/content/destinations/` | `region` must be one of the six categories used on the Destinations page. |
 | A testimonial | `src/content/testimonials/` | Only add real ones with the customer's permission, see the README.txt there. |
 | A journal article | `src/content/journal/` | `category` must match one of the categories already in use (or add a new one to the schema in `src/content.config.ts`). |
@@ -105,6 +101,12 @@ intentional: it catches content mistakes before they reach the live site.
   Travel Consultations, Visa Assistance (with the required non-guarantee disclaimer), Destinations (+ per-destination
   pages), Travel Journal (+ articles), Testimonials, Contact (+ map and directions), Refer a Friend, FAQs, a
   thank-you page, a custom 404, and legal pages.
+- A deliberately short homepage (hero, services, why JM Travels, final CTA) built to prompt an enquiry rather than
+  answer every question up front. Trips, destinations, testimonials, the journal and the full process live on their
+  own pages; pages outside the main nav are linked from the footer's "More" column. Keep it that way: resist adding
+  sections back to the homepage.
+- A short trip enquiry form: name, email, WhatsApp, destination, dates, number of travellers and optional notes.
+  Budget, accommodation, interests and visa needs are covered in the follow-up conversation.
 - WhatsApp as a first-class conversion channel: a floating button on desktop, a full-width sticky bar on mobile,
   page-specific pre-filled messages, and a WhatsApp CTA alongside every form. A response-time promise appears near
   every form and on the thank-you page.

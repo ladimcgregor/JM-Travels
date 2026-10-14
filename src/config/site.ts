@@ -54,6 +54,17 @@ export const site = {
 
   primaryCta: { label: "Plan My Trip", href: "/bespoke-travel" },
 
+  // Pages that aren't in the main nav or on the (deliberately short) homepage,
+  // surfaced in the footer so they stay discoverable.
+  moreLinks: [
+    { label: "Bespoke Travel", href: "/bespoke-travel" },
+    { label: "Visa Assistance", href: "/visa-assistance" },
+    { label: "Consultations", href: "/consultations" },
+    { label: "Testimonials", href: "/testimonials" },
+    { label: "FAQs", href: "/faqs" },
+    { label: "Refer Someone", href: "/refer" },
+  ],
+
   footerLinks: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-conditions" },
